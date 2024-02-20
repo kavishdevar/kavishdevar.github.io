@@ -1,0 +1,3 @@
+[submodule "assets/js/material"]
+	path = assets/js/material
+	url = git@github.com:kavishdevar/material-static-js

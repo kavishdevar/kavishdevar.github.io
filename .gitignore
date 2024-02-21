@@ -1,2 +1,2 @@
-node_modules
-some-ts
+/node_modules
+/assets/js/material

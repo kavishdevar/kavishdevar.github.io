@@ -1,3 +1,28 @@
 url: "https://kavishdevar.me" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "/" # the subpath of your site, e.g. /blog
 title: "Kavish's Website" # the name of your site, e.g. ACME Corp.
+repository: "kavishdevar/kavishdevar.github.io" # the GitHub repository for your site, e.g. username/repo
+
+
+plugins:
+  - "jekyll-github-metadata"
+  - "jekyll-redirect-from"
+
+collections:
+  projects:
+    output: true
+  schoolstuff:
+    output: true
+  holidayhw:
+    output: true
+
+exclude:
+  - bower_components
+  - Gemfile
+  
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM  #Github Flavored Markdown
+  auto_ids: true

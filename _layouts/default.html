@@ -67,9 +67,9 @@
             font-weight: 300;
 
             padding: 30px;
-
+            margin-bottom: 100px;
             margin-top: 56px;
-            margin-bottom: 0;
+            /* margin-bottom: 0; */
 
             border-radius: 28px;
             background-color: var(--md-sys-color-surface);
@@ -107,10 +107,25 @@
             right: 0;
         }
 
+        .mobile-footer {
+            display: block;
+        }
+
+        .desktop-footer {
+            display: none;
+        }
 
         @media screen and (min-width: 850px) {
             body {
                 overflow: auto;
+            }
+
+            .mobile-footer {
+                display: none;
+            }
+
+            .desktop-footer {
+                display: block;
             }
 
             main {
@@ -172,8 +187,11 @@
             {% endfor %}
         </aside>
     </main>
-    <footer>
-        <div>© 2024 - {{author.name}}, Build Version: {{site.github.build_revision}}</div>
+    <footer class="desktop-footer">
+        © 2024 - {{author.name}} (Build Version: {{site.github.build_revision}})
+    </footer>
+    <footer class="mobile-footer" style="display: none;">
+        © 2024 - {{author.name}}
     </footer>
 </body>
 

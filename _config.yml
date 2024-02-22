@@ -11,8 +11,6 @@ plugins:
 collections:
   projects:
     output: true
-  schoolstuff:
-    output: true
   holidayhw:
     output: true
 

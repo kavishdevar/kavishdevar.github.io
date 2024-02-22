@@ -1,3 +1,9 @@
 [submodule "assets/js/material"]
 	path = assets/js/material
 	url = git@github.com:kavishdevar/material-static-js
+[submodule "_holidayhw/it2023-24"]
+	path = _holidayhw/it2023-24
+	url = git@github.com:kavishdevar/it2023-24
+[submodule "_holidayhw/math2023-24"]
+	path = _holidayhw/math2023-24
+	url = git@github.com:kavishdevar/math2023-24

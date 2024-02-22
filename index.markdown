@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: noaside
 title: Home
 author: kavish
 category: Home

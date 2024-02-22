@@ -1,9 +1,14 @@
 ---
 layout: default
 title: Holiday Homeworks
+category: Holiday Homeworks
 author: kavish
-excerpt-break: <!--more-->
-headers: ["2022-23", "2023-24"]
+redirect_from:
+- /hhw
+- /holiday-homeworks
+- /holiday-homework
+- /holidayhw
+- 
 ---
 
 

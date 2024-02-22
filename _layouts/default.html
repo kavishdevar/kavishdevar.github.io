@@ -41,7 +41,15 @@
         }
     </style>
     <md-top-app-bar>
-        <h3 id="title" style="font-weight: normal;" slot="title">{{page.category}}</h3>
+        {% if page.category != "Kavish's Website" %}
+        <a slot="title" href=`/${{page.category | downcase | replace: '' , '' }}`>
+            <h3 id="title" style="font-weight: normal;">{{page.category | capitalize }}</h3>
+        </a>
+        {% else %}
+        <a slot="title" href=`/`>
+            <h3 id="title" style="font-weight: normal;">{{page.category | capitalize }}</h3>
+        </a>
+        {% endif %}
         <md-icon-button slot='navigation-button' toggle>
             <md-icon>menu</md-icon>
             <md-icon slot="selected">menu_open</md-icon>

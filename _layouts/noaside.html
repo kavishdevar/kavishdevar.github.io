@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% if jekyll.environment == "production" %}
+    {% assign material_url = 'https://material.kavishdevar.me' %}
+    {% else if jekyll.environment == "development" %}
+    {% assign material_url = '/assets/js/material' %}
+    {% endif %}
     {% assign author = site.data.authors[page.author] %}
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{page.title}}</title>
-    <script type="module" src="https://material.kavishdevar.me/material.js"></script>
-    <script type="module" src="https://material.kavishdevar.me/material-additions.js"></script>
+    <script type="module" src="{{material_url}}/material.js"></script>
     <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/card.css">
     <script src="/assets/js/top-app-bar.js"></script>
-    <script src="https://material.kavishdevar.me/theme-changer.js"></script>
+    <script src="/assets/js/navigation-rail.js"></script>
+    <script src="{{material_url}}/theme-changer.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+
 <body>
     <style>
         md-top-app-bar {
@@ -23,9 +31,13 @@
     </style>
     <md-top-app-bar>
         {% if page.category != "Kavish's Website" %}
-            <a slot="title" href=`/${{page.category | downcase | replace: '', ''}}`><h3 id="title" style="font-weight: normal;">{{page.category | capitalize }}</h3></a>
+        <a slot="title" href=`/${{page.category | downcase | replace: '' , '' }}`>
+            <h3 id="title" style="font-weight: normal;">{{page.category | capitalize }}</h3>
+        </a>
         {% else %}
-        <a slot="title" href=`/`><h3 id="title" style="font-weight: normal;">{{page.category | capitalize }}</h3></a>
+        <a slot="title" href=`/`>
+            <h3 id="title" style="font-weight: normal;">{{page.category | capitalize }}</h3>
+        </a>
         {% endif %}
         <md-icon-button slot='navigation-button' toggle>
             <md-icon>menu</md-icon>

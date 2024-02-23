@@ -1,0 +1,114 @@
+<aside>
+    <style>
+        aside {
+            display: none;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            border-radius: 28px;
+            background-color: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            overflow: scroll;
+
+            ul {
+                padding-left: 1.5em;
+            }
+
+            li {
+                list-style-type: circle;
+                font-size: 0.9em;
+            }
+        }
+
+        @media screen and (min-width: 1100px) {
+            aside {
+                width: 20%;
+                max-width: 200px;
+                display: inline-block;
+                margin-right: 30px;
+                margin-top: 20px;
+                padding: 30px;
+                height: fit-content;
+                position: fixed;
+                top: 0;
+                right: 0;
+                /* height: calc(85dvh - 56px); */
+            }
+        }
+    </style>
+    <p style="font-size: 0.8em;">On this page:</p>
+    <p style="font-size: 1.5em;">{{page.title}}</p>
+    <p id="tableofcontents"></p>
+    {% for header in page.headers %}
+    <a href="#{{header | downcase | replace: ' ', '-' | replace: '/', ''}}">{{header}}</a>
+    <br>
+    <br>
+    {% endfor %}
+
+    <script>
+        String.prototype.slugify = function () {
+            var str = this.toString().trim();
+            str = str.replace(/^\s+|\s+$/g, ''); // trim
+            str = str.toLowerCase();
+
+            var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+            var to = "aaaaeeeeiiiioooouuuunc------";
+            for (var i = 0, l = from.length; i < l; i++) {
+                str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+            }
+
+            str = str.replace(/[^a-z0-9 -]/g, '')
+                .replace(/\s+/g, '-')
+
+            return str;
+        }
+        var content = `{{content}}`;
+        var temp = document.createElement('div');
+        temp.innerHTML = content;
+        var h2El = Array.from(temp.querySelectorAll('h2'));
+        var h3El = Array.from(temp.querySelectorAll('h3'));
+        var breaks = Array.from(temp.childNodes).filter(node => node.nodeType === 8 && node.textContent.includes('title_break'));
+
+        var headers = {};
+        h2El.forEach((h2, ii) => {
+            headers[h2.innerText] = [];
+            var nextBreak = breaks.find(b => Array.from(temp.childNodes).indexOf(b) > Array.from(temp.childNodes).indexOf(h2));
+            var nextH2 = h2El[ii + 1];
+            h3El.forEach(h3 => {
+                if (Array.from(temp.childNodes).indexOf(h3) > Array.from(temp.childNodes).indexOf(h2) &&
+                    (!nextBreak || Array.from(temp.childNodes).indexOf(h3) < Array.from(temp.childNodes).indexOf(nextBreak)) &&
+                    (!nextH2 || Array.from(temp.childNodes).indexOf(h3) < Array.from(temp.childNodes).indexOf(nextH2))) {
+                    headers[h2.innerText].push(h3.innerText);
+                }
+            });
+        });
+
+        var html = '';
+
+        for (var h2 in headers) {
+            html += '<a href="#' + h2.slugify() + '">' + h2 + '</a>';
+            if (headers[h2].length > 0) {
+                html += '<br><ul>';
+                for (var ii = 0; ii < headers[h2].length; ii++) {
+                    html += '<li> <a href="#' + headers[h2][ii].slugify() + '">' + headers[h2][ii] + '</a></li>';
+                }
+                html += '</ul>';
+            }
+            else {
+                html += '<br><br>';
+            }
+        }
+
+        document.querySelector('#tableofcontents').innerHTML = html;
+
+        async function share(text, url) {
+            console.log('Sharing', text, url)
+            try {
+                await navigator.share({
+                    text: text,
+                    url: url
+                })
+            } catch (error) {
+                console.log('Sharing failed!', error)
+            }
+        }
+    </script>
+</aside>

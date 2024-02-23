@@ -1,12 +1,14 @@
 ---
-permalink: /projects/DualSense-Control
+permalink: /projects/dualsense-control
 redirect_from: 
+- /projects/DualSense-Control
 - /projects/dualsense
 - /projects/Dualsense%20Control
 - /projects/DualSense%20Control.md
 - /projects/DualSense%20Control.html
 - /projects/DualSense-Control.html
 layout: default
+hastoc: true
 title: DualSense Control App for Linux
 category: Projects
 author: kavish
@@ -26,7 +28,7 @@ Control your dualsense controller using this app on linux.
 ## Direct Run
 
 ### Download and Extract
-1. Go to [Releases](/releases)
+1. Go to [Releases](https://github.com/kavishdevar/dualsensectl/releases)
 2. Download the zip file named ```dualsensectl-[version].zip```
 3. Extract it
 4. `cd` to the directory where its extracted

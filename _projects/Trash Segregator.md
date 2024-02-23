@@ -1,11 +1,13 @@
 ---
-permalink: /projects/Trash-Segregator
+permalink: /projects/trash-segregator
 redirect_from: 
+- /projects/Trash-Segregator
 - /projects/Trash%20Segregator
 - /projects/Trash%20Segregator.md
 - /projects/Trash%20Segregator.html
 - /projects/Trash-Segregator.html
 layout: default
+hastoc: true
 title: Trash Segregator
 category: Projects
 author: kavish

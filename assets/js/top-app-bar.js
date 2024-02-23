@@ -25,8 +25,8 @@ class TopAppBar extends HTMLElement {
         const cssText = `
             .topappbar {
                 height: 56px;
-                background-color: var(--md-sys-color-surface-container);
-                color: var(--md-sys-color-on-surface);
+                background-color: var(--md-top-app-bar-background-color, --md-sys-color-surface-container);
+                color: var(--md-top-app-bar-color, --md-sys-color-on-surface);
                 font-size: 20px;
                 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                 width: 100%;

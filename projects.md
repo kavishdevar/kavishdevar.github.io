@@ -1,5 +1,6 @@
 ---
 layout: default
+hastoc: true
 title: Projects
 category: Projects
 author: kavish
@@ -13,7 +14,7 @@ subtitle: A collection of projects I have worked on.
     <div class="card__header">
         <div class="card__header-text">
             <div class="card__title">
-                <h2><a href='{{project.permalink}}'> {{ project.title }}</a> </h2>
+                <h2><a onclick='changeView("{{project.permalink}}")'> {{ project.title }}</a> </h2>
             </div>
             <div class="card__subtitle">{{ project.subtitle }}</div>
         </div>

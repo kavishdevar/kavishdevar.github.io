@@ -1,14 +1,15 @@
 ---
 layout: default
+hastoc: true
 title: Holiday Homeworks
 category: Holiday Homeworks
 author: kavish
+permalink: /holiday-homeworks
 redirect_from:
-- /hhw
-- /holiday-homeworks
-- /holiday-homework
-- /holidayhw
-- 
+  - /holidayhw
+  - /hhw
+  - /holidayhw.html
+  - /holidayhw.md
 ---
 
 

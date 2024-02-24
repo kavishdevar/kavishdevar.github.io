@@ -226,12 +226,18 @@ function init(categories, projects, tools, homeworks) {
     var toolsList = document.createElement('md-list')
     var homeworkList = document.createElement('md-list')
 
-    var projectsText = document.createElement('h3')
-    projectsText.innerHTML = 'Projects'
-    var toolsText = document.createElement('h3')
-    toolsText.innerHTML = 'Tools'
-    var homeworkText = document.createElement('h3')
-    homeworkText.innerHTML = 'Holiday Homework'
+    var projectsText = document.createElement('md-list-item') as any
+    projectsText.label = 'Projects overview'
+    projectsText.type = 'link'
+    projectsText.href = '/projects'
+    var toolsText = document.createElement('md-list-item') as any
+    toolsText.type = 'link'
+    toolsText.href = '/tools'
+    toolsText.label = 'Tools overview'
+    var homeworkText = document.createElement('md-list-item') as any
+    homeworkText.type = 'link'
+    homeworkText.href = '/holiday-homeworks'
+    homeworkText.label = 'Holiday Homeworks overview'
 
     projectsEl.appendChild(projectsText)
     toolsEl.appendChild(toolsText)

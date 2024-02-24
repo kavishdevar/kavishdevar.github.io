@@ -14,7 +14,7 @@ subtitle: A collection of tools I have worked on.
     <div class="card__header">
         <div class="card__header-text">
             <div class="card__title">
-                <h2><a onclick='changeView("{{tool.permalink}}")'> {{ tool.title }}</a> </h2>
+                <a href='{{tool.permalink}}'><h2>{{tool.title}}</h2></a>
             </div>
             <div class="card__subtitle">{{ tool.subtitle }}</div>
         </div>

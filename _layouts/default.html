@@ -2,12 +2,33 @@
 <html lang="en">
 
 <head>
-    <script>exports = {}</script>
+    {% assign projects = site.projects | sort: 'title' %}
+    {% assign tools = site.tools | sort: 'title' %}
+    {% assign holiday_homeworks = site.holiday-homeworks | sort: 'title' %}
     {% if jekyll.environment == "production" %}
     {% assign material_url = 'https://material.kavishdevar.me' %}
     {% else if jekyll.environment == "development" %}
     {% assign material_url = '/assets/js/material' %}
     {% endif %}
+    
+    {% assign projectsArray = "" | split: ',' %}
+    {% assign projectsPermalinkArray = "" | split: ',' %}
+    {% for project in projects %}
+    {% assign projectsArray = projectsArray| push: project.title %}
+    {% assign projectsPermalinkArray = projectsPermalinkArray| push: project.permalink %}
+    {% endfor %}
+    {% assign toolsArray = "" | split: ',' %}
+    {% assign toolsPermalinkArray = "" | split: ',' %}
+    {% for tool in tools %}
+    {% assign toolsArray = toolsArray| push: tool.title %}
+    {% assign toolsPermalinkArray = toolsPermalinkArray| push: tool.permalink %}
+    {% endfor %}
+    {% assign holiday_homeworksArray = "" | split: ',' %}
+    {% assign holiday_homeworksPermalinkArray = "" | split: ',' %}
+    {% for holiday_homework in holiday_homeworks %}
+    {% assign holiday_homeworksArray = holiday_homeworksArray| push: holiday_homework.title %}
+    {% assign holiday_homeworksPermalinkArray = holiday_homeworksPermalinkArray| push: holiday_homework.permalink %}
+    {% endfor %}
     {% assign author = site.data.authors[page.author] %}
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -46,35 +67,34 @@
             md-navigation-tab:hover {
                 --md-navigation-bar-inactive-shape: 28px;
             }
-
-            .md3-navigation-tab__icon-content {
-                border-radius: 28px;
-                background-color: blue;
+            md-focus-ring {
+                --md-focus-ring-shape: 28px;
+            }
+            .active-item {
+                background-color: var(--md-sys-color-secondary-container);
+                color: var(--md-sys-color-on-secondary-container);
             }
         </style>
-        <md-navigation-tabs slot="tabs">
-            <md-navigation-tab label="Home" view="/">
-                <md-icon slot="active-icon">home</md-icon>
-                <md-icon slot="inactive-icon">home</md-icon>
-            </md-navigation-tab>
-            <md-navigation-tab label="About" view="/about">
-                <md-icon slot="active-icon">person</md-icon>
-                <md-icon slot="inactive-icon">person</md-icon>
-            </md-navigation-tab>
-            <md-navigation-tab label="Projects" view="/projects">
-                <md-icon slot="active-icon">code</md-icon>
-                <md-icon slot="inactive-icon">code</md-icon>
-            </md-navigation-tab>
-            <md-navigation-tab active label="Tools" view="/tools">
-                <md-icon slot="active-icon">construction</md-icon>
-                <md-icon slot="inactive-icon">construction</md-icon>
-            </md-navigation-tab>
-            <md-navigation-tab label="School Stuff" view="/holiday-homeworks">
-                <md-icon slot="active-icon">school</md-icon>
-                <md-icon slot="inactive-icon">school</md-icon>
-            </md-navigation-tab>
-        </md-navigation-tabs>
-        <!-- </span> -->
+        <md-navigation-tab active label="Home" view="/">
+            <md-icon slot="active-icon">home</md-icon>
+            <md-icon slot="inactive-icon">home</md-icon>
+        </md-navigation-tab>
+        <md-navigation-tab label="About" view="/about">
+            <md-icon slot="active-icon">person</md-icon>
+            <md-icon slot="inactive-icon">person</md-icon>
+        </md-navigation-tab>
+        <md-navigation-tab label="Projects" view="/projects">
+            <md-icon slot="active-icon">code</md-icon>
+            <md-icon slot="inactive-icon">code</md-icon>
+        </md-navigation-tab>
+        <md-navigation-tab label="Tools" view="/tools">
+            <md-icon slot="active-icon">construction</md-icon>
+            <md-icon slot="inactive-icon">construction</md-icon>
+        </md-navigation-tab>
+        <md-navigation-tab label="School Stuff" view="/holiday-homeworks">
+            <md-icon slot="active-icon">school</md-icon>
+            <md-icon slot="inactive-icon">school</md-icon>
+        </md-navigation-tab>
         <md-icon-button id="theme-button-desktop" slot="theme"
             onclick="document.querySelector('#desktop-theme-menu').toggleAttribute('open')">
             <md-icon>palette</md-icon>
@@ -95,15 +115,6 @@
     </md-dialog>
     <md-navigation-drawer-modal id="nav-drawer">
         <div class="nav-drawer-content">
-            <md-list>
-                <md-list-item type="link" href="/">Hi1</md-list-item>
-                <md-list-item type="link" href="/">Hi2</md-list-item>
-            </md-list>
-            <md-divider></md-divider>
-            <md-list>
-                <md-list-item class="selected" type="link" href="/">Hi3</md-list-item>
-                <md-list-item type="link" href="/">Hi4</md-list-item>
-            </md-list>
         </div>
     </md-navigation-drawer-modal>
     <style>
@@ -124,7 +135,8 @@
         }
 
         .nav-drawer-content {
-            padding: 10px;
+            padding: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
         md-navigation-drawer-modal {
@@ -158,23 +170,17 @@
     <md-top-app-bar>
         {% if page.category != "Kavish's Website" %}
         <h3 slot="title" id="title" style="font-weight: normal;">
-            <a onclick="changeView('/')">{{site.title}}</a>
+            <a href='/' )>{{site.title}}</a>
             {% if page.category != page.title %}
             -
-            <a onclick='changeView("/{{page.category}}")'>{{page.category}}</a>
+            <a href='/{{page.category}}'>{{page.category}}</a>
             {% endif %}
         </h3>
         {% else %}
-        <a slot="title" onlick="changeView('/')">
+        <a slot="title" href="/">
             <h3 id="title" style="font-weight: normal;">Kavish's Website</h3>
         </a>
         {% endif %}
-        <script>
-            function toggleNavDrawer() {
-                document.querySelector('#nav-drawer').opened = !document.querySelector('#nav-drawer').opened;
-                document.querySelector('main').classList.toggle('scrim-background');
-            }
-        </script>
         <md-icon-button id="nav-button-mobile" slot='navigation-button' toggle onclick="toggleNavDrawer()">
             <md-icon>menu</md-icon>
             <md-icon slot="selected">menu_open</md-icon>
@@ -325,8 +331,31 @@
         md-navigation-rail {
             display: none;
         }
-
+        #projects-list {
+            display: block;
+        }
+        #tools-list {
+            display: block;
+        }
+        #homework-list {
+            display: block;
+        }
+        #category-divider {
+            display: block;
+        }
         @media screen and (min-width: 1100px) {
+            #homework-list {
+                display: none;
+            }
+            #tools-list {
+                display: none;
+            }
+            #projects-list {
+                display: none;
+            }
+            .category-divider {
+                display: none;
+            }
             nav-button-mobile {
                 display: none;
             }
@@ -509,9 +538,7 @@
     {% endif %}
     <main>
         <div class="content">
-            {% if page.category != page.title %}
             <h1>{{page.title}}</h1>
-            {% endif %}
             {{content}}
         </div>
         {% if page.hastoc %}
@@ -524,6 +551,34 @@
     <footer class="mobile-footer">
         © 2024 - {{author.name}}
     </footer>
+    <script>
+        const projectsTitles='{{projectsArray | jsonify}}'.replace('[', '').replace(']', '').replace('"','').split(',')
+        const toolsTitles='{{toolsArray | jsonify}}'.replace('[', '').replace(']', '').replace('"','').split(',')
+        const holiday_homeworksTitles='{{holiday_homeworksArray | jsonify}}'.replace('[', '').replace(']', '').replace('"','').split(',')
+        const projectsLinks='{{projectsPermalinkArray | jsonify}}'.replace('[', '').replace(']', '').replace('"','').split(',')
+        const toolsLinks='{{toolsPermalinkArray | jsonify}}'.replace('[', '').replace(']', '').replace('"','').split(',')
+        const holiday_homeworksLinks='{{holiday_homeworksPermalinkArray | jsonify}}'.replace('[', '').replace(']', '').replace('"','').split(',')
+        var projects = new Map()
+        for (let i = 0; i < projectsTitles.length; i++) {
+            projectsTitles[i]=projectsTitles[i].replace('\"','').replace("\"","")
+            projectsLinks[i]=projectsLinks[i].replace('\"','').replace("\"","")
+            projects.set(projectsTitles[i],projectsLinks[i]);
+        }
+        var tools = new Map()
+        for (let i = 0; i < toolsTitles.length; i++) {
+            toolsTitles[i]=toolsTitles[i].replace('\"','').replace("\"","")
+            toolsLinks[i]=toolsLinks[i].replace('\"','').replace("\"","")
+            tools.set(toolsTitles[i], toolsLinks[i])
+        }
+        var holiday_homeworks = new Map()
+        for (let i = 0; i < holiday_homeworksTitles.length; i++) {
+            holiday_homeworksTitles[i]=holiday_homeworksTitles[i].replace('\"','').replace("\"","")
+            holiday_homeworksLinks[i]=holiday_homeworksLinks[i].replace('\"','').replace("\"","")
+            holiday_homeworks[holiday_homeworksTitles[i]] = holiday_homeworksLinks[i]
+        }
+        categories = ['Home', 'About', 'Projects', 'Tools', 'School Stuff']
+    
+        init(categories, projects, tools, holiday_homeworks)
+    </script>
 </body>
-
 </html>

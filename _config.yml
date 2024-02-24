@@ -11,7 +11,7 @@ plugins:
 collections:
   projects:
     output: true
-  holidayhw:
+  holiday-homeworks:
     output: true
   tools:
     output: true
@@ -26,3 +26,7 @@ markdown: kramdown
 kramdown:
   input: GFM  #Github Flavored Markdown
   auto_ids: true
+
+liquid:
+  error_mode: strict
+  strict_filters: true

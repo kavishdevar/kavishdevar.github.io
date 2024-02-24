@@ -12,6 +12,7 @@ redirect_from:
   - /holidayhw.md
 ---
 
-
-## - [Class 9 (2022-23)](/holidayhw/2022-23)
-## - [Class 10 (2023-24)](/holidayhw/2023-24)
+{% for hhw in site.holiday-homeworks %}
+  <h2><a href='{{hhw.permalink}}'>{{hhw.title}}</a></h2>
+  <p>{{ hhw.excerpt  | replace: "h2", "h3"}}</p>
+{% endfor %}

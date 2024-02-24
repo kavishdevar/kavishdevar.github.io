@@ -1,62 +1,5 @@
-// Custom element `md-navigation-rail`
-class MdNavigationTabs extends HTMLElement {
-    tabs;
-    constructor() {
-        super();
-    }
-    connectedCallback() {
-        const shadow = this.attachShadow({ mode: 'open' });
-        shadow.innerHTML = `
-            <div class='md-navigation-tabs'>
-                <slot></slot>
-            </div>
-        `;
-        const cssText = `
-            .md-navigation-tabs {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding-top: 30px;
-            }
-            `;
-        const style = document.createElement('style');
-        style.textContent = cssText;
-        shadow.appendChild(style);
-        // this element contains the tabs (md-navigation-tab) and the active tab can be set by toggling the `active` attribute
-        setTimeout(() => {
-            this.tabs = document.querySelectorAll('md-navigation-tab');
-            console.log(this.tabs);
-            this.tabs.forEach(tab => {
-                var tabel = tab;
-                tabel.addEventListener('click', () => {
-                    this.tabs.forEach(tab => tab.removeAttribute('active'));
-                    tab.setAttribute('active', '');
-                    if (tabel.shadowRoot != null && tabel.shadowRoot.querySelector('.md3-navigation-tab__icon-content') != null) {
-                        var tab_icon_content = tabel.shadowRoot.querySelector('.md3-navigation-tab__icon-content');
-                        tab_icon_content.style.borderRadius = '28px';
-                        tabel.onmouseover = function () { tab_icon_content.style.backgroundColor = 'var(--md-sys-color-surface-variant)'; };
-                        tabel.onmouseleave = function () { tab_icon_content.style.backgroundColor = ''; };
-                    }
-                    changeView(tab.getAttribute('view'));
-                });
-            });
-        });
-    }
-    setActiveTabByView(view) {
-        console.log(view);
-        this.tabs.forEach(tab => {
-            if (tab.getAttribute('view') === view) {
-                tab.setAttribute('active', '');
-            }
-            else {
-                tab.removeAttribute('active');
-            }
-        });
-    }
-}
-window.customElements.define('md-navigation-tabs', MdNavigationTabs);
 class MdNavigationRail extends HTMLElement {
+    tabs;
     constructor() {
         super();
     }
@@ -65,7 +8,7 @@ class MdNavigationRail extends HTMLElement {
         this.shadowRoot.innerHTML = `
             <div class='md-navigation-rail'>
                 <slot name='fab' class="md-navigation-rail__fab-icon"></slot>
-                <slot name='tabs' class="md-navigation-rail__tabs"></slot>
+                <slot class="md-navigation-rail__tabs"></slot>
                 <slot name='theme' class="md-navigation-rail__theme-icon"></slot>
             </div>
         `;
@@ -87,7 +30,6 @@ class MdNavigationRail extends HTMLElement {
                 justify-content: center;
                 font-size: 20px;
             }
-
             .md-navigation-rail__theme-icon {
                 position: absolute;
                 bottom: 0;
@@ -103,11 +45,85 @@ class MdNavigationRail extends HTMLElement {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                padding-top: 20px;
             }
             `;
         const style = document.createElement('style');
         style.textContent = cssText;
         this.shadowRoot.appendChild(style);
+        customElements.whenDefined('md-navigation-tab').then(() => {
+            this.tabs = document.querySelectorAll('md-navigation-tab');
+            this.tabs.forEach(tab => {
+                var tabEl = tab;
+                var shadow = tabEl.shadowRoot;
+                setTimeout(() => {
+                    if (tabEl.shadowRoot != null && tabEl.shadowRoot.querySelector('.md3-navigation-tab__icon-content') != null) {
+                        var tab_icon_content = tabEl.shadowRoot.querySelector('.md3-navigation-tab__icon-content');
+                        tab_icon_content.style.borderRadius = '28px';
+                        tabEl.onmouseover = function () {
+                            tab_icon_content.style.backgroundColor = 'var(--md-sys-color-surface-variant)';
+                            var xa = tabEl;
+                            var x = xa.getAttribute('view');
+                            x = `${slugify(x).replace('/', '')}`;
+                            if (x == 'projects') {
+                                // if screen size greater than 1100px
+                                if (window.innerWidth > 1100) {
+                                    var el = document.querySelector('#projects-list');
+                                    el.style.display = 'block';
+                                    el = document.querySelector('#tools-list');
+                                    el.style.display = 'none';
+                                    el = document.querySelector('#homework-list');
+                                    el.style.display = 'none';
+                                }
+                                openNavDrawer();
+                            }
+                            else if (x == 'tools') {
+                                if (window.innerWidth > 1100) {
+                                    var el = document.querySelector('#tools-list');
+                                    el.style.display = 'block';
+                                    el = document.querySelector('#projects-list');
+                                    el.style.display = 'none';
+                                    el = document.querySelector('#homework-list');
+                                    el.style.display = 'none';
+                                }
+                                openNavDrawer();
+                            }
+                            else if (x == 'holiday-homework') {
+                                if (window.innerWidth > 1100) {
+                                    var el = document.querySelector('#homework-list');
+                                    el.style.display = 'block';
+                                    el = document.querySelector('#tools-list');
+                                    el.style.display = 'none';
+                                    el = document.querySelector('#projects-list');
+                                    el.style.display = 'none';
+                                }
+                                openNavDrawer();
+                            }
+                            else {
+                                closeNavDrawer();
+                            }
+                        };
+                        tabEl.onmouseleave = function () { tab_icon_content.style.backgroundColor = ''; };
+                    }
+                    tabEl.addEventListener('click', () => {
+                        this.tabs.forEach(tab => tab.removeAttribute('active'));
+                        tab.setAttribute('active', '');
+                        changeView(tab.getAttribute('view'));
+                    });
+                });
+            });
+        });
+    }
+    setActiveTabByView(view) {
+        // console.log(view)
+        this.tabs.forEach(tab => {
+            if (tab.getAttribute('view') === view) {
+                tab.setAttribute('active', '');
+            }
+            else {
+                tab.removeAttribute('active');
+            }
+        });
     }
 }
 window.customElements.define('md-navigation-rail', MdNavigationRail);
@@ -144,13 +160,123 @@ function changeView(url) {
             if (sourceContent != null && targetContent != null) {
                 sourceContent.replaceWith(targetContent);
             }
-            var tabs = document.querySelector('md-navigation-tabs');
+            var rail = document.querySelector('md-navigation-rail');
             history.pushState({ page: url.toString().split('/').slice(-1).toString().toUpperCase() }, url.toString().split('/').slice(-1).toString().toUpperCase(), url.toString());
-            tabs.setActiveTabByView(`/${location.pathname.split('/')[1]}`);
+            rail.setActiveTabByView(`/${location.pathname.split('/')[1]}`);
+            document.querySelectorAll('a').forEach(a => a.onclick = function (e) {
+                e.preventDefault();
+                changeView(a.getAttribute('href'));
+            });
+            document.querySelectorAll('md-list-item').forEach(b => {
+                if (b.shadowRoot?.querySelector('a')?.getAttribute('href') === location.pathname) {
+                    b.classList.add('active-item');
+                }
+                else {
+                    b.classList.remove('active-item');
+                }
+            });
         }
     };
 }
 window.onpopstate = function () {
     changeView(location.pathname);
 };
-window.onload = function () { changeView(location.pathname); };
+window.onload = function () {
+    document.querySelectorAll('a').forEach(a => a.onclick = function (e) {
+        e.preventDefault();
+        changeView(a.getAttribute('href'));
+    });
+    changeView(location.pathname);
+    document.querySelectorAll('md-list-item').forEach(a => (a.shadowRoot?.querySelector('a')).onclick = function (e) {
+        e.preventDefault();
+        changeView(a.shadowRoot?.querySelector('a')?.getAttribute('href'));
+        a.classList.add('active-item');
+        document.querySelectorAll('md-list-item').forEach(b => {
+            if (b != a) {
+                b.classList.remove('active-item');
+            }
+        });
+        closeNavDrawer();
+    });
+    changeView(location.pathname);
+};
+function init(categories, projects, tools, homeworks) {
+    // console.log(categories)
+    // Aim is to create 3 seperate divs that contain a md-list with md-list-items for each category
+    var projectsEl = document.createElement('div');
+    projectsEl.setAttribute('id', 'projects-list');
+    var toolsEl = document.createElement('div');
+    toolsEl.setAttribute('id', 'tools-list');
+    var homeworkEl = document.createElement('div');
+    homeworkEl.setAttribute('id', 'homework-list');
+    var projectsList = document.createElement('md-list');
+    var toolsList = document.createElement('md-list');
+    var homeworkList = document.createElement('md-list');
+    var projectsText = document.createElement('h3');
+    projectsText.innerHTML = 'Projects';
+    var toolsText = document.createElement('h3');
+    toolsText.innerHTML = 'Tools';
+    var homeworkText = document.createElement('h3');
+    homeworkText.innerHTML = 'Holiday Homework';
+    projectsEl.appendChild(projectsText);
+    toolsEl.appendChild(toolsText);
+    homeworkEl.appendChild(homeworkText);
+    projectsEl.appendChild(projectsList);
+    toolsEl.appendChild(toolsList);
+    homeworkEl.appendChild(homeworkList);
+    console.log(projects);
+    projects.keys().forEach(project => {
+        console.log(project);
+        var listItem = document.createElement('md-list-item');
+        listItem.type = 'link';
+        listItem.href = projects.get(project);
+        listItem.innerHTML = project;
+        projectsList.appendChild(listItem);
+    });
+    tools.keys().forEach(tool => {
+        var listItem = document.createElement('md-list-item');
+        listItem.type = 'link';
+        listItem.href = tools.get(tool);
+        listItem.innerHTML = tool;
+        toolsList.appendChild(listItem);
+    });
+    homeworks.keys().forEach(homework => {
+        var listItem = document.createElement('md-list-item');
+        listItem.type = 'link';
+        listItem.href = homeworks.get(homework);
+        listItem.innerHTML = homework;
+        homeworkList.appendChild(listItem);
+    });
+    const categoryDivider1 = document.createElement('md-divider');
+    const categoryDivider2 = document.createElement('md-divider');
+    categoryDivider1.classList.add('category-divider');
+    categoryDivider2.classList.add('category-divider');
+    document.querySelector('.nav-drawer-content').appendChild(projectsEl);
+    document.querySelector('.nav-drawer-content').appendChild(categoryDivider1);
+    document.querySelector('.nav-drawer-content').appendChild(toolsEl);
+    document.querySelector('.nav-drawer-content').appendChild(categoryDivider2);
+    document.querySelector('.nav-drawer-content').appendChild(homeworkEl);
+}
+function slugify(string) {
+    return string.toLowerCase().trim()
+        .replace(' ', '-');
+}
+function toggleNavDrawer() {
+    var navDrawer = document.querySelector('#nav-drawer');
+    navDrawer.opened = !navDrawer.opened;
+    document.querySelector('main').classList.toggle('scrim-background');
+    document.querySelector('main').onclick = function () { closeNavDrawer(); };
+}
+function openNavDrawer() {
+    var navDrawer = document.querySelector('#nav-drawer');
+    navDrawer.opened = true;
+    navDrawer.onmouseleave = function () { closeNavDrawer(); };
+    document.querySelector('main').classList.add('scrim-background');
+}
+function closeNavDrawer() {
+    var navDrawer = document.querySelector('#nav-drawer');
+    navDrawer.opened = false;
+    document.querySelector('main').classList.remove('scrim-background');
+    var navButtonMobile = document.querySelector('#nav-button-mobile');
+    navButtonMobile.selected = false;
+}

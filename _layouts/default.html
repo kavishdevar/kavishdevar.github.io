@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script>exports = {}</script>
     {% if jekyll.environment == "production" %}
     {% assign material_url = 'https://material.kavishdevar.me' %}
     {% else if jekyll.environment == "development" %}
@@ -17,7 +18,6 @@
     <link rel="stylesheet" href="/assets/css/card.css">
     <script src="/assets/js/top-app-bar.js"></script>
     <script src="/assets/js/index.js"></script>
-    <script src="/assets/js/navigation-rail.js"></script>
     <script src="{{material_url}}/theme-changer.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -25,12 +25,12 @@
 
 <body>
     <md-navigation-rail>
-        <!-- <md-fab toggle slot="fab" id="fab" variant="tertiary" onclick="alert('under development')">
+        <md-fab toggle slot="fab" id="fab" variant="tertiary" onclick="alert('under development')">
             <md-icon slot="icon">search</md-icon>
-        </md-fab> -->
-        <md-fab toggle slot="fab" id="fab" variant="tertiary" onclick="toggleNavDrawer">
-            <md-icon slot="icon">menu</md-icon>
         </md-fab>
+        <!-- <md-fab toggle slot="fab" id="fab" variant="tertiary" onclick="toggleNavDrawer()">
+            <md-icon slot="icon">menu</md-icon>
+        </md-fab> -->
         <!-- <md-icon-button toggle slot="menubutton" id="menubutton" onclick="toggleNavDrawer()">
             <md-icon>menu</md-icon>
         </md-icon-button> -->
@@ -40,13 +40,14 @@
                 --md-navigation-bar-active-hover-state-layer-color: var(--md-sys-color-surface-container-highest);
                 --md-navigation-bar-inactive-hover-state-layer-color: var(--md-sys-color-surface-container-highest);
                 --md-navigation-bar-active-pressed-state-layer-color: var(--md-sys-color-surface-container-highest);
+                --md-navigation-bar-active-indicator-color: var(--md-sys-color-inverse-primary);
             }
 
             md-navigation-tab:hover {
                 --md-navigation-bar-inactive-shape: 28px;
             }
 
-            span.md3-navigation-tab__icon-content {
+            .md3-navigation-tab__icon-content {
                 border-radius: 28px;
                 background-color: blue;
             }

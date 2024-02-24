@@ -13,6 +13,8 @@ collections:
     output: true
   holidayhw:
     output: true
+  tools:
+    output: true
 
 exclude:
   - bower_components

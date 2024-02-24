@@ -213,17 +213,17 @@ function init(categories, projects, tools, homeworks) {
     var toolsList = document.createElement('md-list');
     var homeworkList = document.createElement('md-list');
     var projectsText = document.createElement('md-list-item');
-    projectsText.label = 'Projects overview';
+    projectsText.innerText = 'Projects overview';
     projectsText.type = 'link';
     projectsText.href = '/projects';
     var toolsText = document.createElement('md-list-item');
     toolsText.type = 'link';
     toolsText.href = '/tools';
-    toolsText.label = 'Tools overview';
+    toolsText.innerText = 'Tools overview';
     var homeworkText = document.createElement('md-list-item');
     homeworkText.type = 'link';
     homeworkText.href = '/holiday-homeworks';
-    homeworkText.label = 'Holiday Homeworks overview';
+    homeworkText.innerText = 'Holiday Homeworks overview';
     projectsEl.appendChild(projectsText);
     toolsEl.appendChild(toolsText);
     homeworkEl.appendChild(homeworkText);
@@ -236,21 +236,21 @@ function init(categories, projects, tools, homeworks) {
         var listItem = document.createElement('md-list-item');
         listItem.type = 'link';
         listItem.href = projects.get(project);
-        listItem.innerHTML = project;
+        listItem.innerText = project;
         projectsList.appendChild(listItem);
     });
     tools.keys().forEach(tool => {
         var listItem = document.createElement('md-list-item');
         listItem.type = 'link';
         listItem.href = tools.get(tool);
-        listItem.innerHTML = tool;
+        listItem.innerText = tool;
         toolsList.appendChild(listItem);
     });
     homeworks.keys().forEach(homework => {
         var listItem = document.createElement('md-list-item');
         listItem.type = 'link';
         listItem.href = homeworks.get(homework);
-        listItem.innerHTML = homework;
+        listItem.innerText = homework;
         homeworkList.appendChild(listItem);
     });
     const categoryDivider1 = document.createElement('md-divider');

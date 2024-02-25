@@ -1,9 +1,3 @@
-/**
- * @license
- * Copyright 2023 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-
 type WithStylesheet = typeof globalThis & {
   [stylesheetName: string]: CSSStyleSheet | undefined;
 };

@@ -66,7 +66,6 @@ class MdNavigationRail extends HTMLElement {
                             var x = xa.getAttribute('view');
                             x = `${slugify(x).replace('/', '')}`;
                             if (x == 'projects') {
-                                // if screen size greater than 1100px
                                 if (window.innerWidth > 1100) {
                                     var el = document.querySelector('#projects-list-sublist');
                                     el.style.display = 'block';
@@ -115,7 +114,6 @@ class MdNavigationRail extends HTMLElement {
         });
     }
     setActiveTabByView(view) {
-        // console.log(view)
         this.tabs.forEach(tab => {
             if (tab.getAttribute('view') === view) {
                 tab.setAttribute('active', '');
@@ -199,14 +197,14 @@ window.onpopstate = function () {
     changeView(location.pathname);
 };
 window.onload = function () {
+    var main = document.querySelector('main');
+    var aside = document.querySelector('aside');
     if (window.innerWidth < 1100) {
         var sublists = document.querySelectorAll('.sublist');
         for (let i = 0; i < sublists.length; i++) {
             var sublist = sublists[i];
             sublist.style.display = 'none';
         }
-        var categories = document.querySelector('.category-list');
-        categories.style.display = 'block';
     }
     document.querySelectorAll('a').forEach(a => a.onclick = function (e) {
         e.preventDefault();
@@ -225,7 +223,6 @@ window.onload = function () {
         closeNavDrawer();
     });
     changeView(location.pathname);
-    //screen size change
     window.onresize = function () {
         if (window.innerWidth > 1100) {
             var categories = document.querySelector('.category-list');
@@ -250,7 +247,6 @@ window.onload = function () {
             var lists = el.querySelectorAll('div');
             for (let i = 0; i < lists.length; i++) {
                 var list = lists[i];
-                console.log(list.innerText);
                 if (list.querySelector('md-list-item')?.innerText != 'Projects overview' && list.querySelector('md-list-item')?.innerText != 'Tools overview' && list.querySelector('md-list-item')?.innerText != 'Holiday Homeworks overview') {
                     list.style.display = 'block';
                 }
@@ -263,8 +259,6 @@ window.onload = function () {
     };
 };
 function init(categories, projects, tools, homeworks) {
-    // console.log(categories)
-    // Aim is to create 3 seperate divs that contain a md-list with md-list-items for each category
     var projectsEl = document.createElement('div');
     projectsEl.setAttribute('id', 'projects-list-sublist');
     projectsEl.classList.add('sublist');
@@ -295,9 +289,7 @@ function init(categories, projects, tools, homeworks) {
     projectsEl.appendChild(projectsList);
     toolsEl.appendChild(toolsList);
     homeworkEl.appendChild(homeworkList);
-    console.log(projects);
     projects.keys().forEach(project => {
-        console.log(project);
         var listItem = document.createElement('md-list-item');
         listItem.type = 'link';
         listItem.href = projects.get(project);
@@ -317,7 +309,6 @@ function init(categories, projects, tools, homeworks) {
         listItem.href = homeworks.get(homework);
         listItem.innerText = homework;
         homeworkList.appendChild(listItem);
-        console.log(homework);
     });
     var categoryEl = document.createElement('md-list');
     categoryEl.classList.add('category-list');
@@ -353,6 +344,7 @@ function openNavDrawer() {
     navDrawer.opened = true;
     navDrawer.onmouseleave = function () { closeNavDrawer(); };
     document.querySelector('main').classList.add('scrim-background');
+    document.querySelector('main').onclick = function () { closeNavDrawer(); };
 }
 function closeNavDrawer() {
     var navDrawer = document.querySelector('#nav-drawer');

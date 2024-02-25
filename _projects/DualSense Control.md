@@ -1,6 +1,6 @@
 ---
 permalink: /projects/dualsense-control
-redirect_from: 
+redirect_from:
 - /projects/DualSense-Control
 - /projects/dualsense
 - /projects/Dualsense%20Control
@@ -10,6 +10,7 @@ redirect_from:
 layout: default
 hastoc: true
 title: DualSense Control App for Linux
+titleForNav: DualSense Control GUI (Linux)
 category: Projects
 author: kavish
 subtitle: Control your dualsense controller using this app on linux.

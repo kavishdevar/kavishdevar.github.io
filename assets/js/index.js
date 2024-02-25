@@ -9,7 +9,7 @@ class MdNavigationRail extends HTMLElement {
             <div class='md-navigation-rail'>
                 <slot name='fab' class="md-navigation-rail__fab-icon"></slot>
                 <slot class="md-navigation-rail__tabs"></slot>
-                <slot name='theme' class="md-navigation-rail__theme-icon"></slot>
+                <slot name='bottom' class="md-navigation-rail__bottom"></slot>
             </div>
         `;
         const cssText = `
@@ -30,7 +30,8 @@ class MdNavigationRail extends HTMLElement {
                 justify-content: center;
                 font-size: 20px;
             }
-            .md-navigation-rail__theme-icon {
+
+            .md-navigation-rail__bottom {
                 position: absolute;
                 bottom: 0;
                 width: 100%;
@@ -170,7 +171,11 @@ function changeView(url) {
                 if (currentPath.endsWith('/')) {
                     currentPath = currentPath.slice(0, -1);
                 }
-                if (b.shadowRoot?.querySelector('a')?.getAttribute('href') === currentPath) {
+                var newpath = b.shadowRoot?.querySelector('a')?.getAttribute('href');
+                if (newpath.endsWith('/')) {
+                    newpath = newpath.slice(0, -1);
+                }
+                if (newpath === currentPath) {
                     b.classList.add('active-item');
                 }
                 else {
@@ -220,7 +225,6 @@ window.onload = function () {
                 b.classList.remove('active-item');
             }
         });
-        closeNavDrawer();
     });
     changeView(location.pathname);
     window.onresize = function () {

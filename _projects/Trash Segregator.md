@@ -9,6 +9,7 @@ redirect_from:
 layout: default
 hastoc: true
 title: Trash Segregator
+titleForNav: Trash Segregator
 category: Projects
 author: kavish
 excerpt_separator: <!--more-->

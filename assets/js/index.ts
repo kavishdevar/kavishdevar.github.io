@@ -68,33 +68,33 @@ class MdNavigationRail extends HTMLElement {
                             if (x == 'projects') {
                                 // if screen size greater than 1100px
                                 if (window.innerWidth > 1100) {
-                                    var el = document.querySelector('#projects-list')! as HTMLElement
+                                    var el = document.querySelector('#projects-list-sublist')! as HTMLElement
                                     el.style.display = 'block'
-                                    el = document.querySelector('#tools-list')! as HTMLElement
+                                    el = document.querySelector('#tools-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
-                                    el = document.querySelector('#homework-list')! as HTMLElement
+                                    el = document.querySelector('#homework-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
                                 }
                                 openNavDrawer()
                             }
                             else if (x == 'tools') {
                                 if (window.innerWidth > 1100) {
-                                    var el = document.querySelector('#tools-list')! as HTMLElement
+                                    var el = document.querySelector('#tools-list-sublist')! as HTMLElement
                                     el.style.display = 'block'
-                                    el = document.querySelector('#projects-list')! as HTMLElement
+                                    el = document.querySelector('#projects-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
-                                    el = document.querySelector('#homework-list')! as HTMLElement
+                                    el = document.querySelector('#homework-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
                                 }
                                 openNavDrawer()
                             }
-                            else if (x == 'holiday-homework') {
+                            else if (x == 'holiday-homeworks') {
                                 if (window.innerWidth > 1100) {
-                                    var el = document.querySelector('#homework-list')! as HTMLElement
+                                    var el = document.querySelector('#homework-list-sublist')! as HTMLElement
                                     el.style.display = 'block'
-                                    el = document.querySelector('#tools-list')! as HTMLElement
+                                    el = document.querySelector('#tools-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
-                                    el = document.querySelector('#projects-list')! as HTMLElement
+                                    el = document.querySelector('#projects-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
                                 }
                                 openNavDrawer()
@@ -173,13 +173,30 @@ function changeView(url: String) {
                 changeView(a.getAttribute('href')!);
             });
             document.querySelectorAll('md-list-item').forEach(b => {
-                if (b.shadowRoot?.querySelector('a')?.getAttribute('href') === location.pathname) {
+                var currentPath = location.pathname
+                if (currentPath.endsWith('/')) {
+                    currentPath = currentPath.slice(0, -1)
+                }
+                if (b.shadowRoot?.querySelector('a')?.getAttribute('href') === currentPath) {
                     b.classList.add('active-item')
                 }
                 else {
                     b.classList.remove('active-item')
                 }
             });
+            var categories = document.querySelector('.category-list') as HTMLElement
+            for (let i = 0; i < categories.children.length; i++) {
+                var category = categories.children[i] as HTMLElement
+                if (category.innerText.toLowerCase() == location.pathname.split('/')[1]) {
+                    category.classList.add('active-item')
+                }
+                else if (category.innerText.toLowerCase() == 'home' && location.pathname == '/') {
+                    category.classList.add('active-item')
+                }
+                else {
+                    category.classList.remove('active-item')
+                }
+            }
         }
     }
 }
@@ -188,6 +205,15 @@ window.onpopstate = function () {
 };
 
 window.onload = function () {
+    if (window.innerWidth < 1100) {
+        var sublists = document.querySelectorAll('.sublist') as NodeListOf<Element>
+        for (let i = 0; i < sublists.length; i++) {
+            var sublist = sublists[i] as HTMLElement
+            sublist.style.display = 'none'
+        }
+        var categories = document.querySelector('.category-list') as HTMLElement
+        categories.style.display = 'block'
+    }
     document.querySelectorAll('a').forEach(a => (a as HTMLElement).onclick = function (e) {
         e.preventDefault();
         changeView(a.getAttribute('href')!);
@@ -205,6 +231,43 @@ window.onload = function () {
         closeNavDrawer()
     });
     changeView(location.pathname)
+
+    //screen size change
+    window.onresize = function () {
+        if (window.innerWidth > 1100) {
+            var categories = document.querySelector('.category-list') as HTMLElement
+            categories.style.display = 'none'
+            var el = document.querySelector('.nav-drawer-content')! as HTMLElement
+            var lists = el.querySelectorAll('md-list')
+            for (let i = 0; i < lists.length; i++) {
+                var list = lists[i] as HTMLElement
+                list.style.display = 'block'
+                var sublists = list.querySelectorAll('md-list')
+                for (let j = 0; j < sublists.length; j++) {
+                    var sublist = sublists[j] as HTMLElement
+                    sublist.style.display = 'none'
+                }
+            }
+            closeNavDrawer()
+        }
+        else {
+            var categories = document.querySelector('.category-list') as HTMLElement
+            categories.style.display = 'block'
+            var el = document.querySelector('.nav-drawer-content')! as HTMLElement
+            var lists = el.querySelectorAll('div') as NodeListOf<Element>
+            for (let i = 0; i < lists.length; i++) {
+                var list = lists[i] as HTMLElement
+                console.log(list.innerText)
+                if ((list.querySelector('md-list-item') as HTMLElement)?.innerText != 'Projects overview' && (list.querySelector('md-list-item') as HTMLElement)?.innerText != 'Tools overview' && (list.querySelector('md-list-item') as HTMLElement)?.innerText != 'Holiday Homeworks overview') {
+                    list.style.display = 'block'
+                }
+                else {
+                    list.style.display = 'none'
+                }
+            }
+            closeNavDrawer()
+        }
+    }
 };
 
 function init(categories, projects, tools, homeworks) {
@@ -212,14 +275,15 @@ function init(categories, projects, tools, homeworks) {
 
     // Aim is to create 3 seperate divs that contain a md-list with md-list-items for each category
     var projectsEl = document.createElement('div')
-    projectsEl.setAttribute('id', 'projects-list')
-
+    projectsEl.setAttribute('id', 'projects-list-sublist')
+    projectsEl.classList.add('sublist')
     var toolsEl = document.createElement('div')
-    toolsEl.setAttribute('id', 'tools-list')
+    toolsEl.setAttribute('id', 'tools-list-sublist')
+    toolsEl.classList.add('sublist')
 
     var homeworkEl = document.createElement('div')
-    homeworkEl.setAttribute('id', 'homework-list')
-
+    homeworkEl.setAttribute('id', 'homework-list-sublist')
+    homeworkEl.classList.add('sublist')
 
     var projectsList = document.createElement('md-list')
 
@@ -269,16 +333,21 @@ function init(categories, projects, tools, homeworks) {
         listItem.href = homeworks.get(homework)
         listItem.innerText = homework
         homeworkList.appendChild(listItem)
+        console.log(homework)
     })
-
-    const categoryDivider1 = document.createElement('md-divider')
-    const categoryDivider2 = document.createElement('md-divider')
-    categoryDivider1.classList.add('category-divider')
-    categoryDivider2.classList.add('category-divider')
+    var categoryEl = document.createElement('md-list')
+    categoryEl.classList.add('category-list')
+    for (let category of categories) {
+        var categoryText = document.createElement('md-list-item') as any
+        categoryText.innerText = category
+        categoryText.type = 'link'
+        if (category == 'Home') { categoryText.href = '/' }
+        else { categoryText.href = `/${slugify(category)}` }
+        categoryEl.appendChild(categoryText)
+        document.querySelector('.nav-drawer-content')!.appendChild(categoryEl)
+    }
     document.querySelector('.nav-drawer-content')!.appendChild(projectsEl)
-    document.querySelector('.nav-drawer-content')!.appendChild(categoryDivider1)
     document.querySelector('.nav-drawer-content')!.appendChild(toolsEl)
-    document.querySelector('.nav-drawer-content')!.appendChild(categoryDivider2)
     document.querySelector('.nav-drawer-content')!.appendChild(homeworkEl)
 }
 

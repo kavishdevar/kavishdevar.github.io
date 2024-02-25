@@ -344,16 +344,19 @@
             display: block;
         }
         @media screen and (min-width: 1100px) {
-            #homework-list {
+            #homework-list-sublist {
                 display: none;
             }
-            #tools-list {
+            #tools-list-sublist {
                 display: none;
             }
-            #projects-list {
+            #projects-list-sublist {
                 display: none;
             }
             .category-divider {
+                display: none;
+            }
+            .category-list {
                 display: none;
             }
             nav-button-mobile {
@@ -576,7 +579,7 @@
             holiday_homeworksLinks[i]=holiday_homeworksLinks[i].replace('\"','').replace("\"","")
             holiday_homeworks[holiday_homeworksTitles[i]] = holiday_homeworksLinks[i]
         }
-        categories = ['Home', 'About', 'Projects', 'Tools', 'School Stuff']
+        categories = ['Home', 'About', 'Projects', 'Tools', 'Holiday Homeworks']
     
         init(categories, projects, tools, holiday_homeworks)
     </script>

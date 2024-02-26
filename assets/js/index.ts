@@ -233,6 +233,37 @@ window.onload = function () {
             }
         });
     });
+    document.querySelector('.category-list')!.querySelectorAll('md-list-item').forEach(a => (a.shadowRoot?.querySelector('a') as HTMLElement).onclick = function (e) {
+        e.preventDefault();
+        var ahref = a.shadowRoot?.querySelector('a')?.getAttribute('href')!
+        changeView(ahref);
+        // if ( ahref == '/' || ahref == '/about') {
+        //     changeView(ahref);
+        // }
+        // else if (ahref == '/projects' || ahref == '/tools' || ahref == '/holiday-homeworks') {
+        //         var categories = document.querySelector('.category-list')! as HTMLElement
+        //         categories.style.display = 'none'
+        //         el = document.querySelector('#projects-list-sublist')! as HTMLElement
+        //         el.style.display = 'none'
+        //         el = document.querySelector('#tools-list-sublist')! as HTMLElement
+        //         el.style.display = 'none'
+        //         el = document.querySelector('#homework-list-sublist')! as HTMLElement
+        //         el.style.display = 'none'
+        //         var smth = ahref.replace('/','') + '-list-sublist'
+        //         console.log(smth)
+        //         var el = document.querySelector(smth)! as HTMLElement
+        //         el.style.display = 'block'
+        //     openNavDrawer()
+        // }
+
+        
+        a.classList.add('active-item')
+        document.querySelectorAll('md-list-item').forEach(b => {
+            if (b != a) {
+                b.classList.remove('active-item')
+            }
+        });
+    });
     changeView(location.pathname)
 
     window.onresize = function () {
@@ -253,8 +284,6 @@ window.onload = function () {
             closeNavDrawer()
         }
         else {
-            var categories = document.querySelector('.category-list') as HTMLElement
-            categories.style.display = 'block'
             var el = document.querySelector('.nav-drawer-content')! as HTMLElement
             var lists = el.querySelectorAll('div') as NodeListOf<Element>
             for (let i = 0; i < lists.length; i++) {
@@ -266,6 +295,8 @@ window.onload = function () {
                     list.style.display = 'none'
                 }
             }
+            var categories = document.querySelector('.category-list') as HTMLElement
+            categories.style.display = 'block'
             closeNavDrawer()
         }
     }

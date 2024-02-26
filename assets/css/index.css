@@ -352,7 +352,7 @@ md-navigation-rail {
 
 .nav-rail-bottom {
     display: grid;
-}
-md-icon-button {
-    margin-bottom: 10px;
+    md-icon-button {
+        margin-bottom: 10px;
+    }
 }

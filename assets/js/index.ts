@@ -61,46 +61,62 @@ class MdNavigationRail extends HTMLElement {
                     if (tabEl.shadowRoot != null && tabEl.shadowRoot.querySelector('.md3-navigation-tab__icon-content') != null) {
                         var tab_icon_content = tabEl.shadowRoot!.querySelector('.md3-navigation-tab__icon-content')! as any
                         tab_icon_content.style!.borderRadius = '28px';
-                        tabEl.onmouseover = function () {
+                        tabEl.onmouseenter = function () {
                             tab_icon_content.style.backgroundColor = 'var(--md-sys-color-surface-variant)'
                             var xa = tabEl as any
                             var x = xa.getAttribute('view') as String
-                            x = `${slugify(x).replace('/', '')}`
-                            if (x == 'projects') {
-                                if (window.innerWidth > 1100) {
+                            x = (x === '/') ? x : x.endsWith('/') ? x.slice(0, -1) : x
+                            changeViewPreview(x)
+                            switch (x) {
+                                case '/':
+                                    if (window.innerWidth < 1600) {
+                                        closeNavDrawer()
+                                    }
+                                    break;
+                                case '/about':
+                                    if (window.innerWidth < 1600) {
+                                        closeNavDrawer()
+                                    }
+                                    break;
+
+                                case '/projects':
                                     var el = document.querySelector('#projects-list-sublist')! as HTMLElement
                                     el.style.display = 'block'
                                     el = document.querySelector('#tools-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
                                     el = document.querySelector('#homework-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
-                                }
-                                openNavDrawer()
-                            }
-                            else if (x == 'tools') {
-                                if (window.innerWidth > 1100) {
+                                    openNavDrawer()
+                                    break;
+                                case '/tools':
                                     var el = document.querySelector('#tools-list-sublist')! as HTMLElement
                                     el.style.display = 'block'
                                     el = document.querySelector('#projects-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
                                     el = document.querySelector('#homework-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
-                                }
-                                openNavDrawer()
-                            }
-                            else if (x == 'holiday-homeworks') {
-                                if (window.innerWidth > 1100) {
+                                    openNavDrawer()
+                                    break;
+                                case '/holiday-homeworks':
                                     var el = document.querySelector('#homework-list-sublist')! as HTMLElement
                                     el.style.display = 'block'
                                     el = document.querySelector('#tools-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
                                     el = document.querySelector('#projects-list-sublist')! as HTMLElement
                                     el.style.display = 'none'
-                                }
-                                openNavDrawer()
+                                    openNavDrawer()
+                                    break;
+                                default:
+                                    break;
                             }
                         }
-                        tabEl.onmouseleave = function () { tab_icon_content.style.backgroundColor = '' }
+                        tabEl.onmouseleave = function () {
+                            tab_icon_content.style.backgroundColor = ''
+                            changeView(location.pathname)
+                            if (window.innerWidth < 1600 || location.pathname === '/' || location.pathname === '/about') {
+                                closeNavDrawer()
+                            }
+                        }
                     }
 
                     tabEl.addEventListener('click', () => {
@@ -111,43 +127,45 @@ class MdNavigationRail extends HTMLElement {
                             closeNavDrawer()
                         }
                         else {
-                            if (tab.getAttribute('view') === '/projects') {
-                                var el = document.querySelector('#projects-list-sublist')! as HTMLElement
-                                el.style.display = 'block'
-                                el = document.querySelector('#tools-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                el = document.querySelector('#homework-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                openNavDrawer()
-                            }
-                            else if (tab.getAttribute('view') === '/tools') {
-                                var el = document.querySelector('#tools-list-sublist')! as HTMLElement
-                                el.style.display = 'block'
-                                el = document.querySelector('#projects-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                el = document.querySelector('#homework-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                openNavDrawer()
-                            }
-                            else if (tab.getAttribute('view') === '/holiday-homeworks') {
-                                var el = document.querySelector('#homework-list-sublist')! as HTMLElement
-                                el.style.display = 'block'
-                                el = document.querySelector('#tools-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                el = document.querySelector('#projects-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                openNavDrawer()
-                            }
-                            else {
-                                var el = document.querySelector('#projects-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                el = document.querySelector('#tools-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                el = document.querySelector('#homework-list-sublist')! as HTMLElement
-                                el.style.display = 'none'
-                                closeNavDrawer()
-                                var main = document.querySelector('main')!
-                                main.style.marginLeft = '80px'
+                            var main = document.querySelector('main')!
+                            switch (tab.getAttribute('view')) {
+                                case '/':
+                                    main.style.marginLeft = '80px'
+                                    closeNavDrawer()
+                                    break;
+                                case '/about':
+                                    main.style.marginLeft = '80px'
+                                    closeNavDrawer()
+                                    break;
+                                case '/projects':
+                                    main.style.marginLeft = '330px'
+                                    var el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                                    el.style.display = 'block'
+                                    el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                                    el.style.display = 'none'
+                                    el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                                    el.style.display = 'none'
+                                    break;
+                                case '/tools':
+                                    main.style.marginLeft = '330px'
+                                    var el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                                    el.style.display = 'block'
+                                    el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                                    el.style.display = 'none'
+                                    el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                                    el.style.display = 'none'
+                                    break;
+                                case '/holiday-homeworks':
+                                    main.style.marginLeft = '330px'
+                                    var el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                                    el.style.display = 'block'
+                                    el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                                    el.style.display = 'none'
+                                    el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                                    el.style.display = 'none'
+                                    break;
+                                default:
+                                    break;
                             }
                         }
                     });
@@ -168,6 +186,51 @@ class MdNavigationRail extends HTMLElement {
 
 
 window.customElements.define('md-navigation-rail', MdNavigationRail);
+
+function changeViewPreview(url: String) {
+    url = `${location.origin}${url.replace(' ', '-').toLowerCase()}`;
+    var xhr = new XMLHttpRequest();
+    var sourceHasAside = document.querySelector('aside') != null;
+    xhr.open('GET', new URL(url.toString()), true);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var resp = xhr.responseText;
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(resp, 'text/html');
+            var targetContent = doc.querySelector('.content');
+            var sourceContent = document.querySelector('.content');
+            console.log("trying at this point")
+            if (sourceContent != null && targetContent != null) {
+                sourceContent.replaceWith(targetContent);
+            }
+            var targetContent = doc.querySelector('.content');
+            var sourceContent = document.querySelector('.content');
+            var targetAside = doc.querySelector('aside');
+
+            if (sourceHasAside && targetAside != null) {
+                document.querySelector('aside')?.replaceWith(targetAside);
+                document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
+                eval(targetAside.querySelector('script')!.innerText)
+            }
+            else if (!sourceHasAside && targetAside != null) {
+                document.querySelector('main')!.appendChild(targetAside);
+                document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
+                eval(targetAside.querySelector('script')!.innerText)
+            }
+            else if (sourceHasAside && targetAside == null) {
+                document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
+                document.querySelector('aside')?.remove();
+            }
+            if (sourceContent != null && targetContent != null) {
+                sourceContent.replaceWith(targetContent);
+            }
+            var main = document.querySelector('main')!
+            main.style.opacity = '0.5'
+        }
+    }
+}
+
 function changeView(url: String) {
     url = `${location.origin}${url.replace(' ', '-').toLowerCase()}`;
     var sourceHasAside = document.querySelector('aside') != null;
@@ -241,6 +304,8 @@ function changeView(url: String) {
                     category.classList.remove('active-item')
                 }
             }
+            var main = document.querySelector('main')!
+            main.style.opacity = '1'
         }
     }
 }
@@ -250,7 +315,7 @@ window.onpopstate = function () {
 
 window.onload = function () {
     var main = document.querySelector('main')!
-    var aside = document.querySelector('aside')!
+    // var aside = document.querySelector('aside')!
 
     if (window.innerWidth < 1100) {
         var sublists = document.querySelectorAll('.sublist') as NodeListOf<Element>
@@ -264,16 +329,29 @@ window.onload = function () {
         changeView(a.getAttribute('href')!);
     });
 
-    document.querySelectorAll('md-list-item').forEach(a => (a.shadowRoot?.querySelector('a') as HTMLElement).onclick = function (e) {
-        e.preventDefault();
-        changeView(a.shadowRoot?.querySelector('a')?.getAttribute('href')!);
-        a.classList.add('active-item')
-        document.querySelectorAll('md-list-item').forEach(b => {
-            if (b != a) {
-                b.classList.remove('active-item')
+    document.querySelectorAll('md-list-item').forEach(a => {
+        var aEl = a.shadowRoot?.querySelector('a') as HTMLElement
+        (aEl).onclick = function (e) {
+            e.preventDefault();
+            changeView(aEl.getAttribute('href')!);
+            a.classList.add('active-item')
+            document.querySelectorAll('md-list-item').forEach(b => {
+                if (b != a) {
+                    b.classList.remove('active-item')
+                }
+            });
+        };
+        aEl.onmouseenter = function () {
+            if (aEl.getAttribute('href') != location.pathname) {
+                changeViewPreview(aEl.getAttribute('href')!);
             }
-        });
-    });
+        };
+        aEl.onmouseleave = function () {
+            changeView(location.pathname);
+        };
+    }
+    );
+
     document.querySelector('.category-list')!.querySelectorAll('md-list-item').forEach(a => (a.shadowRoot?.querySelector('a') as HTMLElement).onclick = function (e) {
         e.preventDefault();
         var ahref = a.shadowRoot?.querySelector('a')?.getAttribute('href')!
@@ -289,36 +367,51 @@ window.onload = function () {
             closeNavDrawer()
         }
     });
+
     changeView(location.pathname)
-    if (window.innerWidth > 1600 && location.pathname != '/' && location.pathname != ('/about')) {
+
+    if (window.innerWidth > 1600) {
         main.style.marginLeft = '330px'
-        if (location.pathname.split('/')[1] == 'projects') {
-            var el = document.querySelector('#projects-list-sublist')! as HTMLElement
-            el.style.display = 'block'
-            el = document.querySelector('#tools-list-sublist')! as HTMLElement
-            el.style.display = 'none'
-            el = document.querySelector('#homework-list-sublist')! as HTMLElement
-            el.style.display = 'none'
+        var path = (location.pathname === '/') ? location.pathname : `/${location.pathname.split('/')[1]}`
+        switch (path) {
+            case '/':
+                main.style.marginLeft = '80px'
+                closeNavDrawer()
+                break;
+            case '/about':
+                main.style.marginLeft = '80px'
+                closeNavDrawer()
+                break;
+            case '/projects':
+                var el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                el.style.display = 'block'
+                el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                el.style.display = 'none'
+                el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                el.style.display = 'none'
+                openNavDrawer()
+                break;
+            case '/tools':
+                var el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                el.style.display = 'block'
+                el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                el.style.display = 'none'
+                el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                el.style.display = 'none'
+                openNavDrawer()
+                break;
+            case '/holiday-homeworks':
+                var el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                el.style.display = 'block'
+                el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                el.style.display = 'none'
+                el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                el.style.display = 'none'
+                openNavDrawer()
+                break;
+            default:
+                break;
         }
-        else if (location.pathname.split('/')[1] == 'tools') {
-            var el = document.querySelector('#tools-list-sublist')! as HTMLElement
-            el.style.display = 'block'
-            el = document.querySelector('#projects-list-sublist')! as HTMLElement
-            el.style.display = 'none'
-            el = document.querySelector('#homework-list-sublist')! as HTMLElement
-            el.style.display = 'none'
-        }
-        else if (location.pathname.split('/')[1] == 'holiday-homeworks') {
-            var el = document.querySelector('#homework-list-sublist')! as HTMLElement
-            el.style.display = 'block'
-            el = document.querySelector('#tools-list-sublist')! as HTMLElement
-            el.style.display = 'none'
-            el = document.querySelector('#projects-list-sublist')! as HTMLElement
-            el.style.display = 'none'
-        }
-
-        openNavDrawer()
-
     }
     window.onresize = function () {
         if (window.innerWidth > 1100 && window.innerWidth < 1600) {
@@ -351,6 +444,8 @@ window.onload = function () {
                 }
             }
             main.style.marginLeft = '330px'
+            var categories = document.querySelector('.category-list') as HTMLElement
+            categories.style.display = 'none'
             openNavDrawer()
         }
         else {
@@ -462,44 +557,59 @@ function toggleNavDrawer() {
 function openNavDrawer() {
     var navDrawer = document.querySelector('#nav-drawer') as any
     navDrawer.opened = true;
-    // document.querySelector('main')!.classList.add('scrim-background');
-    // document.querySelector('main')!.onclick = function () { closeNavDrawer() }
-    if (window.innerWidth < 1600 || location.pathname == '/' || location.pathname == '/about') {
+    if (window.innerWidth < 1600) {
         navDrawer.onmouseleave = function () { closeNavDrawer() }
         document.querySelector('main')!.classList.add('scrim-background');
         document.querySelector('main')!.onclick = function () { closeNavDrawer() }
     }
     else {
+        var path = (location.pathname === '/') ? location.pathname : `/${location.pathname.split('/')[1]}`
+        switch (path) {
+            case '/':
+                document.querySelector('main')!.classList.add('scrim-background');
+                break;
+            case '/about':
+                document.querySelector('main')!.classList.add('scrim-background');
+                break;
+            default:
+                break;
+        }
         navDrawer.onmouseleave = function () {
-            if (location.pathname == '/' || location.pathname == '/about') {
-                closeNavDrawer()
+            switch (path) {
+                case '/':
+                    closeNavDrawer()
+                    break;
+                case '/about':
+                    closeNavDrawer()
+                    break;
+                case '/projects':
+                    var el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                    el.style.display = 'block'
+                    el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                    el.style.display = 'none'
+                    el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                    el.style.display = 'none'
+                    break;
+                case '/tools':
+                    var el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                    el.style.display = 'block'
+                    el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                    el.style.display = 'none'
+                    el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                    el.style.display = 'none'
+                    break;
+                case '/holiday-homeworks':
+                    var el = document.querySelector('#homework-list-sublist')! as HTMLElement
+                    el.style.display = 'block'
+                    el = document.querySelector('#tools-list-sublist')! as HTMLElement
+                    el.style.display = 'none'
+                    el = document.querySelector('#projects-list-sublist')! as HTMLElement
+                    el.style.display = 'none'
+                    break;
+                default:
+                    break;
             }
-            else if (location.pathname.split('/')[1] == 'projects') {
-                var el = document.querySelector('#projects-list-sublist')! as HTMLElement
-                el.style.display = 'block'
-                el = document.querySelector('#tools-list-sublist')! as HTMLElement
-                el.style.display = 'none'
-                el = document.querySelector('#homework-list-sublist')! as HTMLElement
-                el.style.display = 'none'
-            }
-            else if (location.pathname.split('/')[1] == 'tools') {
-                var el = document.querySelector('#tools-list-sublist')! as HTMLElement
-                el.style.display = 'block'
-                el = document.querySelector('#projects-list-sublist')! as HTMLElement
-                el.style.display = 'none'
-                el = document.querySelector('#homework-list-sublist')! as HTMLElement
-                el.style.display = 'none'
-            }
-            else if (location.pathname.split('/')[1] == 'holiday-homeworks') {
-                var el = document.querySelector('#homework-list-sublist')! as HTMLElement
-                el.style.display = 'block'
-                el = document.querySelector('#tools-list-sublist')! as HTMLElement
-                el.style.display = 'none'
-                el = document.querySelector('#projects-list-sublist')! as HTMLElement
-                el.style.display = 'none'
-            }
-         }
-        document.querySelector('main')!.style.marginLeft = '330px'
+        }
     }
 }
 

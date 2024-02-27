@@ -24,12 +24,13 @@ exclude:
   - Gemfile
   
 
-# Build settings
 markdown: kramdown
 kramdown:
-  input: GFM  #Github Flavored Markdown
+  input: GFM
   auto_ids: true
 
 liquid:
   error_mode: strict
   strict_filters: true
+
+timezone: Asia/Kolkata

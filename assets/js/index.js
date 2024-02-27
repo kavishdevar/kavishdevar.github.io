@@ -408,7 +408,7 @@ window.onload = function () {
     }
     window.onresize = function () {
         var _a, _b, _c;
-        if (window.innerWidth > 1100 && window.innerWidth < 1600) {
+        if (window.innerWidth > 1100) {
             var el = document.querySelector('.nav-drawer-content');
             var lists = el.querySelectorAll('md-list');
             for (let i = 0; i < lists.length; i++) {
@@ -457,6 +457,7 @@ window.onload = function () {
             var categories = document.querySelector('.category-list');
             categories.style.display = 'block';
             closeNavDrawer();
+            main.style.marginLeft = '0';
         }
     };
 };

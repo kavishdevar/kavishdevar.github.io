@@ -65,7 +65,9 @@ class MdNavigationRail extends HTMLElement {
                             var xa = tabEl;
                             var x = xa.getAttribute('view');
                             x = (x === '/') ? x : x.endsWith('/') ? x.slice(0, -1) : x;
-                            changeViewPreview(x);
+                            if (window.innerWidth > 1600) {
+                                changeViewPreview(x);
+                            }
                             switch (x) {
                                 case '/':
                                     if (window.innerWidth < 1600) {
@@ -333,7 +335,9 @@ window.onload = function () {
         };
         aEl.onmouseenter = function () {
             if (aEl.getAttribute('href') != location.pathname) {
-                changeViewPreview(aEl.getAttribute('href'));
+                if (window.innerWidth > 1600) {
+                    changeViewPreview(aEl.getAttribute('href'));
+                }
             }
         };
         aEl.onmouseleave = function () {

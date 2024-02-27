@@ -7,7 +7,7 @@ layout: default
 hastoc: true
 subtitle: Tool 1
 excerpt_separator: <!--more-->
-permalink: /tools/tool-1/
+permalink: /tools/dummy/
 ---
 
 This is an example of a tool.

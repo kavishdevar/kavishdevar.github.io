@@ -7,7 +7,7 @@
             background-color: var(--md-sys-color-surface);
             color: var(--md-sys-color-on-surface);
             overflow: scroll;
-
+            height: 85%;
             ul {
                 padding-left: 1.5em;
             }
@@ -26,11 +26,9 @@
                 margin-right: 30px;
                 margin-top: 20px;
                 padding: 30px;
-                height: fit-content;
                 position: fixed;
                 top: 0;
                 right: 0;
-                /* height: calc(85dvh - 56px); */
             }
         }
     </style>
@@ -83,11 +81,11 @@
         var html = '';
 
         for (var h2 in headers) {
-            html += '<a href="#' + h2.slugify() + '">' + h2 + '</a>';
+            html += '<a href="{{page.url}}#' + h2.slugify() + '">' + h2 + '</a>';
             if (headers[h2].length > 0) {
                 html += '<br><ul>';
                 for (var ii = 0; ii < headers[h2].length; ii++) {
-                    html += '<li> <a href="#' + headers[h2][ii].slugify() + '">' + headers[h2][ii] + '</a></li>';
+                    html += '<li> <a href="{{page.url}}#' + headers[h2][ii].slugify() + '">' + headers[h2][ii] + '</a></li>';
                 }
                 html += '</ul>';
             }

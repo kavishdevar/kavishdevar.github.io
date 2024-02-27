@@ -112,7 +112,6 @@ header {
     padding: 30px;
     margin-bottom: 100px;
     margin-top: 56px;
-    /* margin-bottom: 0; */
 
     border-radius: 28px;
     background-color: var(--md-sys-color-surface);
@@ -282,11 +281,10 @@ md-navigation-rail {
         display: inline-block;
         margin-left: 30px;
         margin-right: 30px;
-        margin-bottom: 0;
+        margin-bottom: 20px;
         margin-top: 20px;
         min-height: 85dvh;
         height: fit-content;
-        /* height: calc(85dvh - 56px); */
         scroll-behavior: smooth;
     }
 
@@ -321,6 +319,7 @@ md-navigation-rail {
     main {
         margin: 0;
         margin-top: 56px;
+        margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
     }

@@ -1,6 +1,6 @@
 ---
-title: Demo Tool
-titleForNav: Demo Tool
+title: Dummy Tool
+titleForNav: Dummy Tool
 category: Tools
 author: kavish
 layout: default

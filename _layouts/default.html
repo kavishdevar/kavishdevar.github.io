@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="/assets/css/card.css">
     <link rel="stylesheet" href="/assets/css/index.css">
     <script src="/assets/js/top-app-bar.js"></script>
-    {% jekyll.environment == "production" %}
+    {% if jekyll.environment == "production" %}
     <script src="/assets/js/index.mimified.js"></script>
     {% else if jekyll.environment == "development" %}
     <script src="/assets/js/index.js"></script>
@@ -61,6 +61,10 @@
         <md-navigation-tab label="About" view="/about">
             <md-icon slot="active-icon">person</md-icon>
             <md-icon slot="inactive-icon">person</md-icon>
+        </md-navigation-tab>
+        <md-navigation-tab label="Posts" view="/posts">
+            <md-icon slot="active-icon">article</md-icon>
+            <md-icon slot="inactive-icon">article</md-icon>
         </md-navigation-tab>
         <md-navigation-tab label="Projects" view="/projects">
             <md-icon slot="active-icon">code</md-icon>
@@ -173,10 +177,10 @@
             {{content}}
         </div>
         {% if page.hastoc %}
-        {% include aside.html %}
+            {% include aside.html %}
         {% endif %}
     </main>
-    <footer class="desktop-footer" style="display: none;">
+    <footer class="desktop-footer">
         © 2024 - {{author.name}} (Build Version: {{site.github.build_revision}})
     </footer>
     <footer class="mobile-footer">
@@ -207,7 +211,7 @@
             holiday_homeworksLinks[i] = holiday_homeworksLinks[i].replace('\"', '').replace("\"", "")
             holiday_homeworks.set(holiday_homeworksTitles[i], holiday_homeworksLinks[i])
         }
-        categories = ['Home', 'About', 'Projects', 'Tools', 'Holiday Homeworks']
+        categories = ['Home', 'About', 'Posts', 'Projects', 'Tools', 'Holiday Homeworks']
 
         init(categories, projects, tools, holiday_homeworks)
     </script>

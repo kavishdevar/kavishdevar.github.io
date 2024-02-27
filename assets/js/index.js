@@ -122,7 +122,7 @@ class MdNavigationRail extends HTMLElement {
                         this.tabs.forEach(tab => tab.removeAttribute('active'));
                         tab.setAttribute('active', '');
                         changeView(tab.getAttribute('view'));
-                        if (window.innerWidth < 1600) {
+                        if (window.innerWidth < 1100) {
                             closeNavDrawer();
                         }
                         else {

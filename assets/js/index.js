@@ -1,5 +1,4 @@
 class MdNavigationRail extends HTMLElement {
-    tabs;
     constructor() {
         super();
     }
@@ -133,6 +132,7 @@ function changeView(url) {
     xhr.open('GET', new URL(url.toString()), true);
     xhr.send();
     xhr.onreadystatechange = function () {
+        var _a, _b;
         if (xhr.readyState == 4 && xhr.status == 200) {
             var resp = xhr.responseText;
             var parser = new DOMParser();
@@ -143,7 +143,7 @@ function changeView(url) {
             var sourceContent = document.querySelector('.content');
             var targetAside = doc.querySelector('aside');
             if (sourceHasAside && targetAside != null) {
-                document.querySelector('aside')?.replaceWith(targetAside);
+                (_a = document.querySelector('aside')) === null || _a === void 0 ? void 0 : _a.replaceWith(targetAside);
                 document.querySelector('#content-style').innerHTML = doc.querySelector('#content-style').innerHTML;
                 eval(targetAside.querySelector('script').innerText);
             }
@@ -154,7 +154,7 @@ function changeView(url) {
             }
             else if (sourceHasAside && targetAside == null) {
                 document.querySelector('#content-style').innerHTML = doc.querySelector('#content-style').innerHTML;
-                document.querySelector('aside')?.remove();
+                (_b = document.querySelector('aside')) === null || _b === void 0 ? void 0 : _b.remove();
             }
             if (sourceContent != null && targetContent != null) {
                 sourceContent.replaceWith(targetContent);
@@ -167,11 +167,12 @@ function changeView(url) {
                 changeView(a.getAttribute('href'));
             });
             document.querySelectorAll('md-list-item').forEach(b => {
+                var _a, _b;
                 var currentPath = location.pathname;
                 if (currentPath.endsWith('/')) {
                     currentPath = currentPath.slice(0, -1);
                 }
-                var newpath = b.shadowRoot?.querySelector('a')?.getAttribute('href');
+                var newpath = (_b = (_a = b.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('a')) === null || _b === void 0 ? void 0 : _b.getAttribute('href');
                 if (newpath.endsWith('/')) {
                     newpath = newpath.slice(0, -1);
                 }
@@ -216,50 +217,39 @@ window.onload = function () {
         changeView(a.getAttribute('href'));
     });
     changeView(location.pathname);
-    document.querySelectorAll('md-list-item').forEach(a => (a.shadowRoot?.querySelector('a')).onclick = function (e) {
-        e.preventDefault();
-        changeView(a.shadowRoot?.querySelector('a')?.getAttribute('href'));
-        a.classList.add('active-item');
-        document.querySelectorAll('md-list-item').forEach(b => {
-            if (b != a) {
-                b.classList.remove('active-item');
-            }
-        });
+    document.querySelectorAll('md-list-item').forEach(a => {
+        var _a;
+        return ((_a = a.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('a')).onclick = function (e) {
+            var _a, _b;
+            e.preventDefault();
+            changeView((_b = (_a = a.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('a')) === null || _b === void 0 ? void 0 : _b.getAttribute('href'));
+            a.classList.add('active-item');
+            document.querySelectorAll('md-list-item').forEach(b => {
+                if (b != a) {
+                    b.classList.remove('active-item');
+                }
+            });
+        };
     });
-    document.querySelector('.category-list').querySelectorAll('md-list-item').forEach(a => (a.shadowRoot?.querySelector('a')).onclick = function (e) {
-        e.preventDefault();
-        var ahref = a.shadowRoot?.querySelector('a')?.getAttribute('href');
-        changeView(ahref);
-        // if ( ahref == '/' || ahref == '/about') {
-        //     changeView(ahref);
-        // }
-        // else if (ahref == '/projects' || ahref == '/tools' || ahref == '/holiday-homeworks') {
-        //         var categories = document.querySelector('.category-list')! as HTMLElement
-        //         categories.style.display = 'none'
-        //         el = document.querySelector('#projects-list-sublist')! as HTMLElement
-        //         el.style.display = 'none'
-        //         el = document.querySelector('#tools-list-sublist')! as HTMLElement
-        //         el.style.display = 'none'
-        //         el = document.querySelector('#homework-list-sublist')! as HTMLElement
-        //         el.style.display = 'none'
-        //         var smth = ahref.replace('/','') + '-list-sublist'
-        //         console.log(smth)
-        //         var el = document.querySelector(smth)! as HTMLElement
-        //         el.style.display = 'block'
-        //     openNavDrawer()
-        // }
-        a.classList.add('active-item');
-        document.querySelectorAll('md-list-item').forEach(b => {
-            if (b != a) {
-                b.classList.remove('active-item');
-            }
-        });
+    document.querySelector('.category-list').querySelectorAll('md-list-item').forEach(a => {
+        var _a;
+        return ((_a = a.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('a')).onclick = function (e) {
+            var _a, _b;
+            e.preventDefault();
+            var ahref = (_b = (_a = a.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('a')) === null || _b === void 0 ? void 0 : _b.getAttribute('href');
+            changeView(ahref);
+            a.classList.add('active-item');
+            document.querySelectorAll('md-list-item').forEach(b => {
+                if (b != a) {
+                    b.classList.remove('active-item');
+                }
+            });
+        };
     });
     changeView(location.pathname);
     window.onresize = function () {
+        var _a, _b, _c;
         if (window.innerWidth > 1100) {
-            var categories = document.querySelector('.category-list');
-            categories.style.display = 'none';
             var el = document.querySelector('.nav-drawer-content');
             var lists = el.querySelectorAll('md-list');
             for (let i = 0; i < lists.length; i++) {
@@ -271,6 +261,8 @@ window.onload = function () {
                     sublist.style.display = 'none';
                 }
             }
+            var categories = document.querySelector('.category-list');
+            categories.style.display = 'none';
             closeNavDrawer();
         }
         else {
@@ -278,7 +270,7 @@ window.onload = function () {
             var lists = el.querySelectorAll('div');
             for (let i = 0; i < lists.length; i++) {
                 var list = lists[i];
-                if (list.querySelector('md-list-item')?.innerText != 'Projects overview' && list.querySelector('md-list-item')?.innerText != 'Tools overview' && list.querySelector('md-list-item')?.innerText != 'Holiday Homeworks overview') {
+                if (((_a = list.querySelector('md-list-item')) === null || _a === void 0 ? void 0 : _a.innerText) != 'Projects overview' && ((_b = list.querySelector('md-list-item')) === null || _b === void 0 ? void 0 : _b.innerText) != 'Tools overview' && ((_c = list.querySelector('md-list-item')) === null || _c === void 0 ? void 0 : _c.innerText) != 'Holiday Homeworks overview') {
                     list.style.display = 'block';
                 }
                 else {
@@ -375,9 +367,14 @@ function toggleNavDrawer() {
 function openNavDrawer() {
     var navDrawer = document.querySelector('#nav-drawer');
     navDrawer.opened = true;
-    navDrawer.onmouseleave = function () { closeNavDrawer(); };
-    document.querySelector('main').classList.add('scrim-background');
-    document.querySelector('main').onclick = function () { closeNavDrawer(); };
+    if (window.innerWidth > 1800) {
+        navDrawer.onmouseleave = function () { closeNavDrawer(); };
+        document.querySelector('main').classList.add('scrim-background');
+        document.querySelector('main').onclick = function () { closeNavDrawer(); };
+    }
+    else {
+        document.querySelector('main').style.marginLeft = document.querySelector('main').style.marginLeft + document.querySelector('#nav-drawer').clientWidth + 'px';
+    }
 }
 function closeNavDrawer() {
     var navDrawer = document.querySelector('#nav-drawer');

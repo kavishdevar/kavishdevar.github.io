@@ -95,7 +95,7 @@
             <md-icon-button form="form" value="close" aria-label="Close dialog">
                 <md-icon>close</md-icon>
             </md-icon-button>
-        </span> 
+        </span>
         <form id="form" slot="content" method="dialog">
             <theme-changer style="margin-top: -1em;"></theme-changer>
         </form>
@@ -107,7 +107,7 @@
     <md-top-app-bar>
         {% if page.category != "Kavish's Website" %}
         <h3 slot="title" id="title" style="font-weight: normal;">
-            <a href='/' )>{{site.title}}</a>
+            <a href='/'>{{site.title}}</a>
             {% if page.category != page.title %}
             -
             <a href='/{{page.category}}'>{{page.category}}</a>
@@ -146,8 +146,11 @@
     <style id="content-style">
         @media screen and (min-width: 1100px) {
             .content {
-                margin-right: 30%;
-                min-width: 65%;
+                margin-right: 300px;
+                width: 100%;
+                width: -moz-available;
+                width: -webkit-fill-available;
+                width: fill-available;
             }
         }
     </style>

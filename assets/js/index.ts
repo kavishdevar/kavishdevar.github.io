@@ -237,26 +237,7 @@ window.onload = function () {
         e.preventDefault();
         var ahref = a.shadowRoot?.querySelector('a')?.getAttribute('href')!
         changeView(ahref);
-        // if ( ahref == '/' || ahref == '/about') {
-        //     changeView(ahref);
-        // }
-        // else if (ahref == '/projects' || ahref == '/tools' || ahref == '/holiday-homeworks') {
-        //         var categories = document.querySelector('.category-list')! as HTMLElement
-        //         categories.style.display = 'none'
-        //         el = document.querySelector('#projects-list-sublist')! as HTMLElement
-        //         el.style.display = 'none'
-        //         el = document.querySelector('#tools-list-sublist')! as HTMLElement
-        //         el.style.display = 'none'
-        //         el = document.querySelector('#homework-list-sublist')! as HTMLElement
-        //         el.style.display = 'none'
-        //         var smth = ahref.replace('/','') + '-list-sublist'
-        //         console.log(smth)
-        //         var el = document.querySelector(smth)! as HTMLElement
-        //         el.style.display = 'block'
-        //     openNavDrawer()
-        // }
 
-        
         a.classList.add('active-item')
         document.querySelectorAll('md-list-item').forEach(b => {
             if (b != a) {
@@ -268,8 +249,6 @@ window.onload = function () {
 
     window.onresize = function () {
         if (window.innerWidth > 1100) {
-            var categories = document.querySelector('.category-list') as HTMLElement
-            categories.style.display = 'none'
             var el = document.querySelector('.nav-drawer-content')! as HTMLElement
             var lists = el.querySelectorAll('md-list')
             for (let i = 0; i < lists.length; i++) {
@@ -281,6 +260,8 @@ window.onload = function () {
                     sublist.style.display = 'none'
                 }
             }
+            var categories = document.querySelector('.category-list') as HTMLElement
+            categories.style.display = 'none'
             closeNavDrawer()
         }
         else {
@@ -392,9 +373,14 @@ function toggleNavDrawer() {
 function openNavDrawer() {
     var navDrawer = document.querySelector!('#nav-drawer') as any
     navDrawer.opened = true;
-    navDrawer.onmouseleave = function () { closeNavDrawer() }
-    document.querySelector('main')!.classList.add('scrim-background');
-    document.querySelector('main')!.onclick = function () { closeNavDrawer() }
+    if (window.innerWidth > 1800) {
+        navDrawer.onmouseleave = function () { closeNavDrawer() }
+        document.querySelector('main')!.classList.add('scrim-background');
+        document.querySelector('main')!.onclick = function () { closeNavDrawer() }
+    }
+    else {
+        document.querySelector('main')!.style.marginLeft = document.querySelector('main')!.style.marginLeft + document.querySelector('#nav-drawer')!.clientWidth + 'px'
+    }
 }
 
 function closeNavDrawer() {

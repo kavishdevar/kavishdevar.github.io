@@ -30,11 +30,15 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      - name: print env
+        env:
+          AUTH_TOKEN: ${{ secrets.OCTOKIT_AUTH }}
+        # run: echo ${{ secrets.OCTOKIT_AUTH }}
+        run: echo $AUTH_TOKEN
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
           AUTH_TOKEN: ${{ secrets.OCTOKIT_AUTH }}
-        run: echo $AUTH_TOKEN
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./

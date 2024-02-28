@@ -41,7 +41,7 @@
 
 <script type="module">
     import { Octokit } from "https://esm.sh/@octokit/core";
-    AUTH_TOKEN = "{{ site.env.OCTOKIT_AUTH }}";
+    var AUTH_TOKEN = "{{ site.env.OCTOKIT_AUTH }}";
     setTimeout(() => {
         var fileExists = false;
         var sha = ''
@@ -65,9 +65,8 @@ ${markdownText}
                 alert('Please fill all the fields');
                 return;
             }
-            variable = OCTOKIT_AUTH
             var octokit = new Octokit({
-                auth: auth_token
+                auth: AUTH_TOKEN
             })
             var filename = new Date().toISOString().split('T')[0] + '-' + title.toLowerCase().split(' ').join('-') + '.md';
 

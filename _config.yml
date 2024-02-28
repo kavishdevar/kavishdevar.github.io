@@ -3,6 +3,12 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 title: "Kavish's Website" # the name of your site, e.g. ACME Corp.
 repository: "kavishdevar/kavishdevar.github.io" # the GitHub repository for your site, e.g. username/repo
 
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      is_post: true
 
 plugins:
   - "jekyll-github-metadata"

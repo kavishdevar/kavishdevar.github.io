@@ -26,13 +26,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: set auth_token to environment
-        run: echo "OCTOKIT_AUTH=${{ secrets.OCTOKIT_AUTH }}" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
+        env:
+          JEKYLL_ENV: production
+          AUTH_TOKEN: ${{ secrets.OCTOKIT_AUTH }}
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./

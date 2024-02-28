@@ -16,9 +16,15 @@ Here are the latest projects I have been working on:
   * [{{ project.title }}]({{ project.url }})
 {% endfor %}
 
+A few of my recent blog posts:
+
+{% for post in site.posts limit:3 %}
+  * [{{ post.title }}]({{ post.url }})
+{% endfor %}
+
 School Holidays Homeworks:
 
-{% for homework in site.holidayhw %}
+{% for homework in site.holiday-homeworks %}
   * [{{ homework.title }}]({{ homework.url }})
 {% endfor %}
 

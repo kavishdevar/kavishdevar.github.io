@@ -26,6 +26,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: set auth_token
+        run: echo "AUTH_TOKEN='${{ secrets.OCTOKIT_AUTH }}'; export { AUTH_TOKEN }" >> /auth.js
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages

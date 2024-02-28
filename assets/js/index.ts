@@ -114,10 +114,6 @@ class MdNavigationRail extends HTMLElement {
                         }
                         tabEl.onmouseleave = function () {
                             tab_icon_content.style.backgroundColor = ''
-                            changeView(location.pathname)
-                            if (window.innerWidth < 1100 || location.pathname === '/' || location.pathname === '/about') {
-                                closeNavDrawer()
-                            }
                         }
                     }
 
@@ -216,7 +212,6 @@ function changeViewPreview(url: String) {
             var doc = parser.parseFromString(resp, 'text/html');
             var targetContent = doc.querySelector('.content');
             var sourceContent = document.querySelector('.content');
-            console.log("trying at this point")
             if (sourceContent != null && targetContent != null) {
                 sourceContent.replaceWith(targetContent);
             }

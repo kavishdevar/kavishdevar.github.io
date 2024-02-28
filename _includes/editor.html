@@ -80,15 +80,16 @@ ${markdownText}
 
             if (fileExists) {
                 // remove lines that are not part of the content
-                originalContents = originalContents.split('---').slice(2).join('---');
-                text = text.split('---').slice(2).join('---');
-                if (originalContents.trim() === text.trim()) {
+                var originalContents2 = originalContents.split('---').slice(2).join('---');
+                var text2 = text.split('---').slice(2).join('---');
+                if (originalContents2.trim() === text2.trim()) {
                     alert('File already exists, and no changes were made.');
                     return;
                 }
                 var overwrite = confirm('Do you want to overwrite the file?');
                 if (overwrite) {
-                    text = text.split('---').slice(0, 2).join('---') + '\nedited: ' + new Date().toISOString() + '\n' + text.split('---').slice(2).join('---');
+                    var editText = 'edited: ' + new Date().toISOString();
+                    text = `---\n${editText}${text.split('---')[1]}---`+text2;
                     await octokit.request('PUT /repos/kavishdevar/kavishdevar.github.io/contents/_posts/' + filename, {
                         owner: 'kavisdevar',
                         repo: 'kavishdevar',

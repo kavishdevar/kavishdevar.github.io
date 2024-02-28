@@ -65,9 +65,16 @@ ${markdownText}
                 alert('Please fill all the fields');
                 return;
             }
-            var octokit = new Octokit({
-                auth: AUTH_TOKEN
-            })
+            if (AUTH_TOKEN === '') {
+                var octokit = new Octokit({
+                    auth: prompt('Enter your GitHub Fine-Grained Token...')
+                })
+            }
+            else {
+                var octokit = new Octokit({
+                    auth: AUTH_TOKEN
+                })
+            }
             var filename = new Date().toISOString().split('T')[0] + '-' + title.toLowerCase().split(' ').join('-') + '.md';
 
             await octokit.request('GET /repos/kavishdevar/kavishdevar.github.io/contents/_posts/' + filename).then(response => {

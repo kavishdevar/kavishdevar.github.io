@@ -4,7 +4,6 @@ layout: default
 title: Lorem Ipsum
 subtitle: Just a random post...
 titleForNav: Lorem Ipsum
-date: 2024-02-28T18:10:03.229Z
 author: kavish
 ---
 Edited

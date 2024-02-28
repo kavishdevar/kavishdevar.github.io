@@ -81,7 +81,7 @@
         var html = '';
 
         for (var h2 in headers) {
-            html += `<a class="toc-link" href=${h2.slugify()}">${h2}</a>`;
+            html += `<a class="toc-link" href="#${h2.slugify()}">${h2}</a>`;
             if (headers[h2].length > 0) {
                 html += '<br><ul>';
                 for (var ii = 0; ii < headers[h2].length; ii++) {
@@ -95,7 +95,13 @@
         }
 
         document.querySelector('#tableofcontents').innerHTML = html;
-
+        
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                changeView(link.href.replace(window.location.origin, ''));
+            });
+        });
         async function share(text, url) {
             console.log('Sharing', text, url)
             try {

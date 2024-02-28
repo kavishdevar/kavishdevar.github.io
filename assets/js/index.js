@@ -277,15 +277,16 @@ function changeView(url, dontPush = false) {
                 (_b = document.querySelector('aside')) === null || _b === void 0 ? void 0 : _b.remove();
             }
             if (sourceContent != null && targetContent != null) {
-                sourceContent.replaceWith(targetContent);
                 if (url.includes('#')) {
                     console.log(url.split('#')[1]);
                     var id = url.split('#')[1];
                     var element = document.getElementById(id);
-                    if (element) {
+                    console.log(element);
+                    setTimeout(() => {
                         element.scrollIntoView();
-                    }
+                    });
                 }
+                sourceContent.replaceWith(targetContent);
             }
             var rail = document.querySelector('md-navigation-rail');
             if (!dontPush) {
@@ -336,7 +337,6 @@ window.onpopstate = function () {
 };
 window.onload = function () {
     var main = document.querySelector('main');
-    // var aside = document.querySelector('aside')!
     if (window.innerWidth < 1100) {
         var sublists = document.querySelectorAll('.sublist');
         for (let i = 0; i < sublists.length; i++) {

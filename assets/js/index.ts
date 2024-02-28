@@ -284,15 +284,16 @@ function changeView(url: String, dontPush: boolean = false) {
                 document.querySelector('aside')?.remove();
             }
             if (sourceContent != null && targetContent != null) {
-                sourceContent.replaceWith(targetContent);
                 if (url.includes('#')) {
                     console.log(url.split('#')[1])
                     var id = url.split('#')[1];
                     var element = document.getElementById(id);
-                    if (element) {
-                        element.scrollIntoView();
-                    }
+                    console.log(element)
+                    setTimeout(() => {
+                        element!.scrollIntoView();
+                    });
                 }
+                sourceContent.replaceWith(targetContent);
             }
             var rail = document.querySelector('md-navigation-rail') as MdNavigationRail;
             if (!dontPush) { history.pushState({ page: url.toString().split('/').slice(-1).toString().toUpperCase() }, url.toString().split('/').slice(-1).toString().toUpperCase(), url.toString()); }
@@ -301,7 +302,7 @@ function changeView(url: String, dontPush: boolean = false) {
                 e.preventDefault();
                 e.ctrlKey ? window.open(a.getAttribute('href')!) : changeView(a.getAttribute('href')!);
             });
-            document.querySelectorAll('md-list-item').forEach(b => {
+                document.querySelectorAll('md-list-item').forEach(b => {
                 var currentPath = location.pathname
                 if (currentPath.endsWith('/')) {
                     currentPath = currentPath.slice(0, -1)
@@ -342,7 +343,6 @@ window.onpopstate = function () {
 
 window.onload = function () {
     var main = document.querySelector('main')!
-    // var aside = document.querySelector('aside')!
 
     if (window.innerWidth < 1100) {
         var sublists = document.querySelectorAll('.sublist') as NodeListOf<Element>

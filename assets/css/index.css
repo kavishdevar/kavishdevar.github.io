@@ -284,7 +284,6 @@ md-navigation-rail {
         margin-bottom: 20px;
         margin-top: 20px;
         min-height: 85dvh;
-        height: fit-content;
         scroll-behavior: smooth;
     }
 

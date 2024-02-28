@@ -16,6 +16,7 @@ gem "jekyll", "~> 4.3.3"
 group :jekyll_plugins do
  gem "jekyll-github-metadata"
  gem "jekyll-redirect-from"
+ gem 'jekyll-environment-variables'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem

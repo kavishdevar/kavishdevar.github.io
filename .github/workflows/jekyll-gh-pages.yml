@@ -26,8 +26,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: set auth_token
-        run: ls; echo "AUTH_TOKEN='${{ secrets.OCTOKIT_AUTH }}'; export { AUTH_TOKEN }" >> ./auth.js
+      - name: set auth_token to environment
+        run: echo "OCTOKIT_AUTH=${{ secrets.OCTOKIT_AUTH }}" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages

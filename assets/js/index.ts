@@ -285,6 +285,14 @@ function changeView(url: String, dontPush: boolean = false) {
             }
             if (sourceContent != null && targetContent != null) {
                 sourceContent.replaceWith(targetContent);
+                if (url.includes('#')) {
+                    console.log(url.split('#')[1])
+                    var id = url.split('#')[1];
+                    var element = document.getElementById(id);
+                    if (element) {
+                        element.scrollIntoView();
+                    }
+                }
             }
             var rail = document.querySelector('md-navigation-rail') as MdNavigationRail;
             if (!dontPush) { history.pushState({ page: url.toString().split('/').slice(-1).toString().toUpperCase() }, url.toString().split('/').slice(-1).toString().toUpperCase(), url.toString()); }
@@ -389,7 +397,7 @@ window.onload = function () {
         }
     });
 
-    changeView(location.pathname)
+    changeView(location.href.replace(location.origin,''))
 
     if (window.innerWidth > 1600) {
         main.style.marginLeft = '330px'

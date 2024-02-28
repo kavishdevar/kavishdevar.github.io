@@ -278,6 +278,14 @@ function changeView(url, dontPush = false) {
             }
             if (sourceContent != null && targetContent != null) {
                 sourceContent.replaceWith(targetContent);
+                if (url.includes('#')) {
+                    console.log(url.split('#')[1]);
+                    var id = url.split('#')[1];
+                    var element = document.getElementById(id);
+                    if (element) {
+                        element.scrollIntoView();
+                    }
+                }
             }
             var rail = document.querySelector('md-navigation-rail');
             if (!dontPush) {
@@ -382,7 +390,7 @@ window.onload = function () {
             }
         };
     });
-    changeView(location.pathname);
+    changeView(location.href.replace(location.origin, ''));
     if (window.innerWidth > 1600) {
         main.style.marginLeft = '330px';
         var path = (location.pathname === '/') ? location.pathname : `/${location.pathname.split('/')[1]}`;

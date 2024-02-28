@@ -79,6 +79,11 @@ class MdNavigationRail extends HTMLElement {
                                         closeNavDrawer();
                                     }
                                     break;
+                                case '/posts':
+                                    if (window.innerWidth < 1600) {
+                                        closeNavDrawer();
+                                    }
+                                    break;
                                 case '/projects':
                                     var el = document.querySelector('#projects-list-sublist');
                                     el.style.display = 'block';
@@ -129,6 +134,10 @@ class MdNavigationRail extends HTMLElement {
                                         closeNavDrawer();
                                         break;
                                     case '/about':
+                                        main.style.marginLeft = '80px';
+                                        closeNavDrawer();
+                                        break;
+                                    case '/posts':
                                         main.style.marginLeft = '80px';
                                         closeNavDrawer();
                                         break;
@@ -384,6 +393,10 @@ window.onload = function () {
                 main.style.marginLeft = '80px';
                 closeNavDrawer();
                 break;
+            case '/posts':
+                main.style.marginLeft = '80px';
+                closeNavDrawer();
+                break;
             case '/projects':
                 var el = document.querySelector('#projects-list-sublist');
                 el.style.display = 'block';
@@ -577,6 +590,9 @@ function openNavDrawer() {
                     closeNavDrawer();
                     break;
                 case '/about':
+                    closeNavDrawer();
+                    break;
+                case '/posts':
                     closeNavDrawer();
                     break;
                 case '/projects':

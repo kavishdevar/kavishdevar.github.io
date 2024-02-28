@@ -36,7 +36,7 @@ Segregating an object to be discarded/thrown into biodegradable and non-biodegra
 
 <!--title_break-->
 
-## Procedure/Description:
+## Procedure/Description
 ### Train the Model - train.py (Optional)
 - Download the entire dataset from [kaggle](https://www.kaggle.com/datasets/rayhanzamzamy/non-and-biodegradable-waste-dataset).
 - Using `tflite_model_maker`, train the model

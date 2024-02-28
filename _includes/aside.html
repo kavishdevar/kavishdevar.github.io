@@ -81,11 +81,11 @@
         var html = '';
 
         for (var h2 in headers) {
-            html += '<a href="{{page.url}}#' + h2.slugify() + '">' + h2 + '</a>';
+            html += `<a class="toc-link" onclick="scrollToElement('${h2.slugify()}')">${h2}</a>`;
             if (headers[h2].length > 0) {
                 html += '<br><ul>';
                 for (var ii = 0; ii < headers[h2].length; ii++) {
-                    html += '<li> <a href="{{page.url}}#' + headers[h2][ii].slugify() + '">' + headers[h2][ii] + '</a></li>';
+                    html += `<li><a class="toc-link" onclick="scrollToElement('${headers[h2][ii].slugify()}')">${headers[h2][ii]}</a></li>`;
                 }
                 html += '</ul>';
             }
@@ -106,6 +106,11 @@
             } catch (error) {
                 console.log('Sharing failed!', error)
             }
+        }
+        
+        function scrollToElement(elId) {
+            var el = document.getElementById(elId);
+            el.scrollIntoView();
         }
     </script>
     <md-elevation3 style="--md-elevation-level: 4;"></md-elevation3>

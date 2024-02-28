@@ -289,7 +289,7 @@ function changeView(url: String, dontPush: boolean = false) {
             var rail = document.querySelector('md-navigation-rail') as MdNavigationRail;
             if (!dontPush) { history.pushState({ page: url.toString().split('/').slice(-1).toString().toUpperCase() }, url.toString().split('/').slice(-1).toString().toUpperCase(), url.toString()); }
             rail.setActiveTabByView(`/${location.pathname.split('/')[1]}`);
-            document.querySelectorAll('a').forEach(a => a.onclick = function (e) {
+            document.querySelectorAll('a:not(.toc-link)').forEach(a => (a as HTMLElement).onclick = function (e) {
                 e.preventDefault();
                 e.ctrlKey ? window.open(a.getAttribute('href')!) : changeView(a.getAttribute('href')!);
             });
@@ -343,7 +343,7 @@ window.onload = function () {
             sublist.style.display = 'none'
         }
     }
-    document.querySelectorAll('a').forEach(a => (a as HTMLElement).onclick = function (e) {
+    document.querySelectorAll('a:not(.toc-link)').forEach(a => (a as HTMLElement).onclick = function (e) {
         e.preventDefault();
         e.ctrlKey ? window.open(a.getAttribute('href')!) : changeView(a.getAttribute('href')!);
     });

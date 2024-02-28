@@ -284,7 +284,7 @@ function changeView(url) {
             rail.setActiveTabByView(`/${location.pathname.split('/')[1]}`);
             document.querySelectorAll('a').forEach(a => a.onclick = function (e) {
                 e.preventDefault();
-                changeView(a.getAttribute('href'));
+                e.ctrlKey ? window.open(a.getAttribute('href')) : changeView(a.getAttribute('href'));
             });
             document.querySelectorAll('md-list-item').forEach(b => {
                 var _a, _b;
@@ -336,14 +336,14 @@ window.onload = function () {
     }
     document.querySelectorAll('a').forEach(a => a.onclick = function (e) {
         e.preventDefault();
-        changeView(a.getAttribute('href'));
+        e.ctrlKey ? window.open(a.getAttribute('href')) : changeView(a.getAttribute('href'));
     });
     document.querySelectorAll('md-list-item').forEach(a => {
         var _a;
         var aEl = (_a = a.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('a');
         (aEl).onclick = function (e) {
             e.preventDefault();
-            changeView(aEl.getAttribute('href'));
+            e.ctrlKey ? window.open(aEl.getAttribute('href')) : changeView(aEl.getAttribute('href'));
             a.classList.add('active-item');
             document.querySelectorAll('md-list-item').forEach(b => {
                 if (b != a) {
@@ -368,7 +368,7 @@ window.onload = function () {
             var _a, _b;
             e.preventDefault();
             var ahref = (_b = (_a = a.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('a')) === null || _b === void 0 ? void 0 : _b.getAttribute('href');
-            changeView(ahref);
+            e.ctrlKey ? window.open(ahref) : changeView(ahref);
             a.classList.add('active-item');
             document.querySelectorAll('md-list-item').forEach(b => {
                 if (b != a) {

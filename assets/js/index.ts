@@ -291,7 +291,7 @@ function changeView(url: String) {
             rail.setActiveTabByView(`/${location.pathname.split('/')[1]}`);
             document.querySelectorAll('a').forEach(a => a.onclick = function (e) {
                 e.preventDefault();
-                changeView(a.getAttribute('href')!);
+                e.ctrlKey ? window.open(a.getAttribute('href')!) : changeView(a.getAttribute('href')!);
             });
             document.querySelectorAll('md-list-item').forEach(b => {
                 var currentPath = location.pathname
@@ -345,14 +345,14 @@ window.onload = function () {
     }
     document.querySelectorAll('a').forEach(a => (a as HTMLElement).onclick = function (e) {
         e.preventDefault();
-        changeView(a.getAttribute('href')!);
+        e.ctrlKey ? window.open(a.getAttribute('href')!) : changeView(a.getAttribute('href')!);
     });
 
     document.querySelectorAll('md-list-item').forEach(a => {
         var aEl = a.shadowRoot?.querySelector('a') as HTMLElement
         (aEl).onclick = function (e) {
             e.preventDefault();
-            changeView(aEl.getAttribute('href')!);
+            e.ctrlKey ? window.open(aEl.getAttribute('href')!) : changeView(aEl.getAttribute('href')!);
             a.classList.add('active-item')
             document.querySelectorAll('md-list-item').forEach(b => {
                 if (b != a) {
@@ -376,7 +376,7 @@ window.onload = function () {
     document.querySelector('.category-list')!.querySelectorAll('md-list-item').forEach(a => (a.shadowRoot?.querySelector('a') as HTMLElement).onclick = function (e) {
         e.preventDefault();
         var ahref = a.shadowRoot?.querySelector('a')?.getAttribute('href')!
-        changeView(ahref);
+        e.ctrlKey ? window.open(ahref) : changeView(ahref);
 
         a.classList.add('active-item')
         document.querySelectorAll('md-list-item').forEach(b => {

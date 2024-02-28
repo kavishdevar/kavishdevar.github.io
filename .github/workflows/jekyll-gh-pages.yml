@@ -34,6 +34,7 @@ jobs:
         env:
           JEKYLL_ENV: production
           AUTH_TOKEN: ${{ secrets.OCTOKIT_AUTH }}
+        run: echo $AUTH_TOKEN
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./

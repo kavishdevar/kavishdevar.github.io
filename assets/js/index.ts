@@ -250,7 +250,7 @@ function changeViewPreview(url: String) {
     }
 }
 
-function changeView(url: String) {
+function changeView(url: String, dontPush: boolean = false) {
     url = `${location.origin}${url.replace(' ', '-').toLowerCase()}`;
     var sourceHasAside = document.querySelector('aside') != null;
     var xhr = new XMLHttpRequest();
@@ -287,7 +287,7 @@ function changeView(url: String) {
                 sourceContent.replaceWith(targetContent);
             }
             var rail = document.querySelector('md-navigation-rail') as MdNavigationRail;
-            history.pushState({ page: url.toString().split('/').slice(-1).toString().toUpperCase() }, url.toString().split('/').slice(-1).toString().toUpperCase(), url.toString());
+            if (!dontPush) { history.pushState({ page: url.toString().split('/').slice(-1).toString().toUpperCase() }, url.toString().split('/').slice(-1).toString().toUpperCase(), url.toString()); }
             rail.setActiveTabByView(`/${location.pathname.split('/')[1]}`);
             document.querySelectorAll('a').forEach(a => a.onclick = function (e) {
                 e.preventDefault();
@@ -329,7 +329,7 @@ function changeView(url: String) {
     }
 }
 window.onpopstate = function () {
-    changeView(location.pathname);
+    changeView(location.pathname, true);
 };
 
 window.onload = function () {

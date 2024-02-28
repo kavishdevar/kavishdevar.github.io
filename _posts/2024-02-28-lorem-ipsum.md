@@ -1,5 +1,5 @@
 ---
-layout: defualt
+layout: default
 title: Lorem Ipsum
 subtitle: Just a random post...
 titleForNav: Lorem Ipsum
@@ -11,5 +11,5 @@ btw, you can press
 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> to open a terminal on most linux distros.
 
 Here's a random image...
+
 ![A Random Image](https://picsum.photos/600/320)
-            

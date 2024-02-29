@@ -24,11 +24,21 @@ redirect_from:
     line-height: 1;
     letter-spacing: -1px;
   }
+  @media (prefers-color-scheme: dark) {
+    img {
+      content: url("/assets/img/404-dark.png");
+    }
+  }
+  img {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    content: url("/assets/img/404-light.png");
+  }
 </style>
 
 <div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+  <img alt="404"/>
+  <p><strong>This page cannot be found</strong></p>
+  <p>Try a different destination or head back to the <a href='/'>homepage</a>.</p>
 </div>

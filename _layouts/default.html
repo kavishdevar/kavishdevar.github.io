@@ -175,25 +175,25 @@
         <div class="content">
             <h1>{{page.title}}</h1>
             {% if page.is_post %}
-                <h4 style="font-style: italic; font-weight: normal;">
-                    Published: {{ page.date | date: '%A, %B %d, %Y (%Z)' }}
-                    {% if page.edited %}
-                    <br>Edited: {{ page.edited | date: '%c'}}
-                    {% endif %}
-                </h4>
+            <h4 style="font-style: italic; font-weight: normal;">
+                Published: {{ page.date | date: '%A, %B %d, %Y (%Z)' }}
+                {% if page.edited %}
+                <br>Edited: {{ page.edited | date: '%c'}}
+                {% endif %}
+            </h4>
             {% endif %}
             {{content}}
         </div>
         {% if page.hastoc %}
-            {% include aside.html %}
+        {% include aside.html %}
         {% endif %}
     </main>
-    <footer class="desktop-footer">
+    <div class="desktop-cr cr">
         © 2024 - {{author.name}} (Build Version: {{site.github.build_revision}})
-    </footer>
-    <footer class="mobile-footer">
+    </div>
+    <div class="mobile-cr cr">
         © 2024 - {{author.name}}
-    </footer>
+    </div>
     <script>
         const projectsTitles = '{{projectsArray | jsonify}}'.replace('[', '').replace(']', '').replace('"', '').split(',')
         const toolsTitles = '{{toolsArray | jsonify}}'.replace('[', '').replace(']', '').replace('"', '').split(',')

@@ -13,18 +13,17 @@ const hashValue = val =>
             return hexes.join('');
         });
 var token = prompt('Enter your GitHub (Fine-Grained) Token...')
-hashValue(
-    token
-).then(h => {
+hashValue(token).then(h => {
     console.log(h);
-    while (h != 'c52f5ad31cd561cb3ac5b34de0339bdf4715ae4900c853e2bd7b0edad9b1ad48'){
-        prompt('Invalid token. Enter your GitHub (Fine-Grained) Token...')
+    if (h != 'c52f5ad31cd561cb3ac5b34de0339bdf4715ae4900c853e2bd7b0edad9b1ad48') {
+        alert('Invalid token. Please try again.');
     }
-    octokit = new Octokit({
-        auth: token
-    })
-}
-)
+    else {
+        octokit = new Octokit({
+            auth: token
+        })
+    }
+})
 setTimeout(() => {
     var fileExists = false;
     var sha = ''
@@ -73,7 +72,7 @@ ${markdownText}
                 text = `---\n${editText}${text.split('---')[1]}---` + text2;
                 await octokit.request('PUT /repos/kavishdevar/kavishdevar.github.io/contents/_posts/' + filename, {
                     owner: 'kavisdevar',
-                    repo: 'kavishdevar',
+                    repo: 'kavishdevar.github.io',
                     path: '/_posts/' + filename,
                     message: 'Add File',
                     sha: sha,
@@ -100,7 +99,7 @@ ${markdownText}
         else if (!fileExists) {
             await octokit.request('PUT /repos/kavishdevar/kavishdevar.github.io/contents/_posts/' + filename, {
                 owner: 'kavisdevar',
-                repo: 'kavishdevar',
+                repo: 'kavishdevar.github.io',
                 path: '/_posts/' + filename,
                 message: 'Add File',
                 committer: {

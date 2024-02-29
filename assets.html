@@ -1,0 +1,25 @@
+---
+layout: default
+title: Upload Asset
+titleForNav: Upload Asset
+author: kavish
+permalink: /assets/upload
+---
+
+<!-- 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 -->
+<script type="module" src="/assets/js/uploader.js"></script>
+
+<md-outlined-text-field id="path" label="Path" prefix-text="/assets/" suffix-text="/filetype/" value="/"></md-outlined-text-field>
+<md-outlined-text-field id="file-name" label="File Name" maxlength="30"></md-outlined-text-field>
+<br>
+<div class="file-input-container"
+  style="display: flex; align-items: center; width: 100%; height: 30dvh; border: 5px dashed var(--md-sys-color-outline); border-radius: 28px; margin-top: 1em; margin-bottom: 1em; padding-top: 50px; padding-bottom: 50px">
+  <md-icon id="upload-icon"
+    style="align-self: center; justify-content: center; width: 100%; margin-top: -6rem; font-size: 5em; height: auto; font-weight: 1000;">file_upload</md-icon>
+  <h1 id="heading" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; margin-left: -100%;">
+    <br>
+    Click or drag a file here to upload
+  </h1>
+  <input type="file" id="file" style="width: 100%; height: 100%; opacity: 0; margin-left: -100%" />
+</div>
+<md-filled-button id="upload-button">Upload</md-filled-button>

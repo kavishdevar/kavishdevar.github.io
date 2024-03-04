@@ -12,7 +12,51 @@ subtitle: Add a question and its official answer (according to the marking schem
 
 {{page.subtitle}}
 
+<blockquote>
+    <p>
+        <strong>NOTE:</strong> This tool is for adding questions and their official answers to the database. The
+        questions and answers should be according to the marking scheme released by CBSE.
+
+        <strong>Disclaimer: </strong>
+    <ul>
+        <li>I am, in no way, associated/affiliated with CBSE.</li>
+        <li>The submission of this form is not a guarantee that the question will be added to the database.</li>
+        <li>The question will be reviewed and then added to the database.</li>
+        <li>I am not responsible for any misuse of the data provided here.</li>
+        <li>The data provided here is for the sole purpose of helping students and teachers.</li>
+        <li>The data provided here is not to be used for any commercial or illegal purposes.</li>
+    </ul>
+    </p>
+    <p>
+        <strong>Guide to add images:</strong>
+    <ul>
+        <li>To add images, upload the image to the <a href="/assets/cbse/upload" target="_blank">CBSE
+                Asset Uploader</a> and then use the following code to add the image to the content, OR, use the copied
+            code from the asset uploader.
+        </li>
+        <code class="language-html" style="display: inline-flex; width: 95%; vertical-align: super;">
+                &lt;img src='/assets/{subject}/{source}/{set}/{year}/img/{filename}' alt='Image'/&gt;
+            </code>
+        <md-filled-icon-button style="display: inline-flex;"
+            onlick="navigator.clipboard.writeText(`&lt;img src='/assets/{subject}/{source}/{set}/{year}/img/{filename}' alt='Image'&gt;`)">
+            <md-icon>content_copy</md-icon>
+        </md-filled-icon-button>
+        </div>
+        <li>Please do not re-upload the images if they are already uploaded. It will only increase the server
+            load.</li>
+        <br>
+        <strong>You are recommended to name the file as per the guidlines given:</strong>
+        <ul>
+            <li>For questions: <code>q{questionNumber}{imagenumber}</code></li>
+            <li>For answers: <code>a{questionNumber}{imagenumber}</code></li>
+            <li>For MCQs: <code>q{questionNumber}{option}</code></li>
+        </ul>
+    </ul>
+    </p>
+</blockquote>
+
 <!--more-->
+
 <style>
     md-filled-tonal-button,
     md-filled-button,
@@ -46,15 +90,18 @@ subtitle: Add a question and its official answer (according to the marking schem
     <md-select-option value="information-technology">Information Technology</md-select-option>
 </md-outlined-select>
 
-<md-outlined-text-field name="question-source" id="question-source" label="Question Source" required></md-outlined-text-field>
+<md-outlined-text-field name="question-source" id="question-source" label="Question Source"
+    required></md-outlined-text-field>
 <md-outlined-text-field name="answer-source" id="answer-source" label="Answer Source" required></md-outlined-text-field>
 
-<md-outlined-text-field name="Question" id="question" label="Question" type="textarea" required></md-outlined-text-field>
+<md-outlined-text-field name="Question" id="question" label="Question" type="textarea"
+    required></md-outlined-text-field>
 
 <form id="subjective">
     <div id="answers">
         <div id="answer-part[1]">
-            <md-outlined-text-field name="answer[1]" id="answer[1]" label="Answer" type="textarea" required></md-outlined-text-field>
+            <md-outlined-text-field name="answer[1]" id="answer[1]" label="Answer" type="textarea"
+                required></md-outlined-text-field>
             <md-outlined-text-field name="marks[1]" id="marks[1]" label="Marks" required type="number"
                 step="0.5"></md-outlined-text-field>
         </div>
@@ -78,15 +125,18 @@ subtitle: Add a question and its official answer (according to the marking schem
 <form id="subparts-form" hidden>
     <div id="subparts">
         <div id="subpart[1]" data-subpart-number="1">
-            <md-outlined-text-field name="subpart-question[1]" id="subpart-question[1]" label="Subpart Question" required></md-outlined-text-field>
+            <md-outlined-text-field name="subpart-question[1]" id="subpart-question[1]" label="Subpart Question"
+                required></md-outlined-text-field>
             <div id="subpart-answers[1]" data-subpart="1">
                 <div id="subpart-answer-part[1]">
-                    <md-outlined-text-field name="subpart-answer[1]" id="subpart-answer[1]" label="Answer" type="textarea" data-subpart='1' data-subpart-answer-part="1" required></md-outlined-text-field>
-                    <md-outlined-text-field name="marks[1]" id="marks[1]" label="Marks" required type="number" data-subpart='1' data-subpart-answer-part="1"
-                        step="0.5"></md-outlined-text-field>
+                    <md-outlined-text-field name="subpart-answer[1]" id="subpart-answer[1]" label="Answer"
+                        type="textarea" data-subpart='1' data-subpart-answer-part="1" required></md-outlined-text-field>
+                    <md-outlined-text-field name="marks[1]" id="marks[1]" label="Marks" required type="number"
+                        data-subpart='1' data-subpart-answer-part="1" step="0.5"></md-outlined-text-field>
                 </div>
             </div>
-            <md-outlined-button type="button" id="add-subpart-answer-part" data-subpart="1">Add Answer Part</md-outlined-button>
+            <md-outlined-button type="button" id="add-subpart-answer-part" data-subpart="1">Add Answer
+                Part</md-outlined-button>
         </div>
     </div>
     <md-filled-tonal-button type="button" id="add-subpart">Add Subpart</md-filled-tonal-button>

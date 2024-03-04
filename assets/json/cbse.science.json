@@ -89,16 +89,16 @@
         "question": "Which of the following structures correctly represent the electron dot structure of a Nitrogen molecule?",
         "type": "mcq",
         "answer": {
-            "B. <img src='/assets/cbse/science/additionalpq/2/24/img/6b.png'/>": 1
+            "B. <img src='/assets/cbse/science/additionalpq/2/24/img/q6b.png'/>": 1
         },
         "subparts": {},
         "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
         "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf",
         "options": {
-            "a. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/6c.png'/>",
-            "b. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/6b.png'/>",
-            "c. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/6c.png'/>",
-            "d. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/6d.png'/>"
+            "a. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6c.png'/>",
+            "b. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6b.png'/>",
+            "c. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6c.png'/>",
+            "d. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6d.png'/>"
         }
     }
 }

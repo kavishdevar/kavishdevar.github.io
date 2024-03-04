@@ -80,7 +80,8 @@ setTimeout(() => {
                     'X-GitHub-Api-Version': '2022-11-28'
                 }
             }).then(response => {
-                alert('uploaded Successfully');
+                alert('Uploaded Successfully. Path is:', absoluteFilePath);
+                if (confirm('Copy image tag to clipboard?')) { navigator.clipboard.writeText(`<img src="${absoluteFilePath}" alt="${filename}">`); }
             }).catch(error => {
                 alert('Error Occured');
             });
@@ -98,17 +99,17 @@ setTimeout(() => {
             console.log(content);
         }
         var type = file.type.split('/')[1];
-        if (type==='png' || type==='jpg' || type==='jpeg' || type==='gif' || type==='svg' || type==='webp') {
+        if (type === 'png' || type === 'jpg' || type === 'jpeg' || type === 'gif' || type === 'svg' || type === 'webp') {
             filePathEl.suffixText = '/img/';
         }
-        else if (type==='mp4' || type==='webm' || type==='ogg') {
+        else if (type === 'mp4' || type === 'webm' || type === 'ogg') {
             filePathEl.suffixText = '/video/';
         }
-        else if (type==='mp3' || type==='wav' || type==='flac' || type==='ogg') {
+        else if (type === 'mp3' || type === 'wav' || type === 'flac' || type === 'ogg') {
             filePathEl.suffixText = '/audio/';
         }
         // documents
-        else if (type==='pdf' || type==='doc' || type==='docx' || type==='ppt' || type==='pptx' || type==='xls' || type==='xlsx' || type==='txt' || type === 'odt' || type === 'ods' || type === 'odp' || type === 'odg' || type === 'odf' || type === 'odc' || type === 'odi' || type === 'odm' || type === 'odp' || type === '.key' || type === '.pages' || type === '.numbers') {
+        else if (type === 'pdf' || type === 'doc' || type === 'docx' || type === 'ppt' || type === 'pptx' || type === 'xls' || type === 'xlsx' || type === 'txt' || type === 'odt' || type === 'ods' || type === 'odp' || type === 'odg' || type === 'odf' || type === 'odc' || type === 'odi' || type === 'odm' || type === 'odp' || type === '.key' || type === '.pages' || type === '.numbers') {
             filePathEl.suffixText = '/docs/';
         }
         else {

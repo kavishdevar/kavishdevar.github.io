@@ -116,18 +116,18 @@ setTimeout(() => {
                     "answer-source": answerSource.value,
                 };
                 if (typeSelect.value === "mcq") {
-                    let answer = document.getElementById("correct-option").value + ". " + document.getElementById(document.getElementById("correct-option").value.toLowerCase()).value;
+                    let answer = document.getElementById("correct-option").value + ". " + document.getElementById(document.getElementById("correct-option").value.toLowerCase()).value.replace('"', "'");
                     data.options = {};
-                    data.options["a. "] = document.getElementById("a").value;
-                    data.options["b. "] = document.getElementById("b").value;
-                    data.options["c. "] = document.getElementById("c").value;
-                    data.options["d. "] = document.getElementById("d").value;
+                    data.options["a. "] = document.getElementById("a").value.replace('"', "'");
+                    data.options["b. "] = document.getElementById("b").value.replace('"', "'");
+                    data.options["c. "] = document.getElementById("c").value.replace('"', "'");
+                    data.options["d. "] = document.getElementById("d").value.replace('"', "'");
                     data.answer[answer] = 1;
                 }
                 else if (hasSubParts.checked) {
                     for (let i = 0; i < subparts.childElementCount ; i++){
                         setTimeout(() => {
-                            let subPartQuestion = document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").value;
+                            let subPartQuestion = document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").value.replace('"', "'");
                             let subPartAnswers = document.getElementById("subpart-answers[" + (i + 1) + "]");
                             let subPartAnswerParts = document.getElementById("subpart-answers[" + (i + 1) + "]").childElementCount;
                             data.subparts[subPartQuestion] = {
@@ -135,7 +135,7 @@ setTimeout(() => {
                             };
                             for (let j = 0; j < subPartAnswerParts; j++) {
                                 setTimeout(() => {
-                                    let subPartAnswer = subPartAnswers.querySelector("#subpart-answer\\[" + (j + 1) + "\\]").value;
+                                    let subPartAnswer = subPartAnswers.querySelector("#subpart-answer\\[" + (j + 1) + "\\]").value.replace('"', "'");
                                     let subPartMarks = subPartAnswers.querySelector("#marks\\[" + (j + 1) + "\\]").value;
                                     data.subparts[subPartQuestion].answer[subPartAnswer] = subPartMarks;
                                 });
@@ -146,7 +146,7 @@ setTimeout(() => {
                 else {
                     for (let i = 0; i < answerPartID; i++) {
                         setTimeout(() => {
-                            let answer = document.querySelector("#answer\\[" + (i + 1) + "\\]").value;
+                            let answer = document.querySelector("#answer\\[" + (i + 1) + "\\]").value.replace('"', "'");
                             let marks = document.querySelector("#marks\\[" + (i + 1) + "\\]").value;
                             data.answer[answer] = marks;
                         });
@@ -155,7 +155,7 @@ setTimeout(() => {
                 console.log("Data: ", data)
                 originalJSON[questionID] = data;
                 console.log(originalJSON);
-                // pushAndCreatePR(question, fileName, originalJSON);
+                pushAndCreatePR(question, fileName, originalJSON);
             }
         }
     });

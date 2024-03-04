@@ -4,7 +4,7 @@ titleForNav: CBSE Class 10 Science Questions
 category: Tools
 author: kavish
 layout: default
-hastoc: true
+hastoc: false
 subtitle: Tool 1
 excerpt_separator: <!--more-->
 permalink: /tools/cbse/science
@@ -45,7 +45,7 @@ resource for students to practice and understand the marking scheme of the CBSE 
             var optionsText = "";
             if (questionType == "mcq" && options) {
                 for (var option in options) {
-                    optionsText += option + " " + options[option] + "<br>";
+                    optionsText += option + " " + options[option] + "<br><br>";
                 }
             }
             else {
@@ -78,18 +78,23 @@ resource for students to practice and understand the marking scheme of the CBSE 
                 cardSecondary.className = "card__secondary body-medium";
 
                 const cardContent = document.createElement("p");
-                cardContent.textContent = content;
+                console.log(content);
+                console.log(questionType);
+                
+                if (questionType == 'mcq') {
+                    cardContent.innerHTML = `Correct Answer:<br>${Object.keys(content)[0]}`;
+                }
 
-                cardContent.textContent = "";
+                // cardContent.innerHTML = "";
 
                 if (answerType == "subparts") {
                     for (var number = 0; number < Object.keys(content).length; number++) {
                         var subpart = Object.keys(content)[number];
                         var answers = content[subpart].answer;
                         subpart = number + 1 + ". " + subpart;
-                        
+
                         const subpartQuestion = document.createElement("h2");
-                        subpartQuestion.textContent = subpart;
+                        subpartQuestion.innerHTML = subpart;
                         const subpartAnswerDiv = document.createElement("div");
                         var ul = document.createElement("ul");
                         subpartAnswerDiv.appendChild(ul);
@@ -99,17 +104,17 @@ resource for students to practice and understand the marking scheme of the CBSE 
                             var answerText = answer
                             var mark = answers[answer]
                             const answerEl = document.createElement("p");
-                            answerEl.textContent = answerText;
+                            answerEl.innerHTML = answerText;
                             answerEl.style.display = "inline-block";
                             answerEl.style.width = "90%";
                             const answerMark = document.createElement("p");
-                            answerMark.textContent = 'Marks: ' + mark;
+                            answerMark.innerHTML = 'Marks: ' + mark;
                             answerMark.style.display = "inline-block";
                             li.appendChild(answerEl);
                             li.appendChild(answerMark);
                             ul.appendChild(li);
                         }
-                        
+
                         cardContent.appendChild(subpartQuestion);
                         cardContent.appendChild(subpartAnswerDiv);
                     }
@@ -119,15 +124,17 @@ resource for students to practice and understand the marking scheme of the CBSE 
                         var answerText = answer
                         var mark = content[answer]
                         const answerEl = document.createElement("p");
-                        answerEl.textContent = answerText;
+                        if (questionType == 'mcq') {
+                            answerEL = `Correct Answer:<br>${answerText}`;
+                        }
+                        else { answerEl.innerHTML = answerText; }
                         answerEl.style.display = "inline-block";
                         answerEl.style.width = "90%";
                         cardContent.appendChild(answerEl);
                         const answerMark = document.createElement("p");
-                        answerMark.textContent = 'Marks: ' + mark;
+                        answerMark.innerHTML = 'Marks: ' + mark;
                         answerMark.style.display = "inline-block";
                         cardContent.appendChild(answerMark);
-
                     }
                 }
 

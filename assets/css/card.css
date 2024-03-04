@@ -17,9 +17,9 @@
 	}
 }
 
-.card img:not(:first-child) {
+/* .card img:not(:first-child) {
 	padding-bottom: 16px;
-}
+} */
 
 .card--with-custom-borders {
 	--md-card-container-shape: 24px 8px;

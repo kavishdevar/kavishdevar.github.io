@@ -75,32 +75,7 @@ setTimeout(() => {
                 alert('File already exists, and no changes were made.');
                 return;
             }
-            var overwrite = confirm('Do you want to overwrite the file?');
-            if (overwrite) {
-                await octokit.request('PUT /repos/kavishdevar/kavishdevar.github.io/contents' + absoluteFilePath, {
-                    owner: 'kavisdevar',
-                    repo: 'kavishdevar.github.io',
-                    path: absoluteFilePath,
-                    message: 'Edit File',
-                    sha: sha,
-                    committer: {
-                        name: 'Web Editor',
-                        email: 'web.editor@kavishdevar.me'
-                    },
-                    content: content,
-                    headers: {
-                        'X-GitHub-Api-Version': '2022-11-28'
-                    }
-                }).then(response => {
-                    alert('uploaded Successfully');
-                }).catch(error => {
-                    console.log(error);
-                    alert('Error Occured');
-                });
-            }
-            else {
-                alert('Please change the file name and try again');
-            }
+            alert('Please change the file name and try again');
             return;
         }
         else if (!fileExists) {

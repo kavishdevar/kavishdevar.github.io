@@ -1,6 +1,6 @@
 {
     "1": {
-        "question": " An organic compound ‘P’ is a constituent of wines. ‘P’ on reacting with acidified K2Cr2O7 forms another compound ‘Q’. When a piece of sodium is added to ‘Q’, a gas ‘R’ evolves which burns with a pop sound when a burning matchstick is brought near it.",
+        "question": "An organic compound ‘P’ is a constituent of wines. ‘P’ on reacting with acidified K2Cr2O7 forms another compound ‘Q’. When a piece of sodium is added to ‘Q’, a gas ‘R’ evolves which burns with a pop sound when a burning matchstick is brought near it.",
         "type": "long-answer",
         "subparts": {
             "Give the chemical name of compound P.": {
@@ -68,5 +68,37 @@
         "answer": {},
         "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ.pdf",
         "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+    },
+    "3": {
+        "question": "Which of the following is a correct statement?",
+        "type": "mcq",
+        "subparts": {},
+        "options": {
+            "a. ": "The gas evolved when ethanol reacts with sodium is ethane.",
+            "b": "The gas evolved when ethanol reacts with sodium is ethene.",
+            "c": "The gas evolved when ethanol reacts with sodium is hydrogen.",
+            "d": "The gas evolved when ethanol reacts with sodium is methane."
+        },
+        "answer": {
+            "c. The gas evolved when ethanol reacts with sodium is hydrogen.": 1
+        },
+        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ.pdf",
+        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+    },
+    "4": {
+        "question": "Which of the following structures correctly represent the electron dot structure of a Nitrogen molecule?",
+        "type": "mcq",
+        "answer": {
+            "B. <img src='/assets/cbse/science/additionalpq/24/img/6b.png'/>": 1
+        },
+        "subparts": {},
+        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf",
+        "options": {
+            "a. ": "<img src='/assets/cbse/science/additionalpq/24/img/6a.png'/>",
+            "b. ": "<img src='/assets/cbse/science/additionalpq/24/img/6b.png'/>",
+            "c. ": "<img src='/assets/cbse/science/additionalpq/24/img/6c.png'/>",
+            "d. ": "<img src='/assets/cbse/science/additionalpq/24/img/6d.png'/>"
+        }
     }
 }

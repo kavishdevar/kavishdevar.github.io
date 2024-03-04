@@ -294,10 +294,8 @@ function changeView(url: String, dontPush: boolean = false) {
             }
             if (sourceContent != null && targetContent != null) {
                 if (url.includes('#')) {
-                    console.log(url.split('#')[1])
                     var id = url.split('#')[1];
                     var element = document.getElementById(id);
-                    console.log(element)
                     setTimeout(() => {
                         element!.scrollIntoView();
                     });
@@ -314,7 +312,7 @@ function changeView(url: String, dontPush: boolean = false) {
                 e.preventDefault();
                 e.ctrlKey ? window.open(a.getAttribute('href')!) : changeView(a.getAttribute('href')!);
             });
-                document.querySelectorAll('md-list-item').forEach(b => {
+            document.querySelectorAll('md-list-item').forEach(b => {
                 var currentPath = location.pathname
                 if (currentPath.endsWith('/')) {
                     currentPath = currentPath.slice(0, -1)
@@ -346,6 +344,27 @@ function changeView(url: String, dontPush: boolean = false) {
             }
             var main = document.querySelector('main')!
             main.style.opacity = '1'
+
+            var codeDivEls = document.querySelectorAll('div[class*=\'language-\']:not([class=\'language-plaintext\'])') as NodeListOf<HTMLElement>
+
+            for (let i = 0; i < codeDivEls.length; i++) {
+                var codePreEl = codeDivEls[i].querySelector('pre')!
+                codePreEl.style.position = 'relative'
+                var codeEl = codeDivEls[i].querySelector('code')!
+                var button = document.createElement('md-filled-icon-button')
+                codeEl.style.width = '95%'
+                button.style.position = 'absolute'
+                button.style.right = '0'
+                button.style.top = '0'
+                let currentCode = codeEl.innerText;
+                button.onclick = function () {
+                    navigator.clipboard.writeText(currentCode)
+                }
+                var icon = document.createElement('md-icon')
+                icon.innerText = 'content_copy'
+                button.appendChild(icon)
+                codePreEl.appendChild(button)
+            }
         }
     }
 }
@@ -409,7 +428,7 @@ window.onload = function () {
         }
     });
 
-    changeView(location.href.replace(location.origin,''))
+    changeView(location.href.replace(location.origin, ''))
 
     if (window.innerWidth > 1600) {
         main.style.marginLeft = '330px'
@@ -668,4 +687,57 @@ function closeNavDrawer() {
     document.querySelector('main')!.classList.remove('scrim-background');
     var navButtonMobile = document.querySelector('#nav-button-mobile')! as any
     navButtonMobile.selected = false
+}
+
+
+function alertMd(title: String = "Alert!", message: String) {
+    document.querySelector('body')!.appendChild(document.createElement('md-dialog'))
+    var dialog = document.querySelector('md-dialog') as any
+    dialog.type = 'alert'
+    dialog.innerHTML = `
+    <div slot="headline">${title}</div>
+    <form id="form" slot="content" method="dialog">
+        ${message}
+    </form>
+    <div slot="actions">
+        <md-text-button form="form" value="ok">OK</md-text-button>
+    </div>
+    `
+    dialog.open = true
+    dialog.onsubmit = function (event: any) {
+        event.preventDefault();
+        dialog.remove()
+    }
+
+}
+
+function confirmMd(title: String = "Confirm!", message: String, onConfirm: Function, onCancel: Function, confirmText: String = "Confirm", cancelText: String = "Cancel") {
+    document.querySelector('body')!.appendChild(document.createElement('md-dialog'))
+    var dialog = document.querySelector('md-dialog') as any
+    dialog.type = 'confirm'
+    dialog.innerHTML = `
+    <div slot="headline">${title}</div>
+    <md-icon slot="icon">report</md-icon>
+    <form id="form" slot="content" method="dialog">
+      ${message}
+    </form>
+    <div slot="actions">
+      <md-text-button form="form" value="confirm">${confirmText}</md-text-button>
+      <md-filled-tonal-button form="form" value="cancel">${cancelText}</md-filled-tonal-button>
+    </div>
+    `
+    dialog.open = true
+    return new Promise((resolve, reject) => {
+        dialog.onsubmit = function (event: any) {
+            event.preventDefault();
+            resolve(event.submitter.value);
+            if (event.submitter.value === 'confirm') {
+                onConfirm()
+            }
+            else {
+                onCancel()
+            }
+            dialog.remove()
+        }
+    })
 }

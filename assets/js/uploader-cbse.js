@@ -81,10 +81,10 @@ setTimeout(() => {
                 }
             }).then(response => {
                 alert('Uploaded Successfully. Path is:', absoluteFilePath);
-                if (confirm('Copy image tag to clipboard?')) { navigator.clipboard.writeText(`<img src="${absoluteFilePath}" alt="${filename}">`); }
+                confirmMd('Copy', 'Copy image tag to clipboard?', () => { navigator.clipboard.writeText(`<img src="${absoluteFilePath}" alt="${filename}">`) }, () => { }, 'Copy', 'Cancel')
             }).catch(error => {
-                alert('Error Occured');
-            });
+                    alert('Error Occured');
+                });
         }
     }
     const uploadButton = document.getElementById('upload-button');

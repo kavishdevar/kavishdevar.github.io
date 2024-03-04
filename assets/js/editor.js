@@ -66,8 +66,8 @@ ${markdownText}
                 alert('File already exists, and no changes were made.');
                 return;
             }
-            var overwrite = confirm('Do you want to overwrite the file?');
-            if (overwrite) {
+            var overwrite = confirmMd(message = 'Do you want to overwrite the file?', title = 'Overwrite File', confirmText = 'Yes', cancelText = 'No', onConfirm, onCancel);
+            async function onConfirm() {
                 var editText = 'edited: ' + new Date().toISOString();
                 text = `---\n${editText}${text.split('---')[1]}---` + text2;
                 await octokit.request('PUT /repos/kavishdevar/kavishdevar.github.io/contents/_posts/' + filename, {
@@ -91,9 +91,7 @@ ${markdownText}
                     alert('Error Occured');
                 });
             }
-            else {
-                alert('Please change the title and try again');
-            }
+            function onCancel() {alert('Please change the title and try again')}
             return;
         }
         else if (!fileExists) {

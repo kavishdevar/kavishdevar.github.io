@@ -1,0 +1,79 @@
+---
+layout: default
+title: Upload Asset for CBSE
+titleForNav: Upload Asset for CBSE
+author: kavish
+permalink: /assets/cbse/upload
+redirect_from:
+- /assets/new
+---
+
+<!-- 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 -->
+<script type="module" src="/assets/js/uploader-cbse.js"></script>
+<style>
+  md-filled-button,
+  md-outlined-button,
+  md-outlined-text-field,
+  md-outlined-select {
+    margin: 1em;
+    width: 100%;
+  }
+</style>
+<md-outlined-text-field disabled id="path" label="Path" prefix-text="/assets/cbse/" suffix-text="/filetype/" value="/"></md-outlined-text-field>
+
+<md-outlined-select id="subject" label="Subject">
+  <md-select-option value="science">Science</md-select-option>
+  <md-select-option value="social-science">Social Science</md-select-option>
+  <md-select-option value="mathematics">Mathematics</md-select-option>
+  <md-select-option value="english">English</md-select-option>
+  <md-select-option value="hindi">Hindi</md-select-option>
+  <md-select-option value="sanskrit">Sanskrit</md-select-option>
+  <md-select-option value="information-technology">Information Technology</md-select-option>
+</md-outlined-select>
+<md-outlined-select id="source" label="Source">
+  <md-select-option value="pyq">Previous Year Question</md-select-option>
+  <md-select-option value="sqp">Sample Question Paper</md-select-option>
+  <md-select-option value="additionalpq">Additional Practice Questions</md-select-option>
+</md-outlined-select>
+<md-outlined-select id="set" label="Set">
+  <md-select-option value="1">Set 1</md-select-option>
+  <md-select-option value="2">Set 2</md-select-option>
+  <md-select-option value="3">Set 3</md-select-option>
+  <md-select-option value="4">Set 4</md-select-option>
+</md-outlined-select>
+
+<md-outlined-select id="year" label="Year">
+  <md-select-option value="24">2024</md-select-option>
+  <md-select-option value="23">2023</md-select-option>
+  <md-select-option value="22">2022</md-select-option>
+  <md-select-option value="21">2021</md-select-option>
+  <md-select-option value="20">2020</md-select-option>
+  <md-select-option value="19">2019</md-select-option>
+  <md-select-option value="18">2018</md-select-option>
+  <md-select-option value="17">2017</md-select-option>
+  <md-select-option value="16">2016</md-select-option>
+  <md-select-option value="15">2015</md-select-option>
+  <md-select-option value="14">2014</md-select-option>
+  <md-select-option value="13">2013</md-select-option>
+  <md-select-option value="12">2012</md-select-option>
+  <md-select-option value="11">2011</md-select-option>
+  <md-select-option value="10">2010</md-select-option>
+  <md-select-option value="09">2009</md-select-option>
+  <md-select-option value="08">2008</md-select-option>
+  <md-select-option value="07">2007</md-select-option>
+  <md-select-option value="06">2006</md-select-option>
+  <md-select-option value="05">2005</md-select-option>
+</md-outlined-select>
+<md-outlined-text-field id="file-name" label="File Name" maxlength="30"></md-outlined-text-field>
+<br>
+<div class="file-input-container"
+  style="display: flex; align-items: center; width: 100%; height: 30dvh; border: 5px dashed var(--md-sys-color-outline); border-radius: 28px; margin-top: 1em; margin-bottom: 1em; padding-top: 50px; padding-bottom: 50px">
+  <md-icon id="upload-icon"
+    style="align-self: center; justify-content: center; width: 100%; margin-top: -6rem; font-size: 5em; height: auto; font-weight: 1000;">file_upload</md-icon>
+  <h1 id="heading" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; margin-left: -100%;">
+    <br>
+    Click or drag a file here to upload
+  </h1>
+  <input type="file" id="file" style="width: 100%; height: 100%; opacity: 0; margin-left: -100%" />
+</div>
+<md-filled-button id="upload-button">Upload</md-filled-button>

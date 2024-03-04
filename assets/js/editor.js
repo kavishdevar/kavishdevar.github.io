@@ -71,7 +71,7 @@ ${markdownText}
                 var editText = 'edited: ' + new Date().toISOString();
                 text = `---\n${editText}${text.split('---')[1]}---` + text2;
                 await octokit.request('PUT /repos/kavishdevar/kavishdevar.github.io/contents/_posts/' + filename, {
-                    owner: 'kavisdevar',
+                    owner: 'kavishdevar',
                     repo: 'kavishdevar.github.io',
                     path: '/_posts/' + filename,
                     message: 'Add File',
@@ -98,7 +98,7 @@ ${markdownText}
         }
         else if (!fileExists) {
             await octokit.request('PUT /repos/kavishdevar/kavishdevar.github.io/contents/_posts/' + filename, {
-                owner: 'kavisdevar',
+                owner: 'kavishdevar',
                 repo: 'kavishdevar.github.io',
                 path: '/_posts/' + filename,
                 message: 'Add File',

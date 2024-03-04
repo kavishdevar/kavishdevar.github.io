@@ -1,0 +1,147 @@
+---
+title: CBSE Class 10 Science Questions with official marking schemes
+titleForNav: CBSE Class 10 Science Questions
+category: Tools
+author: kavish
+layout: default
+hastoc: true
+subtitle: Tool 1
+excerpt_separator: <!--more-->
+permalink: /tools/cbse/social-science
+---
+
+A list of all the questions from the CBSE Class 10 Science papers with the official marking schemes. This is a great
+resource for students to practice and understand the marking scheme of the CBSE Class 10 Science papers.
+
+<!--more-->
+
+<div id="card-container"></div>
+<script>
+    function deslugify(slug) {
+        return slug.split("-").join(" ").replace(/\b\w/g, l => l.toUpperCase());
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/assets/json/cbse.social-science.json", true);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            createCards(json);
+        }
+    }
+
+    function createCards(json) {
+        const cardContainer = document.getElementById("card-container");
+
+        for (const key in json) {
+            var question = json[key].question;
+            var questionType = json[key].type;
+            var answerType = Object.keys(json[key].subparts).length == 0 ? "answer" : "subparts";
+            var content = answerType == "answer" ? json[key].answer : json[key].subparts;
+            var options = questionType == "mcq" ? json[key].options : "";
+            question = question.replace(/(\r\n|\n|\r)/gm, "<br>");
+
+            var optionsText = "";
+            if (questionType == "mcq" && options) {
+                for (var option in options) {
+                    optionsText += option + " " + options[option] + "<br>";
+                }
+            }
+            else {
+                optionsText = "Type: " + deslugify(questionType);
+            }
+
+            if (question && content) {
+                const card = document.createElement("md-filled-card");
+                card.className = "card";
+
+                const cardHeader = document.createElement("div");
+                cardHeader.className = "card__header";
+
+                const cardHeaderText = document.createElement("div");
+                cardHeaderText.className = "card__header-text";
+
+                const cardTitle = document.createElement("div");
+                cardTitle.className = "card__title";
+
+                const cardSubtitle = document.createElement("div");
+                cardSubtitle.className = "card__subtitle";
+
+                const cardTitleLink = document.createElement("h2");
+                cardTitleLink.innerHTML = question;
+
+                const cardSubtitleText = document.createElement("h3");
+                cardSubtitleText.innerHTML = optionsText;
+
+                const cardSecondary = document.createElement("div");
+                cardSecondary.className = "card__secondary body-medium";
+
+                const cardContent = document.createElement("p");
+                cardContent.textContent = content;
+
+                cardContent.textContent = "";
+
+                if (answerType == "subparts") {
+                    for (var number = 0; number < Object.keys(content).length; number++) {
+                        var subpart = Object.keys(content)[number];
+                        var answers = content[subpart].answer;
+                        subpart = number + 1 + ". " + subpart;
+                        
+                        const subpartQuestion = document.createElement("h2");
+                        subpartQuestion.textContent = subpart;
+                        const subpartAnswerDiv = document.createElement("div");
+                        var ul = document.createElement("ul");
+                        subpartAnswerDiv.appendChild(ul);
+
+                        for (answer in answers) {
+                            var li = document.createElement("li");
+                            var answerText = answer
+                            var mark = answers[answer]
+                            const answerEl = document.createElement("p");
+                            answerEl.textContent = answerText;
+                            answerEl.style.display = "inline-block";
+                            answerEl.style.width = "90%";
+                            const answerMark = document.createElement("p");
+                            answerMark.textContent = 'Marks: ' + mark;
+                            answerMark.style.display = "inline-block";
+                            li.appendChild(answerEl);
+                            li.appendChild(answerMark);
+                            ul.appendChild(li);
+                        }
+                        
+                        cardContent.appendChild(subpartQuestion);
+                        cardContent.appendChild(subpartAnswerDiv);
+                    }
+                }
+                else {
+                    for (answer in content) {
+                        var answerText = answer
+                        var mark = content[answer]
+                        const answerEl = document.createElement("p");
+                        answerEl.textContent = answerText;
+                        answerEl.style.display = "inline-block";
+                        answerEl.style.width = "90%";
+                        cardContent.appendChild(answerEl);
+                        const answerMark = document.createElement("p");
+                        answerMark.textContent = 'Marks: ' + mark;
+                        answerMark.style.display = "inline-block";
+                        cardContent.appendChild(answerMark);
+
+                    }
+                }
+
+                cardTitle.appendChild(cardTitleLink);
+                cardHeaderText.appendChild(cardTitle);
+                cardSubtitle.appendChild(cardSubtitleText);
+                cardHeaderText.appendChild(cardSubtitle);
+                cardHeader.appendChild(cardHeaderText);
+                card.appendChild(cardHeader);
+                cardSecondary.appendChild(cardContent);
+                card.appendChild(cardSecondary);
+
+                cardContainer.appendChild(card);
+            }
+        }
+    }
+</script>

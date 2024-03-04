@@ -249,6 +249,15 @@ function changeViewPreview(url: String) {
         }
     }
 }
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/assets/js/aside.js', true);
+xhr.send();
+var asideScript = ''
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        asideScript = xhr.responseText;
+    }
+}
 
 function changeView(url: String, dontPush: boolean = false) {
     url = `${location.origin}${url.replace(' ', '-').toLowerCase()}`;
@@ -272,12 +281,12 @@ function changeView(url: String, dontPush: boolean = false) {
             if (sourceHasAside && targetAside != null) {
                 document.querySelector('aside')?.replaceWith(targetAside);
                 document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
-                eval(targetAside.querySelector('script')!.innerText)
+                eval(asideScript.replace('{{content}}', targetContent!.innerHTML))
             }
             else if (!sourceHasAside && targetAside != null) {
                 document.querySelector('main')!.appendChild(targetAside);
                 document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
-                eval(targetAside.querySelector('script')!.innerText)
+                eval(asideScript.replace('{{content}}', targetContent!.innerHTML))
             }
             else if (sourceHasAside && targetAside == null) {
                 document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
@@ -294,6 +303,9 @@ function changeView(url: String, dontPush: boolean = false) {
                     });
                 }
                 sourceContent.replaceWith(targetContent);
+                if (targetContent!.querySelector('script') != null) {
+                    eval(targetContent.querySelector('script')!.innerText)
+                }
             }
             var rail = document.querySelector('md-navigation-rail') as MdNavigationRail;
             if (!dontPush) { history.pushState({ page: url.toString().split('/').slice(-1).toString().toUpperCase() }, url.toString().split('/').slice(-1).toString().toUpperCase(), url.toString()); }

@@ -34,14 +34,16 @@ subtitle: Add a question and its official answer (according to the marking schem
                 Asset Uploader</a> and then use the following code to add the image to the content, OR, use the copied
             code from the asset uploader.
         </li>
+        <div class="language-html" style="padding: 1em;">
         <code class="language-html" style="display: inline-flex; width: 95%; vertical-align: super;">
                 &lt;img src='/assets/{subject}/{source}/{set}/{year}/img/{filename}' alt='Image'/&gt;
-            </code>
+        </code>
         <md-filled-icon-button style="display: inline-flex;"
             onlick="navigator.clipboard.writeText(`&lt;img src='/assets/{subject}/{source}/{set}/{year}/img/{filename}' alt='Image'&gt;`)">
             <md-icon>content_copy</md-icon>
         </md-filled-icon-button>
         </div>
+        
         <li>Please do not re-upload the images if they are already uploaded. It will only increase the server
             load.</li>
         <br>

@@ -1,1 +1,18 @@
-{}
+{
+    "1": {
+        "question": "Identify the correct option that describes the movement given below.\nThe movement broke colonial laws and also refused cooperation with the British. ",
+        "type": "mcq",
+        "answer": {
+            "B. Civil Disobedience movement": 1
+        },
+        "subparts": {},
+        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/SS-PQ2.pdf",
+        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/SS-PQMS2.pdf",
+        "options": {
+            "a. ": "Rowlatt Satyagraha Movement",
+            "b. ": "Civil Disobedience movement",
+            "c. ": "Non Cooperation Movement",
+            "d. ": "Quit India Movement"
+        }
+    }
+}

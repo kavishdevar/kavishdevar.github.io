@@ -430,24 +430,24 @@
 	},
 	"25": {
 		"question": "Answer the following.",
-		"type": "long-answer",
+		"type": "short-answer",
 		"answer": {},
 		"subparts": {
-			"How does blood sugar level get regulated in the human body?": {
+			"Flow of energy in a food chain is unidirectional. Justify the statement.": {
 				"answer": {
-					"When sugar levels in the blood rise, they are detected by the cells of the pancreas which respond by producing more insulin. As the blood sugar level falls, insulin secretion is reduced. The timing and amount of hormones to be secreted are regulated by the feedback mechanism.": "2"
+					"The flow of energy is unidirectional in a food chain. The energy that is captured by the autotrophs does not revert back to the solar input and the energy which passes to the herbivores does not come back to autotrophs. As it moves progressively through the various trophic levels it is no longer available to the previous trophic levels.": "2"
 				}
 			},
-			"Which hormone is secreted into the blood when you are under stress? Name the gland that secretes this hormone.": {
+			"In a cross between pea plants having round green seeds and wrinkled yellow seeds, what progeny is expected in F1 and F2 generation?": {
 				"answer": {
-					"Adrenaline": "0.5",
-					"Adrenal gland": "0.5"
+					"F1 generation: All Round yellow (RrYy)": "0.5",
+					"F2 generation: round yellow:9; round green:3; wrinkled yellow: 3 wrinkled green :1": "0.5"
 				}
 			},
-			"How does it help the body to cope up in an emergency situation?": {
+			"What would be the impact on the ratio of F2 generation, if F1 progeny plants inherited a single whole gene set from each parent? Give reason for your answer.": {
 				"answer": {
-					"It acts on heart. Heart beats faster, resulting in more supply of oxygen to skeletal muscles.": "1",
-					"Breathing rate also increases because of contraction of diaphragm and the rib muscles.": "1"
+					"If progeny plants inherited a single whole gene set from each parent, then the ratio 9:3:3:1 will not be obtained.": "0.5",
+					"This is because the two characteristics “R” and “y” would then be linked to each other and cannot be independently inherited.": "1"
 				}
 			}
 		},

@@ -174,6 +174,7 @@ class ThemeChanger extends HTMLElement {
         sliders.appendChild(toneGradient)
 
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            var darkmode = localStorage.getItem('darkmode') == 'true'? true : localStorage.getItem('darkmode') == 'auto' ?window.matchMedia('(prefers-color-scheme: dark)').matches : false
             darkmode = event.matches
             var hex = MCH.hexFromHct(Number(hue.value), Number(chroma.value), Number(tone.value))
             hexInputDiv.style.backgroundColor = hex
@@ -184,6 +185,7 @@ class ThemeChanger extends HTMLElement {
         });
 
         hue.addEventListener('input', (_) => {
+            var darkmode = localStorage.getItem('darkmode') == 'true'? true : localStorage.getItem('darkmode') == 'auto' ?window.matchMedia('(prefers-color-scheme: dark)').matches : false
             var hex = MCH.hexFromHct(Number(hue.value), Number(chroma.value), Number(tone.value))
             hexInputDiv.style.backgroundColor = hex
             var chromabg = `linear-gradient(to right, white, ${MCH.hexFromHct(Number(hue.value), 100, 50)})`
@@ -194,6 +196,7 @@ class ThemeChanger extends HTMLElement {
         })
 
         chroma.addEventListener('input', (_) => {
+            var darkmode = localStorage.getItem('darkmode') == 'true'? true : localStorage.getItem('darkmode') == 'auto' ?window.matchMedia('(prefers-color-scheme: dark)').matches : false
             var hex = MCH.hexFromHct(Number(hue.value), Number(chroma.value), Number(tone.value))
             hexInputDiv.style.backgroundColor = hex
             var chromabg = `linear-gradient(to right, white, ${MCH.hexFromHct(Number(hue.value), 100, 50)})`
@@ -204,6 +207,7 @@ class ThemeChanger extends HTMLElement {
         })
 
         tone.addEventListener('input', (_) => {
+            var darkmode = localStorage.getItem('darkmode') == 'true'? true : localStorage.getItem('darkmode') == 'auto' ?window.matchMedia('(prefers-color-scheme: dark)').matches : false
             var hex = MCH.hexFromHct(Number(hue.value), Number(chroma.value), Number(tone.value))
             hexInputDiv.style.backgroundColor = hex
             var chromabg = `linear-gradient(to right, white, ${MCH.hexFromHct(Number(hue.value), 100, 50)})`
@@ -214,6 +218,7 @@ class ThemeChanger extends HTMLElement {
         })
 
         hexin.addEventListener('input', (_) => {
+            var darkmode = localStorage.getItem('darkmode') == 'true'? true : localStorage.getItem('darkmode') == 'auto' ?window.matchMedia('(prefers-color-scheme: dark)').matches : false
             hexInputDiv.style.backgroundColor = hexin.value
             var hct = MCH.hctFromHex(hexin.value)
             hue.value = hct.hue
@@ -228,6 +233,7 @@ class ThemeChanger extends HTMLElement {
         var sourceColor = getHex()
 
         if (sourceColor != null) {
+            var darkmode = localStorage.getItem('darkmode') == 'true'? true : localStorage.getItem('darkmode') == 'auto' ?window.matchMedia('(prefers-color-scheme: dark)').matches : false
             MCH.applyMaterialTheme(document, MCH.themeFromSourceColor(sourceColor, darkmode))
             hexin.value = sourceColor
             hexInputDiv.style.backgroundColor = sourceColor
@@ -238,9 +244,6 @@ class ThemeChanger extends HTMLElement {
             var chromabg = `linear-gradient(to right, white, ${MCH.hexFromHct(Number(hue.value), 100, 50)})`
             chromaGradient.style.background = chromabg
         }
-
     }
 }
 customElements.define('theme-changer', ThemeChanger)
-
-// export { ThemeChanger }

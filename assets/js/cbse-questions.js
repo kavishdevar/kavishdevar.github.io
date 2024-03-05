@@ -194,14 +194,12 @@ setTimeout(() => {
 
                 pushAndCreatePR(question, fileName, originalJSON);
 
-                // clear values
-
                 document.getElementById("question").value = "";
                 document.getElementById("a").value = "";
                 document.getElementById("b").value = "";
                 document.getElementById("c").value = "";
                 document.getElementById("d").value = "";
-                document.getElementById("correct-option").value = "";
+                document.getElementById("correct-option").reset();
                 for (let i = 0; i < answerPartID; i++) {
                     if (i + 1 > 1) {
                         document.getElementById("answer[" + (i + 1) + "]").remove();

@@ -81,8 +81,8 @@ setTimeout(() => {
                     'X-GitHub-Api-Version': '2022-11-28'
                 }
             }).then(response => {
-                alert('Uploaded Successfully. Path is:', absoluteFilePath);
-                confirmMd('Copy', 'Copy image tag to clipboard?', () => { navigator.clipboard.writeText(`<img src="${absoluteFilePath}" alt="${filename}">`) }, () => { }, 'Copy', 'Cancel')
+                alert('Uploaded Successfully');
+                confirmMd('Copy', 'Copy image tag to clipboard?', () => { navigator.clipboard.writeText(`<img src='${absoluteFilePath}' alt='${filename}'>`) }, () => { }, 'Copy', 'Cancel')
             }).catch(error => {
                     alert('Error Occured');
                 });

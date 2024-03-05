@@ -191,9 +191,9 @@ setTimeout(() => {
                 }
                 originalJSON[questionID] = data;
                 console.log(originalJSON);
-                
+
                 pushAndCreatePR(question, fileName, originalJSON);
-                
+
                 // clear values
 
                 document.getElementById("question").value = "";
@@ -203,19 +203,34 @@ setTimeout(() => {
                 document.getElementById("d").value = "";
                 document.getElementById("correct-option").value = "";
                 for (let i = 0; i < answerPartID; i++) {
-                    document.getElementById("answer-part[" + (i + 1) + "]").remove();
+                    if (i + 1 > 1) {
+                        document.getElementById("answer[" + (i + 1) + "]").remove();
+                    }
+                    else {
+                        document.getElementById("answer-part[" + (i + 1) + "]").value = "";
+                    }
                 }
                 for (let i = 0; i < subparts.childElementCount; i++) {
                     if (i + 1 > 1) {
                         document.getElementById("subpart[" + (i + 1) + "]").remove();
                         for (let j = 0; j < document.getElementById("subpart-answers[" + (i + 1) + "]").childElementCount; j++) {
-                            document.getElementById("subpart-answer-part[" + (j + 1) + "]").remove();
+                            if (j + 1 > 1) {
+                                document.getElementById("subpart-answer[" + (j + 1) + "]").remove();
+                            }
+                            else {
+                                document.getElementById("subpart-answer-part[" + (j + 1) + "]").value = "";
+                            }
                         }
                     }
                     else {
                         document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").value = "";
                         for (let j = 0; j < document.getElementById("subpart-answers[" + (i + 1) + "]").childElementCount; j++) {
-                            document.getElementById("subpart-answer-part[" + (j + 1) + "]").remove();
+                            if (j + 1 > 1) {
+                                document.getElementById("subpart-answer[" + (j + 1) + "]").remove();
+                            }
+                            else {
+                                document.getElementById("subpart-answer-part[" + (j + 1) + "]").value="";
+                            }
                         }
                     }
                 }

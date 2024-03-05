@@ -20,6 +20,7 @@ class MdNavigationRail extends HTMLElement {
                 font-size: 20px;
                 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                 width: 100%;
+                overflow-y: auto;
             }
             .md-navigation-rail__fab-icon {
                 margin-left: 0;
@@ -47,6 +48,11 @@ class MdNavigationRail extends HTMLElement {
                 align-items: center;
                 justify-content: center;
                 padding-top: 20px;
+            }
+            @media (max-height: 645px) {
+                .md-navigation-rail__bottom {
+                    position: relative;
+                }
             }
             `;
         const style = document.createElement('style');
@@ -533,6 +539,51 @@ window.onload = function () {
             main.style.marginLeft = '0'
         }
     }
+    var dm = document.getElementById("dark-mode-set") as any
+    localStorage.getItem('darkmode') === 'true' ? function (){dm.buttons[2].selected = true; dm.buttons[0].selected=false; dm.buttons[1].selected=false } : localStorage.getItem('dark-mode') === 'auto' ? function (){dm.buttons[1].selected = true; dm.buttons[0].selected = false; dm.buttons[2].selected = false} : function () {dm.buttons[0].selected = true; dm.buttons[1].selected = false; dm.buttons[2].selected = false}
+    
+    dm.addEventListener('click', function () {
+        if (dm.buttons[0].selected) {
+            localStorage.setItem('darkmode', 'false')
+            document.querySelectorAll('theme-changer').forEach((el) => {
+                (el as any).setTheme()
+            });
+        }
+        else if (dm.buttons[1].selected) {
+            localStorage.setItem('darkmode', 'auto')
+            document.querySelectorAll('theme-changer').forEach((el) => {
+                (el as any).setTheme()
+            });
+        }
+        else if (dm.buttons[2].selected) {
+            localStorage.setItem('darkmode', 'true')
+            document.querySelectorAll('theme-changer').forEach((el) => {
+                (el as any).setTheme()
+            });
+        }
+    });
+    var dmMobile = document.getElementById("dark-mode-set-mobile") as any
+    localStorage.getItem('darkmode') === 'true' ? function (){dmMobile.buttons[2].selected = true; dmMobile.buttons[0].selected=false; dmMobile.buttons[1].selected=false } : localStorage.getItem('dark-mode') === 'auto' ? function (){dmMobile.buttons[1].selected = true; dmMobile.buttons[0].selected = false; dmMobile.buttons[2].selected = false} : function () {dmMobile.buttons[0].selected = true; dmMobile.buttons[1].selected = false; dmMobile.buttons[2].selected = false}
+    dmMobile.addEventListener('click', function () {
+        if (dmMobile.buttons[0].selected) {
+            localStorage.setItem('darkmode', 'false')
+            document.querySelectorAll('theme-changer').forEach((el) => {
+                (el as any).setTheme()
+            });
+        }
+        else if (dmMobile.buttons[1].selected) {
+            localStorage.setItem('darkmode', 'auto')
+            document.querySelectorAll('theme-changer').forEach((el) => {
+                (el as any).setTheme()
+            });
+        }
+        else if (dmMobile.buttons[2].selected) {
+            localStorage.setItem('darkmode', 'true')
+            document.querySelectorAll('theme-changer').forEach((el) => {
+                (el as any).setTheme()
+            });
+        }
+    });
 };
 
 function init(categories, projects, tools, homeworks) {
@@ -711,7 +762,6 @@ function alertMd(title: String = "Alert!", message: String) {
         event.preventDefault();
         dialog.remove()
     }
-
 }
 
 function confirmMd(title: String = "Confirm!", message: String, onConfirm: Function, onCancel: Function, confirmText: String = "Confirm", cancelText: String = "Cancel") {

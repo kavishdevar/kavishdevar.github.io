@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright 2023 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/**
  * A theme mapping of token name (not custom property name) to stringified CSS
  * value.
  */

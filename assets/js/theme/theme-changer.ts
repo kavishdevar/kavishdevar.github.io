@@ -13,9 +13,13 @@ class ThemeChanger extends HTMLElement {
     constructor() {
         super()
     }
-    
+    setTheme(sourceColor: string = localStorage.getItem('sourceColor') || MCH.hexFromHct(100, 50, 50), darkmode: boolean = localStorage.getItem('darkmode') == 'true'? true : localStorage.getItem('darkmode') == 'auto' ?window.matchMedia('(prefers-color-scheme: dark)').matches : false) {
+        if (sourceColor != null) {
+            MCH.applyMaterialTheme(document, MCH.themeFromSourceColor(sourceColor, darkmode))
+        }
+    }
     connectedCallback() {
-        var darkmode = window.matchMedia('(prefers-color-scheme: dark)').matches
+        var darkmode = localStorage.getItem('darkmode') == 'true'? true : localStorage.getItem('darkmode') == 'auto' ?window.matchMedia('(prefers-color-scheme: dark)').matches : false
         
         const style = document.createElement('style')
         style.textContent = `
@@ -238,3 +242,5 @@ class ThemeChanger extends HTMLElement {
     }
 }
 customElements.define('theme-changer', ThemeChanger)
+
+// export { ThemeChanger }

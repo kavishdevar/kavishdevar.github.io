@@ -89,10 +89,10 @@
                     </svg>
                 </md-icon>
             </md-icon-button>
-            <md-icon-button id="theme-button-desktop"
+            <md-outlined-icon-button id="theme-button-desktop"
                 onclick="document.querySelector('#desktop-theme-menu').toggleAttribute('open')">
                 <md-icon>palette</md-icon>
-            </md-icon-button>
+            </md-outlined-icon-button>
         </div>
     </md-navigation-rail>
     <md-dialog id="desktop-theme-menu">
@@ -106,6 +106,17 @@
         </span>
         <form id="form" slot="content" method="dialog">
             <theme-changer style="margin-top: -1em;"></theme-changer>
+            <md-outlined-segmented-button-set style="margin-top: 1em;" id="dark-mode-set">
+                <md-outlined-segmented-button value="light" label="Light">
+                    <md-icon slot="icon">light_mode</md-icon>
+                </md-outlined-segmented-button>
+                <md-outlined-segmented-button value="auto" label="Auto" selected>
+                    <md-icon slot="icon">brightness_auto</md-icon>
+                </md-outlined-segmented-button>
+                <md-outlined-segmented-button value="dark" label="Dark">
+                    <md-icon slot="icon">dark_mode</md-icon>
+                </md-outlined-segmented-button>
+            </md-outlined-segmented-button-set>
         </form>
     </md-dialog>
     <md-navigation-drawer-modal id="nav-drawer">
@@ -116,10 +127,6 @@
         {% if page.category != "Kavish's Website" %}
         <h3 slot="title" id="title" style="font-weight: normal;">
             <a href='/'>{{site.title}}</a>
-            <!-- {% if page.category != page.title %}
-            -
-            <a href='/{{page.category}}'>{{page.category}}</a>
-            {% endif %} -->
         </h3>
         {% else %}
         <a slot="title" href="/">
@@ -149,6 +156,17 @@
     </md-top-app-bar>
     <md-menu id="theme-menu-mobile" anchor="theme-button-mobile" menu-corner="start-end" style="margin-top: 100px;">
         <theme-changer></theme-changer>
+        <md-outlined-segmented-button-set style="margin-top: 1em;" id="dark-mode-set-mobile">
+            <md-outlined-segmented-button value="light" label="Light">
+                <md-icon slot="icon">light_mode</md-icon>
+            </md-outlined-segmented-button>
+            <md-outlined-segmented-button value="auto" label="Auto" selected>
+                <md-icon slot="icon">brightness_auto</md-icon>
+            </md-outlined-segmented-button>
+            <md-outlined-segmented-button value="dark" label="Dark">
+                <md-icon slot="icon">dark_mode</md-icon>
+            </md-outlined-segmented-button>
+        </md-outlined-segmented-button-set>
     </md-menu>
     {% if page.hastoc %}
     <style id="content-style">

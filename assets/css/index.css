@@ -192,34 +192,44 @@ md-top-app-bar {
 md-navigation-rail {
     display: none;
 }
+
 #projects-list {
     display: block;
 }
+
 #tools-list {
     display: block;
 }
+
 #homework-list {
     display: block;
 }
+
 #category-divider {
     display: block;
 }
+
 @media screen and (min-width: 1100px) {
     #homework-list-sublist {
         display: none;
     }
+
     #tools-list-sublist {
         display: none;
     }
+
     #projects-list-sublist {
         display: none;
     }
+
     .category-divider {
         display: none;
     }
+
     .category-list {
         display: none;
     }
+
     nav-button-mobile {
         display: none;
     }
@@ -351,7 +361,17 @@ md-navigation-rail {
 
 .nav-rail-bottom {
     display: grid;
+
     md-icon-button {
+        margin-bottom: 10px;
+    }
+}
+
+md-navigation-rail {
+    md-icon-button,
+    md-outlined-icon-button {
+        width: 48px;
+        height: 48px;
         margin-bottom: 10px;
     }
 }

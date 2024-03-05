@@ -540,8 +540,22 @@ window.onload = function () {
         }
     }
     var dm = document.getElementById("dark-mode-set") as any
-    localStorage.getItem('darkmode') === 'true' ? function (){dm.buttons[2].selected = true; dm.buttons[0].selected=false; dm.buttons[1].selected=false } : localStorage.getItem('dark-mode') === 'auto' ? function (){dm.buttons[1].selected = true; dm.buttons[0].selected = false; dm.buttons[2].selected = false} : function () {dm.buttons[0].selected = true; dm.buttons[1].selected = false; dm.buttons[2].selected = false}
-    
+    if (localStorage.getItem('darkmode') === 'true') {
+        dm.buttons[2].selected = true
+        dm.buttons[0].selected = false
+        dm.buttons[1].selected = false
+    }
+    else if (localStorage.getItem('darkmode') === 'auto') {
+        dm.buttons[1].selected = true
+        dm.buttons[0].selected = false
+        dm.buttons[2].selected = false
+    }
+    else {
+        dm.buttons[0].selected = true
+        dm.buttons[1].selected = false
+        dm.buttons[2].selected = false
+    }
+
     dm.addEventListener('click', function () {
         if (dm.buttons[0].selected) {
             localStorage.setItem('darkmode', 'false')
@@ -563,7 +577,22 @@ window.onload = function () {
         }
     });
     var dmMobile = document.getElementById("dark-mode-set-mobile") as any
-    localStorage.getItem('darkmode') === 'true' ? function (){dmMobile.buttons[2].selected = true; dmMobile.buttons[0].selected=false; dmMobile.buttons[1].selected=false } : localStorage.getItem('dark-mode') === 'auto' ? function (){dmMobile.buttons[1].selected = true; dmMobile.buttons[0].selected = false; dmMobile.buttons[2].selected = false} : function () {dmMobile.buttons[0].selected = true; dmMobile.buttons[1].selected = false; dmMobile.buttons[2].selected = false}
+    if (localStorage.getItem('darkmode') === 'true') {
+        dmMobile.buttons[2].selected = true
+        dmMobile.buttons[0].selected = false
+        dmMobile.buttons[1].selected = false
+    }
+    else if (localStorage.getItem('darkmode') === 'auto') {
+        dmMobile.buttons[1].selected = true
+        dmMobile.buttons[0].selected = false
+        dmMobile.buttons[2].selected = false
+    }
+    else {
+        dmMobile.buttons[0].selected = true
+        dmMobile.buttons[1].selected = false
+        dmMobile.buttons[2].selected = false
+    }
+
     dmMobile.addEventListener('click', function () {
         if (dmMobile.buttons[0].selected) {
             localStorage.setItem('darkmode', 'false')

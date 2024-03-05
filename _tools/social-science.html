@@ -98,6 +98,7 @@ subtitle: A list of all the questions from the CBSE Class 10 Social Science pape
                             answerEl.innerHTML = answerText;
                             answerEl.style.display = "inline-block";
                             answerEl.style.width = "90%";
+                            answerEl.style.verticalAlign = "middle";
                             const answerMark = document.createElement("p");
                             answerMark.innerHTML = 'Marks: ' + mark;
                             answerMark.style.display = "inline-block";
@@ -121,6 +122,7 @@ subtitle: A list of all the questions from the CBSE Class 10 Social Science pape
                         else { answerEl.innerHTML = answerText; }
                         answerEl.style.display = "inline-block";
                         answerEl.style.width = "90%";
+                        answerEl.style.verticalAlign = "middle";
                         cardContent.appendChild(answerEl);
                         const answerMark = document.createElement("p");
                         answerMark.innerHTML = 'Marks: ' + mark;

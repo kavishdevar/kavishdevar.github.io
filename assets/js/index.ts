@@ -348,6 +348,9 @@ function changeView(url: String, dontPush: boolean = false) {
             var codeDivEls = document.querySelectorAll('div[class*=\'language-\']:not([class=\'language-plaintext\'])') as NodeListOf<HTMLElement>
 
             for (let i = 0; i < codeDivEls.length; i++) {
+                if (codeDivEls[i].classList.contains('no-copy')) {
+                    return;
+                }
                 var codePreEl = codeDivEls[i].querySelector('pre')!
                 codePreEl.style.position = 'relative'
                 var codeEl = codeDivEls[i].querySelector('code')!

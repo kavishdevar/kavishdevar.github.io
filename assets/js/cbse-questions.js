@@ -11,6 +11,13 @@ setTimeout(() => {
     const questionSource = document.getElementById("question-source");
     const answerSource = document.getElementById("answer-source");
 
+    if (localStorage.getItem("question-source")) { questionSource.value = localStorage.getItem("question-source"); }
+    if (localStorage.getItem("answer-source")) { answerSource.value = localStorage.getItem("answer-source"); }
+    if (localStorage.getItem("subject")) { subjectSelect.value = localStorage.getItem("subject"); }
+    questionSource.addEventListener("change", () => { localStorage.setItem("question-source", questionSource.value); });
+    answerSource.addEventListener("change", () => { localStorage.setItem("answer-source", answerSource.value); });
+    subjectSelect.addEventListener("change", () => { localStorage.setItem("subject", subjectSelect.value); });
+
     addSubpartAnswer.addEventListener("click", () => {
         const subPartAnswers = document.getElementById("subpart-answers[" + addSubpartAnswer.getAttribute("data-subpart") + "]");
         const newSubPartAnswer = document.createElement("div");
@@ -98,6 +105,36 @@ setTimeout(() => {
     });
 
     submit.addEventListener("click", async () => {
+        if (!document.getElementById("question").reportValidity() || !document.getElementById("type-select").reportValidity() || !document.getElementById("subject-select").reportValidity() || !document.getElementById("question-source").reportValidity() || !document.getElementById("answer-source").reportValidity()) {
+            return;
+        }
+        if (typeSelect.value === "mcq") {
+            if (!document.getElementById("a").reportValidity() || !document.getElementById("b").reportValidity() || !document.getElementById("c").reportValidity() || !document.getElementById("d").reportValidity() || !document.getElementById("correct-option").reportValidity()) {
+                return;
+            }
+        }
+        else if (hasSubParts.checked) {
+            for (let i = 0; i < subparts.childElementCount; i++) {
+                if (!document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").reportValidity()) {
+                    return;
+                }
+                let subPartAnswers = document.getElementById("subpart-answers[" + (i + 1) + "]");
+                for (let j = 0; j < subPartAnswers.childElementCount; j++) {
+                    if (!document.querySelector("#subpart-answer\\[" + (j + 1) + "\\]").reportValidity() || !document.querySelector("#marks\\[" + (j + 1) + "\\]").reportValidity()) {
+                        return;
+                    }
+                }
+            }
+        }
+        else {
+            for (let i = 0; i < answerPartID; i++) {
+                if (!document.querySelector("#answer\\[" + (i + 1) + "\\]").reportValidity() || !document.querySelector("#marks\\[" + (i + 1) + "\\]").reportValidity()) {
+                    return;
+                }
+            }
+        }
+
+
         var fileName = "/assets/json/cbse." + subjectSelect.value + ".json";
         let originalJSON;
         var xhr = new XMLHttpRequest();
@@ -125,7 +162,7 @@ setTimeout(() => {
                     data.answer[answer] = 1;
                 }
                 else if (hasSubParts.checked) {
-                    for (let i = 0; i < subparts.childElementCount ; i++){
+                    for (let i = 0; i < subparts.childElementCount; i++) {
                         setTimeout(() => {
                             let subPartQuestion = document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").value.replace('"', "'");
                             let subPartAnswers = document.getElementById("subpart-answers[" + (i + 1) + "]");
@@ -155,7 +192,40 @@ setTimeout(() => {
                 console.log("Data: ", data)
                 originalJSON[questionID] = data;
                 console.log(originalJSON);
-                pushAndCreatePR(question, fileName, originalJSON);
+                xhr.open("PUT", "https://x36ndvcj-5000.inc1.devtunnels.ms", true);
+                xhr.send(
+                    JSON.stringify({
+                        fileName: fileName,
+                        data: originalJSON
+                    })
+                );
+                // pushAndCreatePR(question, fileName, originalJSON);
+                //clear values
+                document.getElementById("question").value = "";
+                document.getElementById("a").value = "";
+                document.getElementById("b").value = "";
+                document.getElementById("c").value = "";
+                document.getElementById("d").value = "";
+                document.getElementById("correct-option").value = "";
+                for (let i = 0; i < answerPartID; i++) {
+                    document.getElementById("answer-part[" + (i + 1) + "]").remove();
+                }
+                for (let i = 0; i < subparts.childElementCount; i++) {
+                    if (i + 1 > 1) {
+                        document.getElementById("subpart[" + (i + 1) + "]").remove();
+                        for (let j = 0; j < document.getElementById("subpart-answers[" + (i + 1) + "]").childElementCount; j++) {
+                            document.getElementById("subpart-answer-part[" + (j + 1) + "]").remove();
+                        }
+                    }
+                    else {
+                        document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").value = "";
+                        for (let j = 0; j < document.getElementById("subpart-answers[" + (i + 1) + "]").childElementCount; j++) {
+                            document.getElementById("subpart-answer-part[" + (j + 1) + "]").remove();
+                        }
+                    }
+                }
+
+
             }
         }
     });

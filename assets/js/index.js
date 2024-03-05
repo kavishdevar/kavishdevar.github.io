@@ -341,6 +341,9 @@ function changeView(url, dontPush = false) {
             main.style.opacity = '1';
             var codeDivEls = document.querySelectorAll('div[class*=\'language-\']:not([class=\'language-plaintext\'])');
             for (let i = 0; i < codeDivEls.length; i++) {
+                if (codeDivEls[i].classList.contains('no-copy')) {
+                    return;
+                }
                 var codePreEl = codeDivEls[i].querySelector('pre');
                 codePreEl.style.position = 'relative';
                 var codeEl = codeDivEls[i].querySelector('code');

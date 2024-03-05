@@ -34,7 +34,7 @@ subtitle: Add a question and its official answer (according to the marking schem
                 Asset Uploader</a> and then use the following code to add the image to the content, OR, use the copied
             code from the asset uploader.
         </li>
-        <div class="language-html" style="padding: 0.5em; padding-left: 0.8em; padding-right: 0.8em;">
+        <div class="language-html no-copy" style="padding: 0.5em; padding-left: 0.8em; padding-right: 0.8em;">
         <code class="language-html" style="display: inline-flex; width: 95%; vertical-align: super;">
                 &lt;img src='/assets/{subject}/{source}/{set}/{year}/img/{filename}' alt='Image'/&gt;
         </code>
@@ -55,6 +55,27 @@ subtitle: Add a question and its official answer (according to the marking schem
         </ul>
     </ul>
     </p>
+    <p>
+        <strong>Guide to adding questions and their answers:</strong>
+    <ul>
+        <li>For MCQs, select the question type as MCQ and then add the options and the correct option.</li>
+        <li>For subjective questions, select the question type as Short Answer, Very Short Answer, or Long Answer and then
+            add the answer and the marks.</li>
+        <li>For subjective questions with subparts, select the "Has Subparts?" checkbox and then add the subparts.</li>
+        <li>If the marking scheme lists the answer as "Any one/two/three... of the following", then please add all the possible answers</li>
+        <li>If the marking scheme states that any other answer is acceptable, then please mention the same in the "Answer" field(s).</li>
+        <li>If the marking scheme states that the answer should be in a specific format, then please mention the same in the "Answer" field(s).</li>
+        <li>If the marking scheme provides multiple value points for an answer to a question, then please add those disctinct value points in new answer fields.
+            For example, if the marking scheme states that the answer as "Point 1" for 1 mark and "Point 2" for 1 mark, then please add two answer fields with the respective points and marks.
+        </li>
+        <li>The same follows for subparts as well.</li>
+        <li>Use the `Add Answer Part` button to add multiple answers/value points for a single question.</li>
+        <li>Use the `Add Subpart` button to add multiple subparts to a single question.</li>
+        <li>For case-based questions, add the case as a question and then add the questions and answers as subparts.</li>
+    </ul>
+    <strong>Note: </strong> If you've accidentally added a subpart or an answer part, please leave it empty and it will be ignored.
+    </p>
+        
 </blockquote>
 
 <!--more-->
@@ -71,7 +92,7 @@ subtitle: Add a question and its official answer (according to the marking schem
     }
 </style>
 
-<md-outlined-select name="type" id="type-select" label="Question Type">
+<md-outlined-select name="type" id="type-select" label="Question Type" required>
     <md-select-option value="mcq">MCQ</md-select-option>
     <md-select-option value="very-short-answer">Very Short Answer</md-select-option>
     <md-select-option value="short-answer" selected>Short Answer</md-select-option>
@@ -80,9 +101,9 @@ subtitle: Add a question and its official answer (according to the marking schem
 </md-outlined-select>
 <label>
     <md-checkbox id="has-subparts"></md-checkbox>
-    Has Subparts?
+    Has Subparts? (Multiple Questions inside a question)
 </label>
-<md-outlined-select name="Subject" id="subject-select" label="Subject">
+<md-outlined-select name="Subject" id="subject-select" label="Subject" required>
     <md-select-option value="science">Science</md-select-option>
     <md-select-option value="social-science">Social Science</md-select-option>
     <md-select-option value="mathematics">Mathematics</md-select-option>
@@ -92,9 +113,9 @@ subtitle: Add a question and its official answer (according to the marking schem
     <md-select-option value="information-technology">Information Technology</md-select-option>
 </md-outlined-select>
 
-<md-outlined-text-field name="question-source" id="question-source" label="Question Source"
+<md-outlined-text-field name="question-source" id="question-source" label="Question Source" type="url"
     required></md-outlined-text-field>
-<md-outlined-text-field name="answer-source" id="answer-source" label="Answer Source" required></md-outlined-text-field>
+<md-outlined-text-field name="answer-source" id="answer-source" label="Answer Source" type="url" required></md-outlined-text-field>
 
 <md-outlined-text-field name="Question" id="question" label="Question" type="textarea"
     required></md-outlined-text-field>

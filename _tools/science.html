@@ -124,7 +124,7 @@ subtitle: A list of all the questions from the CBSE Class 10 Science papers with
                         var mark = content[answer]
                         const answerEl = document.createElement("p");
                         if (questionType == 'mcq') {
-                            answerEL = `Correct Answer:<br>${answerText}`;
+                            answerEl.innerHTML = `Correct Answer:<br>${answerText}`;
                         }
                         else { answerEl.innerHTML = answerText; }
                         answerEl.style.display = "inline-block";

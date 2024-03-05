@@ -168,6 +168,7 @@ div[class*='language-'] {
     border-radius: 28px;
     background: var(--md-sys-color-surface-container);
     border: 1px solid var(--md-sys-color-outline);
+    min-height: 68px;
 }
 
 .mobile-cr {

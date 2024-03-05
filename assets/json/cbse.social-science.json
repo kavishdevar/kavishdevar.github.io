@@ -1,4 +1,13 @@
 {
+    "0": {
+      "question": "",
+        "type": "",
+        "answer": {},
+        "subparts": {},
+        "question-source": "",
+        "answer-source": "",
+        "options": {}
+    },
     "1": {
         "question": "Identify the correct option that describes the movement given below.\nThe movement broke colonial laws and also refused cooperation with the British. ",
         "type": "mcq",

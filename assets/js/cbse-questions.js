@@ -37,7 +37,7 @@ setTimeout(() => {
         newSubPart.innerHTML = `
             <md-outlined-text-field name="subpart-question[${subPart.childElementCount + 1}]" id="subpart-question[${subPart.childElementCount + 1}]" label="Subpart Question" required></md-outlined-text-field>
             <div id="subpart-answers[${subPart.childElementCount + 1}]" data-subpart="${subPart.childElementCount + 1}">
-                <div id="subpart-answer-part[${subPart.childElementCount + 1}]">
+                <div id="subpart-answer-part[1]">
                     <md-outlined-text-field name="subpart-answer[1]" id="subpart-answer[1]" label="Answer" type="textarea" data-subpart='${subPart.childElementCount + 1}' data-subpart-answer-part="${subPart.childElementCount + 1}" required></md-outlined-text-field>
                     <md-outlined-text-field name="subpart-mark[1]" id="subpart-mark[1]" label="Marks" required type="number" data-subpart='${subPart.childElementCount + 1}' data-subpart-answer-part="${subPart.childElementCount + 1}" step="0.5"></md-outlined-text-field>
                 </div>
@@ -53,7 +53,7 @@ setTimeout(() => {
             newSubPartAnswer.id = "subpart-answer-part[" + (subPartAnswers.childElementCount + 1) + "]";
             newSubPartAnswer.innerHTML = `
                 <md-outlined-text-field name="subpart-answer[${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}]" id="subpart-answer[${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}]" label="Answer" type="textarea" data-subpart='${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" required></md-outlined-text-field>
-                <md-outlined-text-field name="subpart-mark[${subPartAnswers.childElementCount + 1}]" id="submart-mark[${subPartAnswers.childElementCount + 1}]" label="Marks" required type="number" data-subpart='${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" step="0.5"></md-outlined-text-field>
+                <md-outlined-text-field name="subpart-mark[${subPartAnswers.childElementCount + 1}]" id="subpart-mark[${subPartAnswers.childElementCount + 1}]" label="Marks" required type="number" data-subpart='${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" step="0.5"></md-outlined-text-field>
             `;
             subPartAnswers.appendChild(newSubPartAnswer);
         });
@@ -79,7 +79,7 @@ setTimeout(() => {
         }
     });
 
-    var questionID = 0;
+    let questionID;
     var answerPartID = 1;
 
     typeSelect.addEventListener("change", () => {
@@ -114,15 +114,10 @@ setTimeout(() => {
             }
         }
         else if (hasSubParts.checked) {
-            for (let i = 0; i < subparts.childElementCount; i++) {
-                if (!document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").reportValidity()) {
+            var mdTextFields = subparts.querySelectorAll("md-outlined-text-field");
+            for (let i = 0; i < mdTextFields.length; i++) {
+                if (!mdTextFields[i].reportValidity()) {
                     return;
-                }
-                let subPartAnswers = document.getElementById("subpart-answers[" + (i + 1) + "]");
-                for (let j = 0; j < subPartAnswers.childElementCount; j++) {
-                    if (!document.querySelector("#subpart-answer\\[" + (j + 1) + "\\]").reportValidity() || !document.querySelector("#subpart-mark\\[" + (j + 1) + "\\]").reportValidity()) {
-                        return;
-                    }
                 }
             }
         }
@@ -143,6 +138,10 @@ setTimeout(() => {
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 originalJSON = JSON.parse(xhr.responseText);
+                questionID = Object.keys(originalJSON).length;
+                if (originalJSON[questionID]) {
+                    questionID++;
+                }
                 let question = document.getElementById("question").value;
                 let data = {
                     question: question,
@@ -166,17 +165,14 @@ setTimeout(() => {
                         setTimeout(() => {
                             let subPartQuestion = document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").value.replace('"', "'");
                             let subPartAnswers = document.getElementById("subpart-answers[" + (i + 1) + "]");
-                            let subPartAnswerParts = document.getElementById("subpart-answers[" + (i + 1) + "]").childElementCount;
                             data.subparts[subPartQuestion] = {
                                 answer: {}
                             };
-                            for (let j = 0; j < subPartAnswerParts; j++) {
-                                setTimeout(() => {
-                                    let subPartAnswer = subPartAnswers.querySelector("#subpart-answer\\[" + (j + 1) + "\\]").value.replace('"', "'");
-                                    let subPartMarks = subPartAnswers.querySelector("#subpart-mark\\[" + (j + 1) + "\\]").value;
-                                    data.subparts[subPartQuestion].answer[subPartAnswer] = subPartMarks;
-                                });
-                            }
+                            subPartAnswers.querySelectorAll(`md-outlined-text-field[id^=subpart-answer]`).forEach((element) => {
+                                let answer = element.value.replace('"', "'");
+                                let marks = document.querySelectorAll(`[id^=subpart-mark\\[][data-subpart-answer-part='${element.getAttribute('data-subpart-answer-part')}'][data-subpart='${element.getAttribute('data-subpart')}']`)[0].value;
+                                data.subparts[subPartQuestion].answer[answer] = marks;
+                            });
                         });
                     }
                 }
@@ -190,50 +186,8 @@ setTimeout(() => {
                     }
                 }
                 originalJSON[questionID] = data;
-                console.log(originalJSON);
 
                 pushAndCreatePR(question, fileName, originalJSON);
-
-                document.getElementById("question").value = "";
-                document.getElementById("a").value = "";
-                document.getElementById("b").value = "";
-                document.getElementById("c").value = "";
-                document.getElementById("d").value = "";
-                document.getElementById("correct-option").reset();
-                for (let i = 0; i < answerPartID; i++) {
-                    if (i + 1 > 1) {
-                        document.getElementById("answer[" + (i + 1) + "]").remove();
-                    }
-                    else {
-                        document.getElementById("answer-part[" + (i + 1) + "]").value = "";
-                    }
-                }
-                for (let i = 0; i < subparts.childElementCount; i++) {
-                    if (i + 1 > 1) {
-                        document.getElementById("subpart[" + (i + 1) + "]").remove();
-                        for (let j = 0; j < document.getElementById("subpart-answers[" + (i + 1) + "]").childElementCount; j++) {
-                            if (j + 1 > 1) {
-                                document.getElementById("subpart-answer[" + (j + 1) + "]").remove();
-                            }
-                            else {
-                                document.getElementById("subpart-answer-part[" + (j + 1) + "]").value = "";
-                            }
-                        }
-                    }
-                    else {
-                        document.querySelector("#subpart-question\\[" + (i + 1) + "\\]").value = "";
-                        for (let j = 0; j < document.getElementById("subpart-answers[" + (i + 1) + "]").childElementCount; j++) {
-                            if (j + 1 > 1) {
-                                document.getElementById("subpart-answer[" + (j + 1) + "]").remove();
-                            }
-                            else {
-                                document.getElementById("subpart-answer-part[" + (j + 1) + "]").value = "";
-                            }
-                        }
-                    }
-                }
-
-
             }
         }
     });
@@ -261,8 +215,6 @@ setTimeout(() => {
             repo: 'kavishdevar.github.io',
             ref: ref,
             sha: branchSha
-        }).then(response => {
-            console.log(response);
         }).catch(error => {
             alert('Error Occured');
             console.log(error);
@@ -295,12 +247,12 @@ setTimeout(() => {
                 name: 'CBSE',
                 email: 'CBSE@kavishdevar.me',
             },
-            content: btoa(unescape(encodeURIComponent(JSON.stringify(json)))),
+            content: btoa(unescape(encodeURIComponent(JSON.stringify(json, null, "\t")))),
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         }).then(response => {
-            alert('Saved Successfully');
+            alertMd("Question Added Successfully", "Question Added Successfully. Reload to add more.", "success");
         }
         ).catch(error => {
             alert('Error Occured');
@@ -308,8 +260,8 @@ setTimeout(() => {
         await octokit.request('POST /repos/kavishdevar/kavishdevar.github.io/pulls', {
             owner: 'kavishdevar',
             repo: 'kavishdevar.github.io',
-            title: 'New Question at ' + new Date().toISOString().split('T')[0],
-            body: 'Please pull these awesome changes in!',
+            title: 'New Question on ' + new Date().toISOString().split('T')[0] + '(Subject: ' + subjectSelect.value + ')',
+            body: 'Question Title: ' + question + '\nQuestion Type: ' + typeSelect.value + '\nQuestion Source: ' + questionSource.value + '\nAnswer Source: ' + answerSource.value + '\nSubject: ' + subjectSelect.value + '\n' + `\`\`\`${JSON.stringify(json[questionID], null, "\t")}\`\`\``,
             head: 'kavishdevar:' + ref.split('refs/heads/')[1],
             base: 'dev',
             headers: {

@@ -1,4 +1,12 @@
 {
+    "0": {
+        "question": "",
+        "type": "",
+        "answer": {},
+        "subparts": {},
+        "question-source": "",
+        "answer-source": ""
+    },
     "1": {
         "question": "Which of the following observations is correct for the above given experimental diagram?",
         "type": "mcq",
@@ -425,6 +433,32 @@
         },
         "answer": {},
         "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ.pdf",
+        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+    },
+    "25": {
+        "question": "Answer the following.",
+        "type": "short-answer",
+        "answer": {},
+        "subparts": {
+            "Flow of energy in a food chain is unidirectional. Justify the statement.": {
+                "answer": {
+                    "The flow of energy is unidirectional in a food chain. The energy that is captured by the autotrophs does not revert back to the solar input and the energy which passes to the herbivores does not come back to autotrophs. As it moves progressively through the various trophic levels it is no longer available to the previous trophic levels.": "2"
+                }
+            },
+            "In a cross between pea plants having round green seeds and wrinkled yellow seeds, what progeny is expected in F1 and F2 generation?": {
+                "answer": {
+                    "F1 generation: All Round yellow (RrYy)": "0.5",
+                    "F2 generation: round yellow:9; round green:3; wrinkled yellow: 3 wrinkled green :1": "0.5"
+                }
+            },
+            "What would be the impact on the ratio of F2 generation, if F1 progeny plants inherited a single whole gene set from each parent? Give reason for your answer.": {
+                "answer": {
+                    "If progeny plants inherited a single whole gene set from each parent, then the ratio 9:3:3:1 will not be obtained.": "0.5",
+                    "This is because the two characteristics “R” and “y” would then be linked to each other and cannot be independently inherited.": "1"
+                }
+            }
+        },
+        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
         "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
     }
 }

@@ -78,12 +78,6 @@ subtitle: A list of all the questions from the CBSE Class 10 Social Science pape
 
                 const cardContent = document.createElement("p");
                 
-                if (questionType == 'mcq') {
-                    cardContent.innerHTML = `Correct Answer:<br>${Object.keys(content)[0]}`;
-                }
-
-                // cardContent.innerHTML = "";
-
                 if (answerType == "subparts") {
                     for (var number = 0; number < Object.keys(content).length; number++) {
                         var subpart = Object.keys(content)[number];

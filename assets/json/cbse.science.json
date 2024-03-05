@@ -1,430 +1,454 @@
 {
-    "1": {
-        "question": "Which of the following observations is correct for the above given experimental diagram?",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Red-coloured copper is oxidized to red-coloured copper(I) oxide",
-            "b. ": "Red-coloured copper is reduced to black-coloured copper (II) oxide",
-            "c. ": "Red-coloured copper is reduced to black-coloured copper(I) oxide",
-            "d. ": "Red-coloured copper is oxidized to black coloured copper(II) oxide"
-        },
-        "answer": {
-            "Red-coloured copper is oxidized to black coloured copper(II) oxide": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "2": {
-        "question": "The ratio (x:y) of reactants Fe and H2O in the given balanced chemical equation is . xFe(s) + yH2O(g) → Fe3O4 (s) + 4H2 (g)",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "x:y = 2:3",
-            "b. ": "x:y = 3:4",
-            "c. ": "x:y = 1:4",
-            "d. ": "x:y = 4:1"
-        },
-        "answer": {
-            "x:y = 3:4": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "3": {
-        "question": "Washing soda is hydrated",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Sodium hydrogen carbonate",
-            "b. ": "Calcium hydrogen carbonate",
-            "c. ": "Slaked carbonate",
-            "d. ": "Sodium carbonate."
-        },
-        "answer": {
-            "Sodium carbonate.": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "4": {
-        "question": "The metal X does not react with cold water but floats on hot water with formation of colourless bubbles. Which of the following represents metal X.",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Aluminium",
-            "b. ": "Copper",
-            "c. ": "Magnesium",
-            "d. ": "Lead"
-        },
-        "answer": {
-            "Magnesium": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "5": {
-        "question": "<img src='/assets/cbse/science/additionalpq/2/24/img/q5.jpeg' alt='q5.jpeg'>Which of the following correctly represents 'X' in the above chemical changes?",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Ethane",
-            "b. ": "Ethene",
-            "c. ": "Ethyne",
-            "d. ": "Ethanoic acid"
-        },
-        "answer": {
-            "Ethene": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "6": {
-        "question": "Which of the following structures correctly represent the electron dot structure of a Nitrogen molecule?",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6c.png'/>",
-            "b. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6b.png'/>",
-            "c. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6c.png'/>",
-            "d. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6d.png'/>"
-        },
-        "answer": {
-            "<img src='/assets/cbse/science/additionalpq/2/24/img/q6b.png'/>": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "7": {
-        "question": "Which of the following tests is given by the gas 'X' produced in the set up shown?",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Lime water turns milky white",
-            "b. ": "Puts off a burning matchstick",
-            "c. ": "Burning matchstick produces a pop sound and the flame puts off",
-            "d. ": "Choking smell with the smell of burning Sulphur"
-        },
-        "answer": {
-            "Burning matchstick produces a pop sound and the flame puts off": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "8": {
-        "question": "Gastric juice is secreted by gastric glands and contains hydrochloric acid, mucus, and pepsin. Which activity will be affected in the absence of hydrochloric acid?<img src=\"/assets/cbse/science/additionalpq/2/24/img/q7.png\" alt=\"q7.png\">",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Digestion of proteins.",
-            "b. ": "Digestion of carbohydrates",
-            "c. ": "Digestion of lipids",
-            "d. ": "Digestion of starch."
-        },
-        "answer": {
-            "Digestion of proteins.": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "9": {
-        "question": "Rajesh noticed that a potted plant kept in the window of his room shows bending towards sunlight. This could be due to:",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "More growth in the well lit region due to diffusion of auxin hormone",
-            "b. ": "More growth in the region away from light due to diffusion of auxin hormone",
-            "c. ": "More growth in the well lit region due to diffusion of cytokinin hormone",
-            "d. ": "More growth in the region away from light due to diffusion of cytokinin hormone"
-        },
-        "answer": {
-            "More growth in the region away from light due to diffusion of auxin hormone": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "10": {
-        "question": "The lining of the alimentary canal has certain muscles that contract rhythmically in order to push the food forward. This process is called:",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Translocation",
-            "b. ": "Transpiration",
-            "c. ": "Peristalsis",
-            "d. ": "Autotrophism"
-        },
-        "answer": {
-            "Peristalsis": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "11": {
-        "question": "A cross between pure tall and pure short pea plants gives hybrid tall pea plants in the first generation. What would be the genotypic ratio in the offspring of the second generation if these F1 plants were self-pollinated?",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "3:1",
-            "b. ": "9:3:3:1",
-            "c. ": "1:2:1",
-            "d. ": "1:1"
-        },
-        "answer": {
-            "1:2:1": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "12": {
-        "question": "During exhalation, the exchange of gases takes place between",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Alveoli of the lungs and blood.",
-            "b. ": "Alveoli of lungs and tissue fluid.",
-            "c. ": "Blood and body tissues",
-            "d. ": "Tissue fluid and blood capillaries"
-        },
-        "answer": {
-            "Alveoli of the lungs and blood.": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "13": {
-        "question": "The light enters from air to glass having refractive index 1.5. the speed of light in glass is:",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "3 X 108 m/s",
-            "b. ": "2 X 108 m/s",
-            "c. ": "1.5 X 108 m/s",
-            "d. ": "2.25 X 108 m/s"
-        },
-        "answer": {
-            "2 X 108 m/s": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "14": {
-        "question": "For a convex mirror the image distance (v) = 5 cm, focal length (f) = 10 cm and height of the image (h) = 7.5 cm. The correct representation according to sign conventions is:",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "v = -5 cm, f = - 10 cm and hi = - 7.5 cm",
-            "b. ": "v = -5 cm, f = + 10 cm and hi = - 7.5 cm",
-            "c. ": "v = +5 cm, f = - 10 cm and hi = + 7.5 cm",
-            "d. ": "v = +5 cm, f = + 10 cm and hi = + 7.5 cm"
-        },
-        "answer": {
-            "v = +5 cm, f = + 10 cm and hi = + 7.5 cm": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "15": {
-        "question": "If all the organisms of one trophic level in a food chain die, what would be its impact on the population of organisms in other trophic levels? It will",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "remain the same in the next trophic level",
-            "b. ": "increase in the next trophic level",
-            "c. ": "increase in the lower trophic level.",
-            "d. ": "remain the same in the lower trophic level."
-        },
-        "answer": {
-            "increase in the lower trophic level.": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "16": {
-        "question": "The chemicals that are non-degradable, get progressively accumulated at each trophic level, and their concentration is seen maximum in the bodies of top consumers. This phenomenon is known as:",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Eutrophication",
-            "b. ": "Pollution",
-            "c. ": "Accumulation",
-            "d. ": "Biomagnification"
-        },
-        "answer": {
-            "Biomagnification": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "17": {
-        "question": "Assertion (A): Copper ions migrate from the anode to the cathode during electrorefining of copper. Reason (R): In the electrorefining process, metal ions accept electrons at the anode and are deposited as pure metal.",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Both A and R are true, and R is the correct explanation of A.",
-            "b. ": "Both A and R are true, but R is not the correct explanation of A.",
-            "c. ": "A is true but R is false.",
-            "d. ": "A is false but R is true."
-        },
-        "answer": {
-            "A is true but R is false.": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "18": {
-        "question": "Assertion (A): A lot of difference in the concentrations of ions was observed by a scientist between the fluid in xylem cells of roots and that of the soil. Reason (R): Xylem cells in the roots of plants which come in contact with the soil actively take up ions.",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Both A and R are true, and R is the correct explanation of A.",
-            "b. ": "Both A and R are true, but R is not the correct explanation of A.",
-            "c. ": "A is true but R is false.",
-            "d. ": "A is false but R is true."
-        },
-        "answer": {
-            "Both A and R are true, and R is the correct explanation of A.": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "19": {
-        "question": "Assertion (A): One circuit with 15 A current rating is used for appliances such as geysers and air coolers. Reason (R): Appliances with metallic body are connected to an earth wire with low resistance.",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Both A and R are true, and R is the correct explanation of A.",
-            "b. ": "Both A and R are true, but R is not the correct explanation of A.",
-            "c. ": "A is true but R is false.",
-            "d. ": "A is false but R is true."
-        },
-        "answer": {
-            "Both A and R are true, but R is not the correct explanation of A.": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "20": {
-        "question": "Assertion (A): All kitchen waste cannot form compost. Reason (R): Material like milk packets may not be biodegradable.",
-        "type": "mcq",
-        "subparts": {},
-        "options": {
-            "a. ": "Both A and R are true, and R is the correct explanation of A.",
-            "b. ": "Both A and R are true, but R is not the correct explanation of A.",
-            "c. ": "A is true but R is false.",
-            "d. ": "A is false but R is true."
-        },
-        "answer": {
-            "Both A and R are true, and R is the correct explanation of A": 1
-        },
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "21": {
-        "question": "Imagine a current carrying circular loop of wire on the plane of your answer sheet. The magnetic field inside the loop is into the plane of the paper. i) What must be the direction of the current in the loop? ii) State the rule used here.",
-        "type": "very-short-answer",
-        "subparts": {
-            "What must be the direction of the current in the loop?": {
-                "answer": {
-                    "The current is in a clockwise direction.": 1
-                }
-            },
-            "State the rule used here.": {
-                "answer": {
-                    "The right-hand thumb rule states that if you imagine that you are holding a current-carrying straight conductor in your right hand such that the thumb points towards the direction of current. Then your fingers will wrap around the conductor in the direction of the field lines of the magnetic field.": 1
-                }
-            }
-        },
-        "answer": {},
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "22": {
-        "question": "Answer the questions below.",
-        "type": "very-short-answer",
-        "subparts": {
-            "State the rule to determine the direction of the force experienced by a current-carrying straight conductor placed in a magnetic field which is perpendicular to it.": {
-                "answer": {
-                    "Fleming's left-hand rule: Stretch the forefinger, middle finger and the thumb of your left hand such that they are mutually perpendicular to each other. If the forefinger indicates the direction of magnetic field and the middle finger indicates the direction of current, then the thumb will indicate the direction of motion of the conductor or the force acting on the conductor. The displacement of the rod is largest when the direction of current is at right angles to the direction of the magnetic field.": 1
-                }
-            },
-            "When will the magnitude of the displacement of the rod be the largest?": {
-                "answer": {
-                    "The displacement of the rod is largest when the direction of current is at right angles to the direction of the magnetic field.": 1
-                }
-            }
-        },
-        "answer": {},
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "23": {
-        "question": "An organic compound ‘P’ is a constituent of wines. ‘P’ on reacting with acidified K2Cr2O7 forms another compound ‘Q’. When a piece of sodium is added to ‘Q’, a gas ‘R’ evolves which burns with a pop sound when a burning matchstick is brought near it.",
-        "type": "long-answer",
-        "subparts": {
-            "Give the chemical name of compound P.": {
-                "answer": {
-                    "Ethanol": 1
-                }
-            },
-            "Mention another use of the compound ‘P’ apart from the use mentioned in the question.": {
-                "answer": {
-                    "Industrial solvent/ ingredient of cough syrup/ homeopathic medicine / lab reagent - any one or any other": 1
-                }
-            },
-            "Illustrate with the help of chemical equation the conversion of ‘P’ into ‘Q’.": {
-                "answer": {
-                    "C2H5OH —--acidified K2Cr2O7—---> CH3COOHO": 1
-                }
-            },
-            "Give a balanced equation to depict the reaction of Q with sodium.": {
-                "answer": {
-                    "2Na + 2CH3COOH —-------> 2CH3COONa + H2": 1
-                }
-            },
-            "What happens when ‘P’ is heated with conc. H2SO4 at 443 K, write its chemical equation.": {
-                "answer": {
-                    "Dehydration of ethanol occurs/C2H5OH —--conc.H2SO4—->C2H4 + H2O": 1
-                }
-            }
-        },
-        "answer": {},
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    },
-    "24": {
-        "question": "An organic compound ‘X’ is a liquid at room temperature. It is also a very good solvent and has the molecular formula C2 H6 O. Upon oxidation ‘X’ gives ‘Y’. ‘Y’ releases a gas ‘W’ with brisk effervescence on reacting with NaHCO3. X reacts with Y in the presence of conc. H2SO4to give another compound ‘Z’ which has a pleasant smell. Z.",
-        "type": "long-answer",
-        "subparts": {
-            "Give the chemical name and chemical formula of Y.": {
-                "answer": {
-                    "Ethanoic Acid": 0.5,
-                    "CH3COOH": 0.5
-                }
-            },
-            "How will you test for the gas ‘W’?": {
-                "answer": {
-                    "The gas evolved ‘W’ turns Lime water milky": 1
-                }
-            },
-            "Depict the formation Y and Z using chemical equations.": {
-                "answer": {
-                    "C2H5OH—--- Acid.K2Cr2O7—---> CH3COOH": 1,
-                    "C2H5OH + CH3COOH —----> CH3COOC2H5 + H2O": 1
-                }
-            },
-            "Name the reaction of formation of ‘Z’.": {
-                "answer": {
-                    "Esterification": 0.5
-                }
-            },
-            "Give any one use of the compound ‘Z’.": {
-                "answer": {
-                    "Any one use - perfumes/cosmetics;": 0.5
-                }
-            }
-        },
-        "answer": {},
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
-    }
+	"0": {
+		"question": "How does blood sugar level get regulated in the human body?",
+		"type": "short-answer",
+		"answer": {},
+		"subparts": {
+			"How does blood sugar level get regulated in the human body?": {
+				"answer": {
+					"When sugar levels in the blood rise, they are detected by the cells of the pancreas which respond by producing more insulin. As the blood sugar level falls, insulin secretion is reduced. The timing and amount of hormones to be secreted are regulated by the feedback mechanism.": "2"
+				}
+			},
+			"Which hormone is secreted into the blood when you are under stress? Name the gland that secretes this hormone.": {
+				"answer": {
+					"Adrenaline": "0.5"
+				}
+			},
+			"How does it help the body to cope up in an emergency situation?": {
+				"answer": {
+					"It acts on heart. Heart beats faster, resulting in more supply of oxygen to skeletal muscles.": "1"
+				}
+			}
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"1": {
+		"question": "Which of the following observations is correct for the above given experimental diagram?",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Red-coloured copper is oxidized to red-coloured copper(I) oxide",
+			"b. ": "Red-coloured copper is reduced to black-coloured copper (II) oxide",
+			"c. ": "Red-coloured copper is reduced to black-coloured copper(I) oxide",
+			"d. ": "Red-coloured copper is oxidized to black coloured copper(II) oxide"
+		},
+		"answer": {
+			"Red-coloured copper is oxidized to black coloured copper(II) oxide": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"2": {
+		"question": "The ratio (x:y) of reactants Fe and H2O in the given balanced chemical equation is . xFe(s) + yH2O(g) → Fe3O4 (s) + 4H2 (g)",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "x:y = 2:3",
+			"b. ": "x:y = 3:4",
+			"c. ": "x:y = 1:4",
+			"d. ": "x:y = 4:1"
+		},
+		"answer": {
+			"x:y = 3:4": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"3": {
+		"question": "Washing soda is hydrated",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Sodium hydrogen carbonate",
+			"b. ": "Calcium hydrogen carbonate",
+			"c. ": "Slaked carbonate",
+			"d. ": "Sodium carbonate."
+		},
+		"answer": {
+			"Sodium carbonate.": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"4": {
+		"question": "The metal X does not react with cold water but floats on hot water with formation of colourless bubbles. Which of the following represents metal X.",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Aluminium",
+			"b. ": "Copper",
+			"c. ": "Magnesium",
+			"d. ": "Lead"
+		},
+		"answer": {
+			"Magnesium": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"5": {
+		"question": "<img src='/assets/cbse/science/additionalpq/2/24/img/q5.jpeg' alt='q5.jpeg'>Which of the following correctly represents 'X' in the above chemical changes?",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Ethane",
+			"b. ": "Ethene",
+			"c. ": "Ethyne",
+			"d. ": "Ethanoic acid"
+		},
+		"answer": {
+			"Ethene": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"6": {
+		"question": "Which of the following structures correctly represent the electron dot structure of a Nitrogen molecule?",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6c.png'/>",
+			"b. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6b.png'/>",
+			"c. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6c.png'/>",
+			"d. ": "<img src='/assets/cbse/science/additionalpq/2/24/img/q6d.png'/>"
+		},
+		"answer": {
+			"<img src='/assets/cbse/science/additionalpq/2/24/img/q6b.png'/>": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"7": {
+		"question": "Which of the following tests is given by the gas 'X' produced in the set up shown?",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Lime water turns milky white",
+			"b. ": "Puts off a burning matchstick",
+			"c. ": "Burning matchstick produces a pop sound and the flame puts off",
+			"d. ": "Choking smell with the smell of burning Sulphur"
+		},
+		"answer": {
+			"Burning matchstick produces a pop sound and the flame puts off": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"8": {
+		"question": "Gastric juice is secreted by gastric glands and contains hydrochloric acid, mucus, and pepsin. Which activity will be affected in the absence of hydrochloric acid?<img src=\"/assets/cbse/science/additionalpq/2/24/img/q7.png\" alt=\"q7.png\">",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Digestion of proteins.",
+			"b. ": "Digestion of carbohydrates",
+			"c. ": "Digestion of lipids",
+			"d. ": "Digestion of starch."
+		},
+		"answer": {
+			"Digestion of proteins.": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"9": {
+		"question": "Rajesh noticed that a potted plant kept in the window of his room shows bending towards sunlight. This could be due to:",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "More growth in the well lit region due to diffusion of auxin hormone",
+			"b. ": "More growth in the region away from light due to diffusion of auxin hormone",
+			"c. ": "More growth in the well lit region due to diffusion of cytokinin hormone",
+			"d. ": "More growth in the region away from light due to diffusion of cytokinin hormone"
+		},
+		"answer": {
+			"More growth in the region away from light due to diffusion of auxin hormone": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"10": {
+		"question": "The lining of the alimentary canal has certain muscles that contract rhythmically in order to push the food forward. This process is called:",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Translocation",
+			"b. ": "Transpiration",
+			"c. ": "Peristalsis",
+			"d. ": "Autotrophism"
+		},
+		"answer": {
+			"Peristalsis": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"11": {
+		"question": "A cross between pure tall and pure short pea plants gives hybrid tall pea plants in the first generation. What would be the genotypic ratio in the offspring of the second generation if these F1 plants were self-pollinated?",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "3:1",
+			"b. ": "9:3:3:1",
+			"c. ": "1:2:1",
+			"d. ": "1:1"
+		},
+		"answer": {
+			"1:2:1": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"12": {
+		"question": "During exhalation, the exchange of gases takes place between",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Alveoli of the lungs and blood.",
+			"b. ": "Alveoli of lungs and tissue fluid.",
+			"c. ": "Blood and body tissues",
+			"d. ": "Tissue fluid and blood capillaries"
+		},
+		"answer": {
+			"Alveoli of the lungs and blood.": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"13": {
+		"question": "The light enters from air to glass having refractive index 1.5. the speed of light in glass is:",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "3 X 108 m/s",
+			"b. ": "2 X 108 m/s",
+			"c. ": "1.5 X 108 m/s",
+			"d. ": "2.25 X 108 m/s"
+		},
+		"answer": {
+			"2 X 108 m/s": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"14": {
+		"question": "For a convex mirror the image distance (v) = 5 cm, focal length (f) = 10 cm and height of the image (h) = 7.5 cm. The correct representation according to sign conventions is:",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "v = -5 cm, f = - 10 cm and hi = - 7.5 cm",
+			"b. ": "v = -5 cm, f = + 10 cm and hi = - 7.5 cm",
+			"c. ": "v = +5 cm, f = - 10 cm and hi = + 7.5 cm",
+			"d. ": "v = +5 cm, f = + 10 cm and hi = + 7.5 cm"
+		},
+		"answer": {
+			"v = +5 cm, f = + 10 cm and hi = + 7.5 cm": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"15": {
+		"question": "If all the organisms of one trophic level in a food chain die, what would be its impact on the population of organisms in other trophic levels? It will",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "remain the same in the next trophic level",
+			"b. ": "increase in the next trophic level",
+			"c. ": "increase in the lower trophic level.",
+			"d. ": "remain the same in the lower trophic level."
+		},
+		"answer": {
+			"increase in the lower trophic level.": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"16": {
+		"question": "The chemicals that are non-degradable, get progressively accumulated at each trophic level, and their concentration is seen maximum in the bodies of top consumers. This phenomenon is known as:",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Eutrophication",
+			"b. ": "Pollution",
+			"c. ": "Accumulation",
+			"d. ": "Biomagnification"
+		},
+		"answer": {
+			"Biomagnification": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"17": {
+		"question": "Assertion (A): Copper ions migrate from the anode to the cathode during electrorefining of copper. Reason (R): In the electrorefining process, metal ions accept electrons at the anode and are deposited as pure metal.",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Both A and R are true, and R is the correct explanation of A.",
+			"b. ": "Both A and R are true, but R is not the correct explanation of A.",
+			"c. ": "A is true but R is false.",
+			"d. ": "A is false but R is true."
+		},
+		"answer": {
+			"A is true but R is false.": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"18": {
+		"question": "Assertion (A): A lot of difference in the concentrations of ions was observed by a scientist between the fluid in xylem cells of roots and that of the soil. Reason (R): Xylem cells in the roots of plants which come in contact with the soil actively take up ions.",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Both A and R are true, and R is the correct explanation of A.",
+			"b. ": "Both A and R are true, but R is not the correct explanation of A.",
+			"c. ": "A is true but R is false.",
+			"d. ": "A is false but R is true."
+		},
+		"answer": {
+			"Both A and R are true, and R is the correct explanation of A.": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"19": {
+		"question": "Assertion (A): One circuit with 15 A current rating is used for appliances such as geysers and air coolers. Reason (R): Appliances with metallic body are connected to an earth wire with low resistance.",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Both A and R are true, and R is the correct explanation of A.",
+			"b. ": "Both A and R are true, but R is not the correct explanation of A.",
+			"c. ": "A is true but R is false.",
+			"d. ": "A is false but R is true."
+		},
+		"answer": {
+			"Both A and R are true, but R is not the correct explanation of A.": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"20": {
+		"question": "Assertion (A): All kitchen waste cannot form compost. Reason (R): Material like milk packets may not be biodegradable.",
+		"type": "mcq",
+		"subparts": {},
+		"options": {
+			"a. ": "Both A and R are true, and R is the correct explanation of A.",
+			"b. ": "Both A and R are true, but R is not the correct explanation of A.",
+			"c. ": "A is true but R is false.",
+			"d. ": "A is false but R is true."
+		},
+		"answer": {
+			"Both A and R are true, and R is the correct explanation of A": 1
+		},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"21": {
+		"question": "Imagine a current carrying circular loop of wire on the plane of your answer sheet. The magnetic field inside the loop is into the plane of the paper. i) What must be the direction of the current in the loop? ii) State the rule used here.",
+		"type": "very-short-answer",
+		"subparts": {
+			"What must be the direction of the current in the loop?": {
+				"answer": {
+					"The current is in a clockwise direction.": 1
+				}
+			},
+			"State the rule used here.": {
+				"answer": {
+					"The right-hand thumb rule states that if you imagine that you are holding a current-carrying straight conductor in your right hand such that the thumb points towards the direction of current. Then your fingers will wrap around the conductor in the direction of the field lines of the magnetic field.": 1
+				}
+			}
+		},
+		"answer": {},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"22": {
+		"question": "Answer the questions below.",
+		"type": "very-short-answer",
+		"subparts": {
+			"State the rule to determine the direction of the force experienced by a current-carrying straight conductor placed in a magnetic field which is perpendicular to it.": {
+				"answer": {
+					"Fleming's left-hand rule: Stretch the forefinger, middle finger and the thumb of your left hand such that they are mutually perpendicular to each other. If the forefinger indicates the direction of magnetic field and the middle finger indicates the direction of current, then the thumb will indicate the direction of motion of the conductor or the force acting on the conductor. The displacement of the rod is largest when the direction of current is at right angles to the direction of the magnetic field.": 1
+				}
+			},
+			"When will the magnitude of the displacement of the rod be the largest?": {
+				"answer": {
+					"The displacement of the rod is largest when the direction of current is at right angles to the direction of the magnetic field.": 1
+				}
+			}
+		},
+		"answer": {},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ2.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"23": {
+		"question": "An organic compound ‘P’ is a constituent of wines. ‘P’ on reacting with acidified K2Cr2O7 forms another compound ‘Q’. When a piece of sodium is added to ‘Q’, a gas ‘R’ evolves which burns with a pop sound when a burning matchstick is brought near it.",
+		"type": "long-answer",
+		"subparts": {
+			"Give the chemical name of compound P.": {
+				"answer": {
+					"Ethanol": 1
+				}
+			},
+			"Mention another use of the compound ‘P’ apart from the use mentioned in the question.": {
+				"answer": {
+					"Industrial solvent/ ingredient of cough syrup/ homeopathic medicine / lab reagent - any one or any other": 1
+				}
+			},
+			"Illustrate with the help of chemical equation the conversion of ‘P’ into ‘Q’.": {
+				"answer": {
+					"C2H5OH —--acidified K2Cr2O7—---> CH3COOHO": 1
+				}
+			},
+			"Give a balanced equation to depict the reaction of Q with sodium.": {
+				"answer": {
+					"2Na + 2CH3COOH —-------> 2CH3COONa + H2": 1
+				}
+			},
+			"What happens when ‘P’ is heated with conc. H2SO4 at 443 K, write its chemical equation.": {
+				"answer": {
+					"Dehydration of ethanol occurs/C2H5OH —--conc.H2SO4—->C2H4 + H2O": 1
+				}
+			}
+		},
+		"answer": {},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	},
+	"24": {
+		"question": "An organic compound ‘X’ is a liquid at room temperature. It is also a very good solvent and has the molecular formula C2 H6 O. Upon oxidation ‘X’ gives ‘Y’. ‘Y’ releases a gas ‘W’ with brisk effervescence on reacting with NaHCO3. X reacts with Y in the presence of conc. H2SO4to give another compound ‘Z’ which has a pleasant smell. Z.",
+		"type": "long-answer",
+		"subparts": {
+			"Give the chemical name and chemical formula of Y.": {
+				"answer": {
+					"Ethanoic Acid": 0.5,
+					"CH3COOH": 0.5
+				}
+			},
+			"How will you test for the gas ‘W’?": {
+				"answer": {
+					"The gas evolved ‘W’ turns Lime water milky": 1
+				}
+			},
+			"Depict the formation Y and Z using chemical equations.": {
+				"answer": {
+					"C2H5OH—--- Acid.K2Cr2O7—---> CH3COOH": 1,
+					"C2H5OH + CH3COOH —----> CH3COOC2H5 + H2O": 1
+				}
+			},
+			"Name the reaction of formation of ‘Z’.": {
+				"answer": {
+					"Esterification": 0.5
+				}
+			},
+			"Give any one use of the compound ‘Z’.": {
+				"answer": {
+					"Any one use - perfumes/cosmetics;": 0.5
+				}
+			}
+		},
+		"answer": {},
+		"question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQ.pdf",
+		"answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/Science-PQMS2.pdf"
+	}
 }

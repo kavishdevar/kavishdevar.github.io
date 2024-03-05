@@ -1,18 +1,1 @@
-{
-    "1": {
-        "question": "Identify the correct option that describes the movement given below.\nThe movement broke colonial laws and also refused cooperation with the British. ",
-        "type": "mcq",
-        "answer": {
-            "B. Civil Disobedience movement": 1
-        },
-        "subparts": {},
-        "question-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/SS-PQ2.pdf",
-        "answer-source": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/SS-PQMS2.pdf",
-        "options": {
-            "a. ": "Rowlatt Satyagraha Movement",
-            "b. ": "Civil Disobedience movement",
-            "c. ": "Non Cooperation Movement",
-            "d. ": "Quit India Movement"
-        }
-    }
-}
+{"0":{"question":"Answer the following.","type":"long-answer","answer":{},"subparts":{"How does blood sugar level get regulated in the human body?":{"answer":{"When sugar levels in the blood rise, they are detected by the cells of the pancreas which respond by producing more insulin. As the blood sugar level falls, insulin secretion is reduced. The timing and amount of hormones to be secreted are regulated by the feedback mechanism.":"2"}},"Which hormone is secreted into the blood when you are under stress? Name the gland that secretes this hormone.":{"answer":{}},"How does it help the body to cope up in an emergency situation?":{"answer":{"It acts on heart. Heart beats faster, resulting in more supply of oxygen to skeletal muscles.":"1"}}},"question-source":"https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/SS-PQ2.pdf","answer-source":"https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/SS-PQMS2.pdf"},"1":{"question":"Identify the correct option that describes the movement given below.\nThe movement broke colonial laws and also refused cooperation with the British. ","type":"mcq","answer":{"B. Civil Disobedience movement":1},"subparts":{},"question-source":"https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/SS-PQ2.pdf","answer-source":"https://cbseacademic.nic.in/web_material/SQP/ClassX_2023_24/SS-PQMS2.pdf","options":{"a. ":"Rowlatt Satyagraha Movement","b. ":"Civil Disobedience movement","c. ":"Non Cooperation Movement","d. ":"Quit India Movement"}}}

@@ -24,7 +24,7 @@ setTimeout(() => {
         newSubPartAnswer.id = "subpart-answer-part[" + (subPartAnswers.childElementCount + 1) + "]";
         newSubPartAnswer.innerHTML = `
             <md-outlined-text-field name="subpart-answer[${subPartAnswers.childElementCount + 1}]" id="subpart-answer[${subPartAnswers.childElementCount + 1}]" label="Answer" type="textarea" data-subpart='${addSubpartAnswer.getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" required></md-outlined-text-field>
-            <md-outlined-text-field name="marks[${subPartAnswers.childElementCount + 1}]" id="marks[${subPartAnswers.childElementCount + 1}]" label="Marks" required type="number" data-subpart='${addSubpartAnswer.getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" step="0.5"></md-outlined-text-field>
+            <md-outlined-text-field name="subpart-mark[${subPartAnswers.childElementCount + 1}]" id="subpart-mark[${subPartAnswers.childElementCount + 1}]" label="Marks" required type="number" data-subpart='${addSubpartAnswer.getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" step="0.5"></md-outlined-text-field>
         `;
         subPartAnswers.appendChild(newSubPartAnswer);
     });
@@ -39,7 +39,7 @@ setTimeout(() => {
             <div id="subpart-answers[${subPart.childElementCount + 1}]" data-subpart="${subPart.childElementCount + 1}">
                 <div id="subpart-answer-part[${subPart.childElementCount + 1}]">
                     <md-outlined-text-field name="subpart-answer[1]" id="subpart-answer[1]" label="Answer" type="textarea" data-subpart='${subPart.childElementCount + 1}' data-subpart-answer-part="${subPart.childElementCount + 1}" required></md-outlined-text-field>
-                    <md-outlined-text-field name="marks[1]" id="marks[1]" label="Marks" required type="number" data-subpart='${subPart.childElementCount + 1}' data-subpart-answer-part="${subPart.childElementCount + 1}" step="0.5"></md-outlined-text-field>
+                    <md-outlined-text-field name="subpart-mark[1]" id="subpart-mark[1]" label="Marks" required type="number" data-subpart='${subPart.childElementCount + 1}' data-subpart-answer-part="${subPart.childElementCount + 1}" step="0.5"></md-outlined-text-field>
                 </div>
             </div>
             <md-outlined-button type="button" id="add-subpart-answer-part" data-subpart="${subPart.childElementCount + 1}">Add Answer Part</md-outlined-button>
@@ -53,7 +53,7 @@ setTimeout(() => {
             newSubPartAnswer.id = "subpart-answer-part[" + (subPartAnswers.childElementCount + 1) + "]";
             newSubPartAnswer.innerHTML = `
                 <md-outlined-text-field name="subpart-answer[${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}]" id="subpart-answer[${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}]" label="Answer" type="textarea" data-subpart='${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" required></md-outlined-text-field>
-                <md-outlined-text-field name="marks[${subPartAnswers.childElementCount + 1}]" id="marks[${subPartAnswers.childElementCount + 1}]" label="Marks" required type="number" data-subpart='${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" step="0.5"></md-outlined-text-field>
+                <md-outlined-text-field name="subpart-mark[${subPartAnswers.childElementCount + 1}]" id="submart-mark[${subPartAnswers.childElementCount + 1}]" label="Marks" required type="number" data-subpart='${newSubPart.querySelector("md-outlined-button").getAttribute("data-subpart")}' data-subpart-answer-part="${subPartAnswers.childElementCount + 1}" step="0.5"></md-outlined-text-field>
             `;
             subPartAnswers.appendChild(newSubPartAnswer);
         });
@@ -120,7 +120,7 @@ setTimeout(() => {
                 }
                 let subPartAnswers = document.getElementById("subpart-answers[" + (i + 1) + "]");
                 for (let j = 0; j < subPartAnswers.childElementCount; j++) {
-                    if (!document.querySelector("#subpart-answer\\[" + (j + 1) + "\\]").reportValidity() || !document.querySelector("#marks\\[" + (j + 1) + "\\]").reportValidity()) {
+                    if (!document.querySelector("#subpart-answer\\[" + (j + 1) + "\\]").reportValidity() || !document.querySelector("#subpart-mark\\[" + (j + 1) + "\\]").reportValidity()) {
                         return;
                     }
                 }
@@ -173,7 +173,7 @@ setTimeout(() => {
                             for (let j = 0; j < subPartAnswerParts; j++) {
                                 setTimeout(() => {
                                     let subPartAnswer = subPartAnswers.querySelector("#subpart-answer\\[" + (j + 1) + "\\]").value.replace('"', "'");
-                                    let subPartMarks = subPartAnswers.querySelector("#marks\\[" + (j + 1) + "\\]").value;
+                                    let subPartMarks = subPartAnswers.querySelector("#subpart-mark\\[" + (j + 1) + "\\]").value;
                                     data.subparts[subPartQuestion].answer[subPartAnswer] = subPartMarks;
                                 });
                             }
@@ -227,7 +227,7 @@ setTimeout(() => {
                                 document.getElementById("subpart-answer[" + (j + 1) + "]").remove();
                             }
                             else {
-                                document.getElementById("subpart-answer-part[" + (j + 1) + "]").value="";
+                                document.getElementById("subpart-answer-part[" + (j + 1) + "]").value = "";
                             }
                         }
                     }

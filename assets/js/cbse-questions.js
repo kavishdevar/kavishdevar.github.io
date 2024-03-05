@@ -261,7 +261,7 @@ setTimeout(() => {
             owner: 'kavishdevar',
             repo: 'kavishdevar.github.io',
             title: 'New Question on ' + new Date().toISOString().split('T')[0] + 'Subject: ' + subjectSelect.value,
-            body: 'Question Title: ' + question + '\nQuestion Type: ' + typeSelect.value + '\nQuestion Source: ' + questionSource.value + '\nAnswer Source: ' + answerSource.value + '\nSubject: ' + subjectSelect.value + '\n' + '```JSON.stringify(json[questionID], null, "\t")```',
+            body: 'Question Title: ' + question + '\nQuestion Type: ' + typeSelect.value + '\nQuestion Source: ' + questionSource.value + '\nAnswer Source: ' + answerSource.value + '\nSubject: ' + subjectSelect.value + '\n' + `\`\`\`${JSON.stringify(json[questionID], null, "\t")}\`\`\``,
             head: 'kavishdevar:' + ref.split('refs/heads/')[1],
             base: 'dev',
             headers: {

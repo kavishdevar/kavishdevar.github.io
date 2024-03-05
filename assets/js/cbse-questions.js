@@ -227,7 +227,7 @@ setTimeout(() => {
                                 document.getElementById("subpart-answer[" + (j + 1) + "]").remove();
                             }
                             else {
-                                document.getElementById("subpart-answer-part[" + (j + 1) + "]").value="";
+                                document.getElementById("subpart-answer-part[" + (j + 1) + "]").value = "";
                             }
                         }
                     }

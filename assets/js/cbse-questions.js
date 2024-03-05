@@ -192,9 +192,10 @@ setTimeout(() => {
                 originalJSON[questionID] = data;
                 console.log(originalJSON);
                 
-                // pushAndCreatePR(question, fileName, originalJSON);
-                //clear values
+                pushAndCreatePR(question, fileName, originalJSON);
                 
+                // clear values
+
                 document.getElementById("question").value = "";
                 document.getElementById("a").value = "";
                 document.getElementById("b").value = "";

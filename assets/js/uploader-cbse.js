@@ -70,6 +70,7 @@ setTimeout(() => {
                 owner: 'kavisdevar',
                 repo: 'kavishdevar.github.io',
                 path: absoluteFilePath,
+                branch: 'dev',
                 message: 'Add File',
                 committer: {
                     name: 'Web Editor',

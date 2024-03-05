@@ -248,7 +248,7 @@ setTimeout(() => {
         });
         let branchSha;
 
-        await octokit.request('GET /repos/kavishdevar/kavishdevar.github.io/git/ref/heads/main').then(response => {
+        await octokit.request('GET /repos/kavishdevar/kavishdevar.github.io/git/ref/heads/dev').then(response => {
             branchSha = response.data.object.sha;
         }).catch(error => {
             console.log(error);
@@ -311,7 +311,7 @@ setTimeout(() => {
             title: 'New Question at ' + new Date().toISOString().split('T')[0],
             body: 'Please pull these awesome changes in!',
             head: 'kavishdevar:' + ref.split('refs/heads/')[1],
-            base: 'main',
+            base: 'dev',
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             }

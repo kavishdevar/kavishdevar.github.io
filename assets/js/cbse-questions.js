@@ -189,18 +189,12 @@ setTimeout(() => {
                         });
                     }
                 }
-                console.log("Data: ", data)
                 originalJSON[questionID] = data;
                 console.log(originalJSON);
-                xhr.open("PUT", "https://x36ndvcj-5000.inc1.devtunnels.ms", true);
-                xhr.send(
-                    JSON.stringify({
-                        fileName: fileName,
-                        data: originalJSON
-                    })
-                );
+                
                 // pushAndCreatePR(question, fileName, originalJSON);
                 //clear values
+                
                 document.getElementById("question").value = "";
                 document.getElementById("a").value = "";
                 document.getElementById("b").value = "";

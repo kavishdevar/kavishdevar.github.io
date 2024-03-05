@@ -188,8 +188,6 @@ setTimeout(() => {
                 originalJSON[questionID] = data;
 
                 pushAndCreatePR(question, fileName, originalJSON);
-                
-                alertMd("Question Added Successfully", "Question Added Successfully. Reload to add more.", "success");
             }
         }
     });
@@ -254,7 +252,7 @@ setTimeout(() => {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         }).then(response => {
-            alert('Saved Successfully');
+            alertMd("Question Added Successfully", "Question Added Successfully. Reload to add more.", "success");
         }
         ).catch(error => {
             alert('Error Occured');
@@ -262,8 +260,8 @@ setTimeout(() => {
         await octokit.request('POST /repos/kavishdevar/kavishdevar.github.io/pulls', {
             owner: 'kavishdevar',
             repo: 'kavishdevar.github.io',
-            title: 'New Question at ' + new Date().toISOString().split('T')[0],
-            body: 'Please pull these awesome changes in!',
+            title: 'New Question on ' + new Date().toISOString().split('T')[0] + ' at' + new Date().toISOString().split('T')[1].split('.')[0] + ' by CBSE',
+            body: 'Question Title: ' + question + '\nQuestion Type: ' + typeSelect.value + '\nQuestion Source: ' + questionSource.value + '\nAnswer Source: ' + answerSource.value + '\nSubject: ' + subjectSelect.value + '\n' + '```JSON.stringify(json[questionID], null, "\t")```',
             head: 'kavishdevar:' + ref.split('refs/heads/')[1],
             base: 'dev',
             headers: {

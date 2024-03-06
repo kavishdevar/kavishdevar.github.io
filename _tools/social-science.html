@@ -87,24 +87,43 @@ subtitle: A list of all the questions from the CBSE Class 10 Social Science pape
                         const subpartQuestion = document.createElement("h2");
                         subpartQuestion.innerHTML = subpart;
                         const subpartAnswerDiv = document.createElement("div");
-                        var ul = document.createElement("ul");
-                        subpartAnswerDiv.appendChild(ul);
-
-                        for (answer in answers) {
-                            var li = document.createElement("li");
-                            var answerText = answer
-                            var mark = answers[answer]
+                        
+                        if (answers.length = 1) {
+                            var answerText = Object.keys(answers)[0]
+                            var mark = answers[answerText]
                             const answerEl = document.createElement("p");
-                            answerEl.innerHTML = answerText;
+                            if (questionType == 'mcq') {
+                                answerEl.innerHTML = `Correct Answer:<br>${answerText}`;
+                            }
+                            else { answerEl.innerHTML = answerText; }
                             answerEl.style.display = "inline-block";
                             answerEl.style.width = "90%";
                             answerEl.style.verticalAlign = "middle";
+                            subpartAnswerDiv.appendChild(answerEl);
                             const answerMark = document.createElement("p");
                             answerMark.innerHTML = 'Marks: ' + mark;
                             answerMark.style.display = "inline-block";
-                            li.appendChild(answerEl);
-                            li.appendChild(answerMark);
-                            ul.appendChild(li);
+                            subpartAnswerDiv.appendChild(answerMark);
+                        }
+                        else {
+                            var ul = document.createElement("ul");
+                            subpartAnswerDiv.appendChild(ul);
+                            for (answer in answers) {
+                                var li = document.createElement("li");
+                                var answerText = answer
+                                var mark = answers[answer]
+                                const answerEl = document.createElement("p");
+                                answerEl.innerHTML = answerText;
+                                answerEl.style.display = "inline-block";
+                                answerEl.style.width = "90%";
+                                answerEl.style.verticalAlign = "middle";
+                                const answerMark = document.createElement("p");
+                                answerMark.innerHTML = 'Marks: ' + mark;
+                                answerMark.style.display = "inline-block";
+                                li.appendChild(answerEl);
+                                li.appendChild(answerMark);
+                                ul.appendChild(li);
+                            }
                         }
 
                         cardContent.appendChild(subpartQuestion);

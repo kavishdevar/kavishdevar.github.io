@@ -72,9 +72,6 @@ class MdNavigationRail extends HTMLElement {
                             var xa = tabEl as any
                             var x = xa.getAttribute('view') as String
                             x = (x === '/') ? x : x.endsWith('/') ? x.slice(0, -1) : x
-                            if (window.innerWidth > 1600) {
-                                changeViewPreview(x)
-                            }
                             switch (x) {
                                 case '/':
                                     if (window.innerWidth < 1600) {
@@ -213,48 +210,6 @@ class MdNavigationRail extends HTMLElement {
 
 window.customElements.define('md-navigation-rail', MdNavigationRail);
 
-function changeViewPreview(url: String) {
-    url = `${location.origin}${url.replace(' ', '-').toLowerCase()}`;
-    var xhr = new XMLHttpRequest();
-    var sourceHasAside = document.querySelector('aside') != null;
-    xhr.open('GET', new URL(url.toString()), true);
-    xhr.send();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var resp = xhr.responseText;
-            var parser = new DOMParser();
-            var doc = parser.parseFromString(resp, 'text/html');
-            var targetContent = doc.querySelector('.content');
-            var sourceContent = document.querySelector('.content');
-            if (sourceContent != null && targetContent != null) {
-                sourceContent.replaceWith(targetContent);
-            }
-            var targetContent = doc.querySelector('.content');
-            var sourceContent = document.querySelector('.content');
-            var targetAside = doc.querySelector('aside');
-
-            if (sourceHasAside && targetAside != null) {
-                document.querySelector('aside')?.replaceWith(targetAside);
-                document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
-                eval(targetAside.querySelector('script')!.innerText)
-            }
-            else if (!sourceHasAside && targetAside != null) {
-                document.querySelector('main')!.appendChild(targetAside);
-                document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
-                eval(targetAside.querySelector('script')!.innerText)
-            }
-            else if (sourceHasAside && targetAside == null) {
-                document.querySelector('#content-style')!.innerHTML = doc.querySelector('#content-style')!.innerHTML;
-                document.querySelector('aside')?.remove();
-            }
-            if (sourceContent != null && targetContent != null) {
-                sourceContent.replaceWith(targetContent);
-            }
-            var main = document.querySelector('main')!
-            main.style.opacity = '0.5'
-        }
-    }
-}
 var xhr = new XMLHttpRequest();
 xhr.open('GET', '/assets/js/aside.js', true);
 xhr.send();
@@ -308,22 +263,30 @@ function changeView(url: String, dontPush: boolean = false) {
                 }
                 sourceContent.replaceWith(targetContent);
                 if (targetContent!.querySelector('script') != null) {
-                    eval(targetContent.querySelector('script')!.innerText)
+                    targetContent.querySelectorAll('script').forEach(script => {
+                        eval(script.innerText);
+                    });
                 }
             }
             var rail = document.querySelector('md-navigation-rail') as MdNavigationRail;
             if (!dontPush) { history.pushState({ page: url.toString().split('/').slice(-1).toString().toUpperCase() }, url.toString().split('/').slice(-1).toString().toUpperCase(), url.toString()); }
             rail.setActiveTabByView(`/${location.pathname.split('/')[1]}`);
-            document.querySelectorAll('a:not(.toc-link)').forEach(a => (a as HTMLElement).onclick = function (e) {
+            document.querySelectorAll('a:not(.toc-link):not(.regular-link)').forEach(a => (a as HTMLElement).onclick = function (e) {
                 e.preventDefault();
-                e.ctrlKey ? window.open(a.getAttribute('href')!) : changeView(a.getAttribute('href')!);
+                const href = a.getAttribute('href')!;
+                const url = new URL(href, location.origin);
+                if (url.origin !== location.origin) {
+                    window.open(href, '_blank');
+                } else {
+                    e.ctrlKey ? window.open(href) : changeView(href);
+                }
             });
-            document.querySelectorAll('md-list-item').forEach(b => {
+            document.querySelectorAll('md-list-item.nav').forEach(b => {
+                var newpath = b.shadowRoot?.querySelector('a')?.getAttribute('href')
                 var currentPath = location.pathname
                 if (currentPath.endsWith('/')) {
                     currentPath = currentPath.slice(0, -1)
                 }
-                var newpath = b.shadowRoot?.querySelector('a')?.getAttribute('href')
                 if (newpath!.endsWith('/')) {
                     newpath = newpath!.slice(0, -1)
                 }
@@ -391,43 +354,38 @@ window.onload = function () {
             sublist.style.display = 'none'
         }
     }
-    document.querySelectorAll('a:not(.toc-link)').forEach(a => (a as HTMLElement).onclick = function (e) {
+    document.querySelectorAll('a:not(.toc-link):not(.regular-link)').forEach(a => (a as HTMLElement).onclick = function (e) {
         e.preventDefault();
-        e.ctrlKey ? window.open(a.getAttribute('href')!) : changeView(a.getAttribute('href')!);
+        const href = a.getAttribute('href')!;
+        const url = new URL(href, location.origin);
+        if (url.origin !== location.origin) {
+            window.open(href, '_blank');
+        } else {
+            e.ctrlKey ? window.open(href) : changeView(href);
+        }
     });
 
-    document.querySelectorAll('md-list-item').forEach(a => {
+    document.querySelectorAll('md-list-item.nav').forEach(a => {
         var aEl = a.shadowRoot?.querySelector('a') as HTMLElement
         (aEl).onclick = function (e) {
             e.preventDefault();
             e.ctrlKey ? window.open(aEl.getAttribute('href')!) : changeView(aEl.getAttribute('href')!);
             a.classList.add('active-item')
-            document.querySelectorAll('md-list-item').forEach(b => {
+            document.querySelectorAll('md-list-item.nav').forEach(b => {
                 if (b != a) {
                     b.classList.remove('active-item')
                 }
             });
         };
-        aEl.onmouseenter = function () {
-            if (aEl.getAttribute('href') != location.pathname) {
-                if (window.innerWidth > 1600) {
-                    changeViewPreview(aEl.getAttribute('href')!);
-                }
-            }
-        };
-        aEl.onmouseleave = function () {
-            changeView(location.pathname);
-        };
-    }
-    );
+    });
 
-    document.querySelector('.category-list')!.querySelectorAll('md-list-item').forEach(a => (a.shadowRoot?.querySelector('a') as HTMLElement).onclick = function (e) {
+    document.querySelector('.category-list')!.querySelectorAll('md-list-item.nav').forEach(a => (a.shadowRoot?.querySelector('a') as HTMLElement).onclick = function (e) {
         e.preventDefault();
         var ahref = a.shadowRoot?.querySelector('a')?.getAttribute('href')!
         e.ctrlKey ? window.open(ahref) : changeView(ahref);
 
         a.classList.add('active-item')
-        document.querySelectorAll('md-list-item').forEach(b => {
+        document.querySelectorAll('md-list-item.nav').forEach(b => {
             if (b != a) {
                 b.classList.remove('active-item')
             }
@@ -526,7 +484,7 @@ window.onload = function () {
             var lists = el.querySelectorAll('div') as NodeListOf<Element>
             for (let i = 0; i < lists.length; i++) {
                 var list = lists[i] as HTMLElement
-                if ((list.querySelector('md-list-item') as HTMLElement)?.innerText != 'Projects overview' && (list.querySelector('md-list-item') as HTMLElement)?.innerText != 'Tools overview' && (list.querySelector('md-list-item') as HTMLElement)?.innerText != 'Holiday Homeworks overview') {
+                if ((list.querySelector('md-list-item.nav') as HTMLElement)?.innerText != 'Projects overview' && (list.querySelector('md-list-item.nav') as HTMLElement)?.innerText != 'Tools overview' && (list.querySelector('md-list-item.nav') as HTMLElement)?.innerText != 'Holiday Homeworks overview') {
                     list.style.display = 'block'
                 }
                 else {
@@ -613,6 +571,7 @@ window.onload = function () {
             });
         }
     });
+    (document.querySelector('theme-changer')! as any).setTheme()
 };
 
 function init(categories, projects, tools, homeworks) {
@@ -636,14 +595,17 @@ function init(categories, projects, tools, homeworks) {
     projectsText.innerText = 'Projects overview'
     projectsText.type = 'link'
     projectsText.href = '/projects'
+    projectsText.classList.add('nav')
     var toolsText = document.createElement('md-list-item') as any
     toolsText.type = 'link'
     toolsText.href = '/tools'
     toolsText.innerText = 'Tools overview'
+    toolsText.classList.add('nav')
     var homeworkText = document.createElement('md-list-item') as any
     homeworkText.type = 'link'
     homeworkText.href = '/holiday-homeworks'
     homeworkText.innerText = 'Holiday Homeworks overview'
+    homeworkText.classList.add('nav')
 
     projectsEl.appendChild(projectsText)
     toolsEl.appendChild(toolsText)
@@ -658,6 +620,7 @@ function init(categories, projects, tools, homeworks) {
         listItem.type = 'link'
         listItem.href = projects.get(project)
         listItem.innerText = project
+        listItem.classList.add('nav')
         projectsList.appendChild(listItem)
     })
     tools.keys().forEach(tool => {
@@ -665,6 +628,7 @@ function init(categories, projects, tools, homeworks) {
         listItem.type = 'link'
         listItem.href = tools.get(tool)
         listItem.innerText = tool
+        listItem.classList.add('nav')
         toolsList.appendChild(listItem)
     })
     homeworks.keys().forEach(homework => {
@@ -672,6 +636,7 @@ function init(categories, projects, tools, homeworks) {
         listItem.type = 'link'
         listItem.href = homeworks.get(homework)
         listItem.innerText = homework
+        listItem.classList.add('nav')
         homeworkList.appendChild(listItem)
     })
     var categoryEl = document.createElement('md-list')
@@ -680,6 +645,7 @@ function init(categories, projects, tools, homeworks) {
         var categoryText = document.createElement('md-list-item') as any
         categoryText.innerText = category
         categoryText.type = 'link'
+        categoryText.classList.add('nav')
         if (category == 'Home') { categoryText.href = '/' }
         else { categoryText.href = `/${slugify(category)}` }
         categoryEl.appendChild(categoryText)

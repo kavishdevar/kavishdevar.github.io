@@ -7,19 +7,38 @@
 	--md-elevation-level: 4;
 	animation: changeShape 0.2s forwards;
 }
+
+@property --md-filled-card-container-shape {
+	syntax: "<length>";
+	initial-value: 12px;
+	inherits: false;
+}
+
+@property --md-outlined-card-container-shape {
+	syntax: "<length>";
+	initial-value: 12px;
+	inherits: false;
+}
+
+@property --md-elevated-card-container-shape {
+	syntax: "<length>";
+	initial-value: 12px;
+	inherits: false;
+}
+
 @keyframes changeShape {
 	from {
-		--_container-shape: 12px;
+		--md-filled-card-container-shape: 12px;
+		--md-outlined-card-container-shape: 12px;
+		--md-elevated-card-container-shape: 12px;
 	}
 
 	to {
-		--_container-shape: 28px;
+		--md-filled-card-container-shape: 28px;
+		--md-outlined-card-container-shape: 28px;
+		--md-elevated-card-container-shape: 28px;
 	}
 }
-
-/* .card img:not(:first-child) {
-	padding-bottom: 16px;
-} */
 
 .card--with-custom-borders {
 	--md-card-container-shape: 24px 8px;

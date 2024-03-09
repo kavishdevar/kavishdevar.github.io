@@ -8,15 +8,12 @@ hastoc: false
 excerpt_separator: <!--more-->
 permalink: /tools/cbse/
 subtitle: Add a question and its official answer (according to the marking scheme released by CBSE) to the database.
----
-
-{{page.subtitle}}
-    
+--- 
 <!--more-->
 
 <blockquote>
     <p>
-        <strong>NOTE:</strong> This tool is for adding questions and their official answers to the database. The
+        <strong>NOTE:</strong> This tool is for adding questions and their <i>official</i> answers to the database. The
         questions and answers should be according to the marking scheme released by CBSE.
         <br>
         <strong>Disclaimer: </strong>
@@ -121,6 +118,132 @@ subtitle: Add a question and its official answer (according to the marking schem
 
 <md-outlined-text-field name="Question" id="question" label="Question" type="textarea"
     required></md-outlined-text-field>
+
+<md-outlined-select name="Chapter" id="chapter-select" label="Chapter" required>
+    <div id="history-chapter">
+        <md-select-option value="1">The Rise of Nationalism in Europe</md-select-option>
+        <md-select-option value="2">Nationalism in India</md-select-option>
+        <md-select-option value="3">The Making of a Global World</md-select-option>
+        <md-select-option value="4">The Age of Industrialisation</md-select-option>
+        <md-select-option value="5">Print Culture and the Modern World</md-select-option>
+    </div>
+    <div id="geography-chapter">
+        <md-select-option value="1">Resources and Development</md-select-option>
+        <md-select-option value="2">Forest and Wildlife Resources</md-select-option>
+        <md-select-option value="3">Water Resources</md-select-option>
+        <md-select-option value="4">Agriculture</md-select-option>
+        <md-select-option value="5">Minerals and Energy Resources</md-select-option>
+        <md-select-option value="6">Manufacturing Industries</md-select-option>
+        <md-select-option value="7">Lifelines of National Economy</md-select-option>
+    </div>
+    <div id="civics-chapter">
+        <md-select-option value="1">Power Sharing</md-select-option>
+        <md-select-option value="2">Federalism</md-select-option>
+        <md-select-option value="3">Gender, Religion and Caste</md-select-option>
+        <md-select-option value="4">Political Parties</md-select-option>
+        <md-select-option value="5">Outcomes of Democracy</md-select-option>
+    </div>
+    <div id="economics-chapter">
+        <md-select-option value="1">Development</md-select-option>
+        <md-select-option value="2">Sectors of the Indian Economy</md-select-option>
+        <md-select-option value="3">Money and Credit</md-select-option>
+        <md-select-option value="4">Globalisation and the Indian Economy</md-select-option>
+        <md-select-option value="5">Consumer Rights</md-select-option>
+    </div>
+    <div id="science-chapter">
+        <md-select-option value="1">Chemical Reactions and Equations</md-select-option>
+        <md-select-option value="2">Acids, Bases and Salts</md-select-option>
+        <md-select-option value="3">Metals and Non-metals</md-select-option>
+        <md-select-option value="4">Carbon and its Compounds</md-select-option>
+        <md-select-option value="5">Life Processes</md-select-option>
+        <md-select-option value="6">Control and Coordination</md-select-option>
+        <md-select-option value="7">How do Organisms Reproduce?</md-select-option>
+        <md-select-option value="8">Heredity and Evolution</md-select-option>
+        <md-select-option value="9">Light - Reflection and Refraction</md-select-option>
+        <md-select-option value="10">The Human Eye and the Colourful World</md-select-option>
+        <md-select-option value="11">Electricity</md-select-option>
+        <md-select-option value="12">Magnetic Effects of Electric Current</md-select-option>
+        <md-select-option value="13">Our Environment</md-select-option>
+    </div>
+    <div id="mathematics-chapter">
+        <md-select-option value="1">Real Numbers</md-select-option>
+        <md-select-option value="2">Polynomials</md-select-option>
+        <md-select-option value="3">Pair of Linear Equations in Two Variables</md-select-option>
+        <md-select-option value="4">Quadratic Equations</md-select-option>
+        <md-select-option value="5">Arithmetic Progressions</md-select-option>
+        <md-select-option value="6">Triangles</md-select-option>
+        <md-select-option value="7">Coordinate Geometry</md-select-option>
+        <md-select-option value="8">Introduction to Trigonometry</md-select-option>
+        <md-select-option value="9">Some Applications of Trigonometry</md-select-option>
+        <md-select-option value="10">Circles</md-select-option>
+        <md-select-option value="11">Areas Related to Circles</md-select-option>
+        <md-select-option value="12">Surface Areas and Volumes</md-select-option>
+        <md-select-option value="13">Statistics</md-select-option>
+        <md-select-option value="14">Probability</md-select-option>
+    </div>
+    <div id="english-chapter">
+        <md-select-option value="1.1">First Flight - A Letter to God</md-select-option>
+        <md-select-option value="1.2">First Flight - Nelson Mandela: Long Walk to Freedom</md-select-option>
+        <md-select-option value="1.3">First Flight - Two Stories about Flying</md-select-option>
+        <md-select-option value="1.4">First Flight - From the Diary of Anne Frank</md-select-option>
+        <md-select-option value="1.5">First Flight - The Hundred Dresses - I</md-select-option>
+        <md-select-option value="1.6">First Flight - The Hundred Dresses - II</md-select-option>
+        <md-select-option value="1.7">First Flight - Glimpses of India</md-select-option>
+        <md-select-option value="1.8">First Flight - Mijbil the Otter</md-select-option>
+        <md-select-option value="1.9">First Flight - Madam Rides the Bus</md-select-option>
+        <md-select-option value="1.10">First Flight - The Sermon at Benares</md-select-option>
+        <md-select-option value="1.11">First Flight - The Proposal</md-select-option>
+        <md-select-option value="1.12">First Flight - Dust of Snow</md-select-option>
+        <md-select-option value="1.13">First Flight - Fire and Ice</md-select-option>
+        <md-select-option value="1.14">First Flight - A Tiger in the Zoo</md-select-option>
+        <md-select-option value="1.15">First Flight - How to Tell Wild Animals</md-select-option>
+        <md-select-option value="1.16">First Flight - The Ball Poem</md-select-option>
+        <md-select-option value="1.17">First Flight - Amanda!</md-select-option>
+        <md-select-option value="1.18">First Flight - Animals</md-select-option>
+        <md-select-option value="1.19">First Flight - The Trees</md-select-option>
+        <md-select-option value="1.20">First Flight - Fog</md-select-option>
+        <md-select-option value="1.21">First Flight - The Tale of Custard the Dragon</md-select-option>
+        <md-select-option value="1.22">First Flight - For Anne Gregory</md-select-option>
+        <md-select-option value="2.1">Footprints without Feet - A Triumph of Surgery</md-select-option>
+        <md-select-option value="2.2">Footprints without Feet - The Thief's Story</md-select-option>
+        <md-select-option value="2.3">Footprints without Feet - The Midnight Visitor</md-select-option>
+        <md-select-option value="2.4">Footprints without Feet - A Question of Trust</md-select-option>
+        <md-select-option value="2.5">Footprints without Feet - Footprints without Feet</md-select-option>
+        <md-select-option value="2.6">Footprints without Feet - The Making of a Scientist</md-select-option>
+        <md-select-option value="2.7">Footprints without Feet - The Necklace</md-select-option>
+        <md-select-option value="2.8">Footprints without Feet - The Hack Driver</md-select-option>
+        <md-select-option value="2.9">Footprints without Feet - Bholi</md-select-option>
+        <md-select-option value="2.10">Footprints without Feet - The Book That Saved the Earth</md-select-option>
+    </div>
+    <div id="hindi-chapter">
+        <md-select-option value="1.1">क्षितिज - गिल्लू</md-select-option>
+        <md-select-option value="1.2">क्षितिज - समय के साथ साथ</md-select-option>
+        <md-select-option value="1.3">क्षितिज - अक्षरों का महत्व</md-select-option>
+        <md-select-option value="1.4">क्षितिज - बच्चे काम पर जाते हैं</md-select-option>
+        <md-select-option value="1.5">क्षितिज - नन्हा फनकार</md-select-option>
+        <md-select-option value="1.6">क्षितिज - जहाँ चाह वहाँ राह</md-select-option>
+        <md-select-option value="1.7">क्षितिज - संगतकार</md-select-option>
+        <md-select-option value="1.8">क्षितिज - चिट्ठी का सफर</md-select-option>
+        <md-select-option value="1.9">क्षितिज - खानपान की बदलती तस्वीर</md-select-option>
+        <md-select-option value="1.10">क्षितिज - रेलगाड़ी</md-select-option>
+        <md-select-option value="1.11">क्षितिज - राम-लक्ष्मण-परशुराम संवाद</md-select-option>
+        <md-select-option value="1.12">क्षितिज - सवैया और कवित्त</md-select-option>
+        <md-select-option value="2.1">स्पर्श - दो बैलों की कथा</md-select-option>
+        <md-select-option value="2.2">स्पर्श - ल्हासा की ओर</md-select-option>
+        <md-select-option value="2.3">स्पर्श - तीसरी कसम के शिल्पकार शैलेंद्र</md-select-option>
+        <md-select-option value="2.4">स्पर्श - दिवस बिना भूले</md-select-option>
+        <md-select-option value="2.5">स्पर्श - तताँरा-वामीरो कथा</md-select-option>
+        <md-select-option value="2.6">स्पर्श - विष्णुविनोद बाबू</md-select-option>
+        <md-select-option value="2.7">स्पर्श - बाल गंगाधर तिलक</md-select-option>
+        <md-select-option value="2.8">स्पर्श - जहाँ चाह वहाँ राह</md-select-option>
+        <md-select-option value="2.9">स्पर्श - स्पर्श</md-select-option>
+        <md-select-option value="2.10">स्पर्श - आदमी नामा</md-select-option>
+    </div>
+    <!-- <div id="sanskrit-chapter">
+        <md-select-option value="1">शुचिपर्यावरणम्</md-select-option>
+    </div> -->
+    
+</md-outlined-select>
 
 <form id="subjective">
     <div id="answers">

@@ -88,7 +88,7 @@ subtitle: A list of all the questions from the CBSE Class 10 Social Science pape
                         subpartQuestion.innerHTML = subpart;
                         const subpartAnswerDiv = document.createElement("div");
                         
-                        if (answers.length = 1) {
+                        if (answers.length == 1) {
                             var answerText = Object.keys(answers)[0]
                             var mark = answers[answerText]
                             const answerEl = document.createElement("p");
@@ -158,7 +158,7 @@ subtitle: A list of all the questions from the CBSE Class 10 Social Science pape
                 card.appendChild(cardHeader);
                 cardSecondary.appendChild(cardContent);
                 card.appendChild(cardSecondary);
-
+                card.querySelectorAll("img").forEach(img => img.style.maxWidth = "100%");
                 cardContainer.appendChild(card);
             }
         }

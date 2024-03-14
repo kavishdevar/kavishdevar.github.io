@@ -14,6 +14,17 @@ subtitle: A list of all the questions from the CBSE Class 10 Science papers with
 
 <!--more-->
 
+<style>
+    #search {
+        margin: 20px;
+        --md-filled-text-field-container-shape: 999px;
+        width: 100%;
+        --md-filled-text-field-focus-active-indicator-color: transparent;
+    }
+</style>
+
+<md-filled-text-field id="search" label="Search" placeholder="Search for a question"></md-filled-text-field>
+
 <div id="card-container"></div>
 <script>
     function deslugify(slug) {

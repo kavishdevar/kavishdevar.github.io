@@ -1,0 +1,14 @@
+{
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/vscode-cli:1": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/devcontainers-contrib/features/vscode-cli@sha256:8c8ad8645477deb6d732fc43a4aad9fd0d878d3a2433bec343ec59b52a4f2054",
+      "integrity": "sha256:8c8ad8645477deb6d732fc43a4aad9fd0d878d3a2433bec343ec59b52a4f2054"
+    },
+    "ghcr.io/devcontainers-contrib/features/vscode-server:1": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/devcontainers-contrib/features/vscode-server@sha256:d8f3f9d8c9cc9d23c84d6d53f4f84b87cadc6bb8f3fd3d82b15e7bf31e3379fc",
+      "integrity": "sha256:d8f3f9d8c9cc9d23c84d6d53f4f84b87cadc6bb8f3fd3d82b15e7bf31e3379fc"
+    }
+  }
+}

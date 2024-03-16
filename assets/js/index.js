@@ -308,7 +308,6 @@ function changeView(url, dontPush = false) {
                 }
             }
             var main = document.querySelector('main');
-            main.style.opacity = '1';
             var codeDivEls = document.querySelectorAll('div[class*=\'language-\']:not([class=\'language-plaintext\'])');
             for (let i = 0; i < codeDivEls.length; i++) {
                 if (codeDivEls[i].classList.contains('no-copy')) {

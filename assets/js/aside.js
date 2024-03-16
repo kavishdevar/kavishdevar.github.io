@@ -1,5 +1,5 @@
-slugify = function () {
-    var str = this.toString().trim();
+slugify = function (input) {
+    var str = input.toString().trim();
     str = str.replace(/^\s+|\s+$/g, ''); // trim
     str = str.toLowerCase();
 

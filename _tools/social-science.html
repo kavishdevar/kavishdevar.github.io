@@ -1,6 +1,6 @@
 ---
 title: CBSE Class 10 Social Science Questions with official marking schemes
-titleForNav: CBSE Class 10 Social Science Questions
+titleForNav: CBSE - Social Science Questions
 category: Tools
 author: kavish
 layout: default
@@ -10,12 +10,57 @@ permalink: /tools/cbse/social-science/
 subtitle: A list of all the questions from the CBSE Class 10 Social Science papers with the official marking schemes.
 ---
 
-{{ page.subtitle }} This is a great resource for students to practice and understand the marking scheme of the CBSE Class 10 Social Science papers.
+{{ page.subtitle }} This is a great resource for students to practice and understand the marking scheme of the CBSE
+Class 10 Social Science papers.
 
 <!--more-->
 
+
+<script src="/assets/js/search.js"></script>
+
+<md-card-search style="height: 70px; display: block; margin-bottom: 40px;"></md-card-search>
+
+<md-chipset id="filter-chips">
+    <md-filter-chip label="MCQs"></md-filter-chip>
+    <md-filter-chip label="Very Short Answer"></md-filter-chip>
+    <md-filter-chip label="Short Answer"></md-filter-chip>
+    <md-filter-chip label="Long Answer"></md-filter-chip>
+    <md-filter-chip label="Case Based"></md-filter-chip>
+</md-chipset>
+
 <div id="card-container"></div>
+
 <script>
+    var selected = []
+    document.getElementById("filter-chips").addEventListener("click", function (e) {
+        var filter = e.target.label.toLowerCase
+        var chips = document.querySelector("#filter-chips").querySelectorAll("md-filter-chip");
+        chips.forEach(chip => {
+            if (chip.selected) {
+                selected.push(chip.label.toLowerCase());
+            } else {
+                selected = selected.filter(e => e != chip.label.toLowerCase());
+            }
+        });
+        var cards = document.querySelectorAll(".card");
+        cards.forEach(card => {
+            if (selected.length != 0) {
+                type = (card.querySelector(".card__subtitle").innerText.includes("a.") && card.querySelector(".card__subtitle").innerText.includes("b.") && card.querySelector(".card__subtitle").innerText.includes("c.") && card.querySelector(".card__subtitle").innerText.includes("d.")) ? "mcqs" : card.querySelector(".card__subtitle").innerText.toLowerCase().split(": ")[1].trim();
+                for (var i = 0; i < selected.length; i++) {
+                    if (type == selected[i]) {
+                        card.style.display = "block";
+                        break;
+                    }
+                    else {
+                        card.style.display = "none";
+                    }
+                }
+            } else {
+                card.style.display = "block";
+            }
+        });
+    })
+    
     function deslugify(slug) {
         return slug.split("-").join(" ").replace(/\b\w/g, l => l.toUpperCase());
     }
@@ -77,7 +122,7 @@ subtitle: A list of all the questions from the CBSE Class 10 Social Science pape
                 cardSecondary.className = "card__secondary body-medium";
 
                 const cardContent = document.createElement("p");
-                
+
                 if (answerType == "subparts") {
                     for (var number = 0; number < Object.keys(content).length; number++) {
                         var subpart = Object.keys(content)[number];
@@ -87,7 +132,7 @@ subtitle: A list of all the questions from the CBSE Class 10 Social Science pape
                         const subpartQuestion = document.createElement("h2");
                         subpartQuestion.innerHTML = subpart;
                         const subpartAnswerDiv = document.createElement("div");
-                        
+
                         if (answers.length == 1) {
                             var answerText = Object.keys(answers)[0]
                             var mark = answers[answerText]

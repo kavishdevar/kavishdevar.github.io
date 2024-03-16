@@ -312,7 +312,6 @@ function changeView(url: String, dontPush: boolean = false) {
                 }
             }
             var main = document.querySelector('main')!
-            main.style.opacity = '1'
 
             var codeDivEls = document.querySelectorAll('div[class*=\'language-\']:not([class=\'language-plaintext\'])') as NodeListOf<HTMLElement>
 

@@ -10,23 +10,56 @@ permalink: /tools/cbse/science/
 subtitle: A list of all the questions from the CBSE Class 10 Science papers with the official marking schemes.
 ---
 
-{{ page.subtitle }} This is a great resource for students to practice and understand the marking scheme of the CBSE Class 10 Science papers.
+{{ page.subtitle }} This is a great resource for students to practice and understand the marking scheme of the CBSE
+Class 10 Science papers.
 
 <!--more-->
 
-<style>
-    #search {
-        margin: 20px;
-        --md-filled-text-field-container-shape: 999px;
-        width: 100%;
-        --md-filled-text-field-focus-active-indicator-color: transparent;
-    }
-</style>
+<script src="/assets/js/search.js"></script>
+<md-card-search style="height: 70px; display: block; margin-bottom: 40px;"></md-card-search>
 
-<md-filled-text-field id="search" label="Search" placeholder="Search for a question"></md-filled-text-field>
+<md-chipset id="filter-chips">
+    <md-filter-chip label="MCQs"></md-filter-chip>
+    <md-filter-chip label="Very Short Answer"></md-filter-chip>
+    <md-filter-chip label="Short Answer"></md-filter-chip>
+    <md-filter-chip label="Long Answer"></md-filter-chip>
+    <md-filter-chip label="Case Based"></md-filter-chip>
+</md-chipset>
 
 <div id="card-container"></div>
 <script>
+    var selected = []
+    document.getElementById("filter-chips").addEventListener("click", function (e) {
+        var filter = e.target.label.toLowerCase
+        var chips = document.querySelector("#filter-chips").querySelectorAll("md-filter-chip");
+        chips.forEach(chip => {
+            // if (chip.selected) {
+            //     selected.push(chip.label.toLowerCase());
+            // }
+            // else {
+            //     selected = selected.filter(e => e != chip.label.toLowerCase());
+            // }
+            chip.selected ? selected.push(chip.label.toLowerCase()) : function () { select = selected.filter(e => e != chip.label.toLowerCase()) };
+        });
+        var cards = document.querySelectorAll(".card");
+        cards.forEach(card => {
+            if (selected.length != 0) {
+                type = (card.querySelector(".card__subtitle").innerText.includes("a.") && card.querySelector(".card__subtitle").innerText.includes("b.") && card.querySelector(".card__subtitle").innerText.includes("c.") && card.querySelector(".card__subtitle").innerText.includes("d.")) ? "mcqs" : card.querySelector(".card__subtitle").innerText.toLowerCase().split(": ")[1].trim();
+                for (var i = 0; i < selected.length; i++) {
+                    if (type == selected[i]) {
+                        card.style.display = "block";
+                        break;
+                    }
+                    else {
+                        card.style.display = "none";
+                    }
+                }
+            } else {
+                card.style.display = "block";
+            }
+        });
+    })
+
     function deslugify(slug) {
         return slug.split("-").join(" ").replace(/\b\w/g, l => l.toUpperCase());
     }

@@ -43,4 +43,4 @@ class MdCardSearch extends HTMLElement {
     }
 }
 
-customElements.define("md-card-search", MdSearch);
+customElements.define("md-card-search", MdCardSearch);

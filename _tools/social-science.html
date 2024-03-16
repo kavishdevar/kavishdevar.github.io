@@ -1,6 +1,6 @@
 ---
 title: CBSE Class 10 Social Science Questions with official marking schemes
-titleForNav: CBSE Class 10 Social Science Questions
+titleForNav: CBSE - Social Science Questions
 category: Tools
 author: kavish
 layout: default
@@ -36,13 +36,11 @@ Class 10 Social Science papers.
         var filter = e.target.label.toLowerCase
         var chips = document.querySelector("#filter-chips").querySelectorAll("md-filter-chip");
         chips.forEach(chip => {
-            // if (chip.selected) {
-            //     selected.push(chip.label.toLowerCase());
-            // }
-            // else {
-            //     selected = selected.filter(e => e != chip.label.toLowerCase());
-            // }
-            chip.selected ? selected.push(chip.label.toLowerCase()) : function () { select = selected.filter(e => e != chip.label.toLowerCase()) };
+            if (chip.selected) {
+                selected.push(chip.label.toLowerCase());
+            } else {
+                selected = selected.filter(e => e != chip.label.toLowerCase());
+            }
         });
         var cards = document.querySelectorAll(".card");
         cards.forEach(card => {
@@ -62,7 +60,7 @@ Class 10 Social Science papers.
             }
         });
     })
-
+    
     function deslugify(slug) {
         return slug.split("-").join(" ").replace(/\b\w/g, l => l.toUpperCase());
     }

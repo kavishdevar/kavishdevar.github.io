@@ -227,7 +227,7 @@ function changeView(url, dontPush = false) {
             var resp = xhr.responseText;
             var parser = new DOMParser();
             var doc = parser.parseFromString(resp, 'text/html');
-            if (doc.getElementsByTagName("meta")[0].content != 'content') {
+            if (doc.getElementsByTagName("meta")[0].content != 'default') {
                 window.location.href = String(url);
             }
             document.title = doc.title;
